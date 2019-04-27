@@ -5,7 +5,7 @@ using System.Linq;
 
 public class CultureRenderer : MonoBehaviour
 {
-    public Material cellMaterial;
+    public Material cellMaterialBase;
     public Material dishMaterial;
 
     public int seed = 0;
@@ -19,8 +19,31 @@ public class CultureRenderer : MonoBehaviour
     public float lacunarity = 1.0f;
     public Vector2 offset = new Vector2(0.0f, 0.0f);
 
-    [Range(0.0f, 1.0f)]
-    public float growth = 0.5f;
+    float _growth = 0.5f;
+    float growthFudgeFactor = 0.25f;
+    public float Growth
+    {
+        get
+        {
+            return _growth;
+        }
+        set
+        {
+            _growth = value;
+            float threshold = (1 - _growth) + growthFudgeFactor;
+            for (int i = 0; i < cells.Count; i++)
+            {
+                if (cellRadii[i] < threshold)
+                {
+                    cells[i].SetActive(false);
+                } else
+                {
+                    cells[i].SetActive(true);
+                }
+            }
+            CalculateCellSize();
+        }
+    }
 
     [Range(1, 500)]
     public int cellCount;
@@ -39,6 +62,10 @@ public class CultureRenderer : MonoBehaviour
     List<Vector3> cellPositions;
     List<float> cellRadii;
 
+    List<Material> cellMaterials;
+
+    int randomOffset;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,23 +76,49 @@ public class CultureRenderer : MonoBehaviour
         dish.GetComponent<MeshRenderer>().material = dishMaterial;
         dish.name = "Dish";
 
+        randomOffset = Random.Range(0, 250000);
+
+        Color baseColor = Random.ColorHSV(0.0f, 1.0f, 0.65f, 1.00f, 0.45f, 0.75f);
+        cellMaterials = new List<Material>(cellGroupCount);
+
+        for (int i = 0; i < cellGroupCount; i++)
+        {
+            float H, S, V;
+            Color.RGBToHSV(baseColor, out H, out S, out V);
+            H += Random.Range(-0.1f, 0.1f);
+            Color alteredColor = Color.HSVToRGB(H, S, V);
+            Color finalColor = alteredColor * Mathf.LinearToGammaSpace(Random.Range(0.25f, 0.35f));
+            Material cellGroupMaterial = new Material(cellMaterialBase);
+            cellGroupMaterial.SetColor("_EmissionColor", finalColor);
+
+            cellMaterials.Add(cellGroupMaterial);
+        }
+
         GenerateCulture();
+        Growth = 1.0f;
     }
 
+    //int counter = 0;
     private void FixedUpdate()
     {
-        for(int i = 0; i < cellGroups.Count; i++)
+        //counter++;
+        //if (counter % 4 == 0)
+        //{
+        //    Growth = Mathf.PingPong(Time.time / 4.0f, 1.0f);
+        //}
+
+        for (int i = 0; i < cellGroups.Count; i++)
         {
-            float offset = i / (float)cellGroups.Count;
+            float offset = i / (float)cellGroups.Count * 25000 + randomOffset;
 
             if(i % 2 == 0)
             {
-                cellGroups[i].transform.localScale += 0.00025f *
+                cellGroups[i].transform.localScale += 0.00085f *
                     new Vector3(Mathf.Sin(Time.time + offset), Mathf.Sin(Time.time + offset), Mathf.Cos(Time.time + offset));
             }
             else
             {
-                cellGroups[i].transform.localScale += 0.00025f *
+                cellGroups[i].transform.localScale += 0.00085f *
                     new Vector3(Mathf.Cos(Time.time + offset), Mathf.Cos(Time.time + offset), Mathf.Sin(Time.time + offset));
             }
         }
@@ -130,7 +183,7 @@ public class CultureRenderer : MonoBehaviour
                 GameObject cell = GameObject.CreatePrimitive(PrimitiveType.Sphere);
 
                 cell.transform.parent = cellGroups[Random.Range(0, cellGroups.Count)].transform;
-                cell.GetComponent<MeshRenderer>().material = cellMaterial;
+                cell.GetComponent<MeshRenderer>().material = cellMaterials[Random.Range(0, cellMaterials.Count)];
                 cell.GetComponent<MeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
                 cells.Add(cell);
             }
@@ -161,13 +214,14 @@ public class CultureRenderer : MonoBehaviour
 
     void CalculateCellSize()
     {
-
+        float sqrtGrowth = Mathf.Sqrt(_growth);
         for (int i = 0; i < cells.Count; i++)
         {
             GameObject cell = cells[i];
             Transform oldParent = cell.transform.parent;
             cell.transform.parent = null;
-            float cellRadiusModifier = cellRadii[i] + (0.15f * Mathf.Sin(Time.time + cell.transform.localPosition.x + cell.transform.localPosition.y));
+            //float cellRadiusModifier = Mathf.Max(0.7f, 1.25f * sqrtGrowth) * cellRadii[i] + (0.15f * Mathf.Sin(Time.time + cell.transform.localPosition.x + cell.transform.localPosition.y));
+            float cellRadiusModifier = _growth * cellRadii[i] + (0.15f * Mathf.Sin(Time.time + cell.transform.localPosition.x + cell.transform.localPosition.y));
             Vector3 cellScale = new Vector3(cellRadius * cellRadiusModifier, cellRadius * cellRadiusModifier, cellRadius * cellRadiusModifier);
             cell.transform.localScale = cellScale;
             cell.transform.parent = oldParent;
