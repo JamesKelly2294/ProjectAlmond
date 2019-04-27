@@ -22,6 +22,11 @@ public class CameraControllerEditor : Editor
             cameraController.PanToAngle(cameraController.overview, 1.0f);
         }
 
+        if (GUILayout.Button("Baseview"))
+        {
+            cameraController.PanToAngle(cameraController.baseview, 1.0f);
+        }
+
         if (GUILayout.Button("Petri Dishes"))
         {
             cameraController.PanToAngle(cameraController.petriDishes, 1.0f);
