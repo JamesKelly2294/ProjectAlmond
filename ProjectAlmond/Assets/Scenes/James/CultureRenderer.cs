@@ -22,8 +22,15 @@ public class CultureRenderer : MonoBehaviour
     [Range(0.0f, 1.0f)]
     public float growth = 0.5f;
 
+    [Range(1, 500)]
+    public int cellCount;
+
+    [Range(1, 20)]
+    public int cellGroupCount;
+
     GameObject dish;
     GameObject culture;
+    List<GameObject> cellGroups;
     List<GameObject> cells;
     
     float petriDishRadius = 1.0f; // assume a circular petri dish
@@ -47,7 +54,21 @@ public class CultureRenderer : MonoBehaviour
 
     private void FixedUpdate()
     {
-        culture.transform.localScale += 0.00025f * new Vector3(Mathf.Sin(Time.time), Mathf.Sin(Time.time), Mathf.Cos(Time.time));
+        for(int i = 0; i < cellGroups.Count; i++)
+        {
+            float offset = i / (float)cellGroups.Count;
+
+            if(i % 2 == 0)
+            {
+                cellGroups[i].transform.localScale += 0.00025f *
+                    new Vector3(Mathf.Sin(Time.time + offset), Mathf.Sin(Time.time + offset), Mathf.Cos(Time.time + offset));
+            }
+            else
+            {
+                cellGroups[i].transform.localScale += 0.00025f *
+                    new Vector3(Mathf.Cos(Time.time + offset), Mathf.Cos(Time.time + offset), Mathf.Sin(Time.time + offset));
+            }
+        }
     }
 
     void GenerateRadialCulture()
@@ -91,13 +112,24 @@ public class CultureRenderer : MonoBehaviour
             culture.transform.parent = transform;
             culture.transform.localPosition = Vector3.zero;
 
-            cells = new List<GameObject>();
+            cellGroups = new List<GameObject>();
+            for (int i = 0; i < cellGroupCount; i++)
+            {
+                GameObject cellGroup = new GameObject {
+                    name = "Cell Group"
+                };
 
-            for (int i = 0; i < 200; i++)
+                cellGroup.transform.parent = culture.transform;
+                cellGroup.transform.localPosition = Vector3.zero;
+                cellGroups.Add(cellGroup);
+            }
+
+            cells = new List<GameObject>();
+            for (int i = 0; i < cellCount; i++)
             {
                 GameObject cell = GameObject.CreatePrimitive(PrimitiveType.Sphere);
 
-                cell.transform.parent = culture.transform;
+                cell.transform.parent = cellGroups[Random.Range(0, cellGroups.Count)].transform;
                 cell.GetComponent<MeshRenderer>().material = cellMaterial;
                 cell.GetComponent<MeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
                 cells.Add(cell);
@@ -107,7 +139,7 @@ public class CultureRenderer : MonoBehaviour
         foreach (var cell in cells)
         {
 
-            float maxRange = petriDishRadius - (cellRadius / 2.0f);
+            float maxRange = petriDishRadius - (cellRadius);
             Vector2 randPosition = Vector2.zero;
             do
             {
@@ -133,11 +165,12 @@ public class CultureRenderer : MonoBehaviour
         for (int i = 0; i < cells.Count; i++)
         {
             GameObject cell = cells[i];
+            Transform oldParent = cell.transform.parent;
             cell.transform.parent = null;
             float cellRadiusModifier = cellRadii[i] + (0.15f * Mathf.Sin(Time.time + cell.transform.localPosition.x + cell.transform.localPosition.y));
             Vector3 cellScale = new Vector3(cellRadius * cellRadiusModifier, cellRadius * cellRadiusModifier, cellRadius * cellRadiusModifier);
             cell.transform.localScale = cellScale;
-            cell.transform.parent = culture.transform;
+            cell.transform.parent = oldParent;
             cell.transform.localPosition = cellPositions[i] + new Vector3(0.0f, cellScale.y / 2.0f, 0.0f);
         }
     }
