@@ -24,7 +24,7 @@ public struct Allele {
     }
 
     public void incrementValueByWrapping(int amountToAdd) { // Wraps.
-        value = (byte)Mathf.Abs((amountToAdd + value) % Allele.AlleleStrength);
+        value = (byte)((amountToAdd + value + Allele.AlleleStrength) % Allele.AlleleStrength);
     }
 
     public char Char {
@@ -60,7 +60,7 @@ public class Genome {
             for (var i = 0; i < alleles.Length; i++) {
                 str += alleles[i].Char;
             }
-            
+
             return str;
         }
     }
