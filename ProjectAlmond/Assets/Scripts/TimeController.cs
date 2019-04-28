@@ -21,16 +21,23 @@ public class TimeController : MonoBehaviour
     /// <summary>
     /// The number of days which have passed.
     /// </summary>
-    private int daysPassed = 0;
+    private int daysPassed = 1;
 
     private GameManager gm;
-
     private bool isDone = false;
+
+    private Clock clock;
 
     // Use this for initialization
     void Start()
     {
         this.gm = FindObjectOfType<GameManager>();
+
+        var clock = FindObjectOfType<Clock>();
+        if (clock != null)
+        {
+            this.clock = clock;
+        }
     }
 
     // Update is called once per frame
@@ -40,32 +47,53 @@ public class TimeController : MonoBehaviour
             return;
         }
 
-        accumulatedTime += Time.timeScale * Time.deltaTime;
+        TimeStarted();
+        IncrementTime();
+        CheckForGameEnd();
+    }
 
+    private void TimeStarted()
+    {
+        if (clock != null && !clock.isLive)
+        {
+            clock.startClock(RealWorldSecondsPerIngameDay);
+        }
+    }
+
+    private void IncrementTime()
+    {
+        accumulatedTime += Time.timeScale * Time.deltaTime;
         if (accumulatedTime > RealWorldSecondsPerIngameDay)
         {
-            accumulatedTime = 0.0f;
-            daysPassed += 1;
-            OnDayPassed(daysPassed);
+            OnDayPassed();
         }
+    }
 
+    private void CheckForGameEnd()
+    {
         if (daysPassed > DaysPerGame)
         {
             OnGameOver();
         }
     }
 
-    public void OnDayPassed(int daysPassed)
+    private void OnDayPassed()
     {
-        // TODO
-        Debug.Log("A Day Passed " + daysPassed);
+        accumulatedTime = 0.0f;
+        daysPassed += 1;
+
+        clock.setDay(daysPassed);
     }
 
-    public void OnGameOver()
+    private void OnGameOver()
     {
-        // TODO
-        Debug.Log("RIP?");
         isDone = true;
+
+        if(clock != null)
+        {
+            clock.stopClock();
+        }
+
         gm.EndGame();
     }
 }
