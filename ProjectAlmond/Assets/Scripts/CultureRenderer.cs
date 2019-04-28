@@ -79,6 +79,7 @@ public class CultureRenderer : MonoBehaviour
         initalized = true;
 
         dish = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
+        Destroy(dish.GetComponent<CapsuleCollider>());
         dish.transform.parent = transform;
         dish.transform.localScale = new Vector3(petriDishRadius * 2.0f, petriDishHeight, petriDishRadius * 2.0f);
         dish.transform.localPosition = Vector3.zero;
@@ -195,6 +196,7 @@ public class CultureRenderer : MonoBehaviour
                 GameObject cell = GameObject.CreatePrimitive(PrimitiveType.Sphere);
 
                 cell.transform.parent = cellGroups[Random.Range(0, cellGroups.Count)].transform;
+                Destroy(cell.GetComponent<SphereCollider>());
                 cell.GetComponent<MeshRenderer>().material = cellMaterials[Random.Range(0, cellMaterials.Count)];
                 cell.GetComponent<MeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
                 cells.Add(cell);
