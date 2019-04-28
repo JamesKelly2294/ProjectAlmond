@@ -53,15 +53,6 @@ public class Gauge : MonoBehaviour
         halfAngle = this.sweepAngle / 2;
 
         pivot.transform.rotation = new Quaternion(0.0f, 0.0f, calculateZ(this.needleProgress), 1.0f);
-
-        //progressMarkerObject = GameObject.CreatePrimitive(PrimitiveType.Cube);
-        //progressMarkerCount = 4;
-
-        //sweepAngle = 60;
-        //needleProgress = 0.5f;
-        //progressMarkerDistance = 5.0f;
-
-        SetNeedleProgress(1.0f, 5.0f);
     }
 
     float calculateZ(float progress)
