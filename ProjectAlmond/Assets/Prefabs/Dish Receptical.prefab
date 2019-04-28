@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 8809513794796242042}
   - component: {fileID: 9054446315895317454}
   - component: {fileID: 6745850422208809213}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Dish Holder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -249,6 +249,7 @@ Transform:
   - {fileID: 3900496108482233199}
   - {fileID: 4517457347490234371}
   - {fileID: 912765148104047643}
+  - {fileID: 4414029157486965456}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
@@ -5393,3 +5394,83 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!1001 &2394731874147901378
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 8505663790020026207}
+    m_Modifications:
+    - target: {fileID: 3705823258027834079, guid: a7e83751e8941114da30a2dbd2c3ec53,
+        type: 3}
+      propertyPath: m_Name
+      value: CultureAnchorPoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 2051956782760078610, guid: a7e83751e8941114da30a2dbd2c3ec53,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2051956782760078610, guid: a7e83751e8941114da30a2dbd2c3ec53,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2051956782760078610, guid: a7e83751e8941114da30a2dbd2c3ec53,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2051956782760078610, guid: a7e83751e8941114da30a2dbd2c3ec53,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2051956782760078610, guid: a7e83751e8941114da30a2dbd2c3ec53,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2051956782760078610, guid: a7e83751e8941114da30a2dbd2c3ec53,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2051956782760078610, guid: a7e83751e8941114da30a2dbd2c3ec53,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2051956782760078610, guid: a7e83751e8941114da30a2dbd2c3ec53,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2051956782760078610, guid: a7e83751e8941114da30a2dbd2c3ec53,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2051956782760078610, guid: a7e83751e8941114da30a2dbd2c3ec53,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2051956782760078610, guid: a7e83751e8941114da30a2dbd2c3ec53,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3275517491550935539, guid: a7e83751e8941114da30a2dbd2c3ec53,
+        type: 3}
+      propertyPath: cameraAngle
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a7e83751e8941114da30a2dbd2c3ec53, type: 3}
+--- !u!4 &4414029157486965456 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2051956782760078610, guid: a7e83751e8941114da30a2dbd2c3ec53,
+    type: 3}
+  m_PrefabInstance: {fileID: 2394731874147901378}
+  m_PrefabAsset: {fileID: 0}

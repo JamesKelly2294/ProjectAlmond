@@ -3,10 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+[System.Serializable]
+public class CultureAnchorPointEvent : UnityEvent<GameObject, Culture, CultureAnchorPoint> { }
+
 public class CultureAnchorPoint : MonoBehaviour
 {
-    public UnityEvent onAttach;
+    public CultureAnchorPointEvent onAttach;
     public Transform cameraAngle;
+
+    public GameObject Culture { get; private set; }
 
     CameraController cameraController;
 
@@ -15,9 +20,11 @@ public class CultureAnchorPoint : MonoBehaviour
         cameraController = Camera.main.GetComponent<CameraController>();
     }
 
-    public void Attach()
+    public void Attach(GameObject culture)
     {
-        onAttach.Invoke();
+        Culture = culture;
+
+        onAttach.Invoke(culture, culture.GetComponent<Culture>(), this);
 
         if(cameraAngle)
         {

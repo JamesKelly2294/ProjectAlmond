@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Culture : MonoBehaviour
 {
-    CultureGenome genome;
+    public CultureGenome Genome { get; private set; }
+
     CultureRenderer cultureRenderer;
     CameraController cameraController;
 
@@ -21,10 +22,21 @@ public class Culture : MonoBehaviour
             alleles.Add(new Allele(rand.Next(0, Allele.AlleleStrength)));
         }
 
-        genome = new CultureGenome(alleles.ToArray());
-        cultureRenderer.Initialize(genome);
+        Genome = new CultureGenome(alleles.ToArray());
+        cultureRenderer.Initialize(Genome);
 
         cameraController = Camera.main.GetComponent<CameraController>();
+    }
+
+    bool userCanInteract = true;
+    public void LockUserInteraction()
+    {
+        userCanInteract = false;
+    }
+
+    public void UnlockUserInteraction()
+    {
+        userCanInteract = true;
     }
 
     // Update is called once per frame
@@ -36,8 +48,15 @@ public class Culture : MonoBehaviour
     Vector3 mouseDownPosition;
     Quaternion mouseDownRotation;
     Transform anchorPoint;
+    bool dragging;
     void OnMouseDown()
     {
+        if(!userCanInteract)
+        {
+            return;
+        }
+
+        dragging = true;
         mouseDownPosition = transform.position;
         mouseDownRotation = transform.rotation;
 
@@ -46,6 +65,11 @@ public class Culture : MonoBehaviour
 
     void OnMouseDrag()
     {
+        if(!dragging)
+        {
+            return;
+        }
+
         float distanceFromScreen = Camera.main.WorldToScreenPoint(transform.position).z;
 
         if(anchorPoint != null)
@@ -74,12 +98,17 @@ public class Culture : MonoBehaviour
 
     void OnMouseUp()
     {
+        if(!dragging)
+        {
+            return;
+        }
+
         if(anchorPoint)
         {
             transform.position = anchorPoint.position;
             transform.rotation = anchorPoint.rotation;
 
-            anchorPoint.GetComponent<CultureAnchorPoint>().Attach();
+            anchorPoint.GetComponent<CultureAnchorPoint>().Attach(transform.gameObject);
         } else
         {
             transform.position = mouseDownPosition;

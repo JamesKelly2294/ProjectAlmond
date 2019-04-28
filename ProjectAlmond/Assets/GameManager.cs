@@ -101,4 +101,9 @@ public class GameManager : MonoBehaviour
     {
         
     }
+
+    public void CultureAnchorPointEventCallback(GameObject g, Culture c, CultureAnchorPoint a)
+    {
+        Debug.Log(g + " " + c + " " + a);
+    }
 }

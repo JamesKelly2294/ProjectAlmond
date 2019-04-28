@@ -2757,6 +2757,24 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 127517172301600554, guid: e27423d28cce748b48564809e3741cb7,
+        type: 3}
+      propertyPath: cameraAngle
+      value: 
+      objectReference: {fileID: 3155238864282242360, guid: 47f21c3c487156a46b6f5664354c97f8,
+        type: 3}
+    - target: {fileID: 6697903616517337683, guid: e27423d28cce748b48564809e3741cb7,
+        type: 3}
+      propertyPath: cameraAngle
+      value: 
+      objectReference: {fileID: 3155238864282242360, guid: 47f21c3c487156a46b6f5664354c97f8,
+        type: 3}
+    - target: {fileID: 6601081185623428051, guid: e27423d28cce748b48564809e3741cb7,
+        type: 3}
+      propertyPath: cameraAngle
+      value: 
+      objectReference: {fileID: 3155238864282242360, guid: 47f21c3c487156a46b6f5664354c97f8,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e27423d28cce748b48564809e3741cb7, type: 3}
 --- !u!4 &1243095697 stripped
@@ -3322,6 +3340,12 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3369467257797305695, guid: b694b6a07712449649857e7cce96d344,
+        type: 3}
+      propertyPath: cameraAngle
+      value: 
+      objectReference: {fileID: 8323878881891460258, guid: 3b11088b0ae5ced4f9ceb37b66e987b0,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b694b6a07712449649857e7cce96d344, type: 3}
 --- !u!1 &1316695611
@@ -5586,6 +5610,17 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4573040095479528949, guid: 74dcf6f35fb8046dca85282052dd8c34,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3193613491870371953, guid: 74dcf6f35fb8046dca85282052dd8c34,
+        type: 3}
+      propertyPath: cameraAngle
+      value: 
+      objectReference: {fileID: 2889130373782886750, guid: ddd54668e282d7c4bbb0ca3c744bf920,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 74dcf6f35fb8046dca85282052dd8c34, type: 3}
 --- !u!4 &2014507344 stripped
@@ -5868,7 +5903,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 3bbf0d58de2964420af46376f0f08b17, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
