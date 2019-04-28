@@ -17,6 +17,11 @@ public class CameraControllerEditor : Editor
     {
         DrawDefaultInspector();
         
+        if (GUILayout.Button("Title"))
+        {
+            cameraController.PanToAngle(cameraController.title, 1.0f);
+        }
+
         if (GUILayout.Button("Overview"))
         {
             cameraController.PanToAngle(cameraController.overview, 1.0f);
@@ -42,10 +47,9 @@ public class CameraControllerEditor : Editor
             cameraController.PanToAngle(cameraController.checkomatic, 1.0f);
         }
 
-        if (GUILayout.Button("Title"))
+        if (GUILayout.Button("Amalgamizer"))
         {
-            cameraController.PanToAngle(cameraController.title, 1.0f);
+            cameraController.PanToAngle(cameraController.amalgamizer, 1.0f);
         }
     }
-    
 }

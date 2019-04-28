@@ -11,6 +11,8 @@ public class CameraController : MonoBehaviour
     public Transform genimagic;
     public Transform checkomatic;
 
+    public Transform amalgamizer;
+
     // Start is called before the first frame update
     void Start()
     {
