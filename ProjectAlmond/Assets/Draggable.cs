@@ -136,7 +136,7 @@ public class Draggable : MonoBehaviour
         int layerMask = 1 << 8;
 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out hit, 25.0f, layerMask))
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask))
         {
             AnchorBehavior behavior = hit.transform.GetComponent<AnchorBehavior>();
             if (behavior && behavior.draggableTypes.Contains(draggableType) && !behavior.Occupied)

@@ -13,11 +13,19 @@ public class EmptyPetriDishManager : MonoBehaviour
     [Range(0, 10)]
     public int petriDishStackMaxCount = 5;
     public GameObject emptyPetriDishPrefab;
-    public AnchorBehavior anchorPoint;
+    public CultureAnchorPoint anchorPoint;
 
     Vector3 petriDishSpawnOffset = new Vector3(0.0f, 15.0f, 0.0f);
     Stack<GameObject> petriDishes;
     bool currentlyOrderingDish;
+
+    Vector3 FutureTopOffset
+    {
+        get
+        {
+            return (petriDishes.Count - 1) * new Vector3(0.0f, petriDishStackHeightBuffer, 0.0f);
+        }
+    }
 
     Vector3 CurrentTopOffset {
         get
@@ -50,6 +58,7 @@ public class EmptyPetriDishManager : MonoBehaviour
         currentlyOrderingDish = false;
     }
 
+    bool ignoreNextDetach;
     public void PurchasePetriDish()
     {
         if (!ValidatePurchase())
@@ -57,20 +66,14 @@ public class EmptyPetriDishManager : MonoBehaviour
             return;
         }
 
-        if(petriDishes.Count > 0)
-        {
-            petriDishes.Peek().GetComponent<Draggable>().enabled = false;
-        }
-
         currentlyOrderingDish = true;
 
         GameObject petriDish = Instantiate(emptyPetriDishPrefab);
+        petriDish.GetComponent<Draggable>().AttachToAnchor(anchorPoint);
+        ignoreNextDetach = true; // THIS IS SO FUCKING HACKY
         petriDish.transform.parent = transform;
         petriDish.transform.localPosition = Vector3.zero + petriDishSpawnOffset;
-        anchorPoint.transform.localPosition = CurrentTopOffset;
-        StartCoroutine(MovePetriDishToStack(petriDish, CurrentTopOffset, petriDishFallTime));
-        
-        petriDishes.Push(petriDish);
+        StartCoroutine(MovePetriDishToStack(petriDish, FutureTopOffset, petriDishFallTime));
 
         return;
     }
@@ -100,6 +103,66 @@ public class EmptyPetriDishManager : MonoBehaviour
     void Start()
     {
         petriDishes = new Stack<GameObject>(8);
+        anchorPoint.onAttach.AddListener(OnAnchorPointAttach);
+        anchorPoint.onDetach.AddListener(OnAnchorPointDetach);
+        //anchorPoint.onDet.AddListener(OnAnchorPointDetach);
+    }
+
+    void OnAnchorPointAttach(GameObject go, Culture c, CultureAnchorPoint cap)
+    {
+        if (petriDishes.Contains(go))
+        {
+            return;
+        }
+
+        if (petriDishes.Count > 0)
+        {
+            Draggable previousDraggable = petriDishes.Peek().GetComponent<Draggable>();
+            previousDraggable.DetachFromAnchor();
+            previousDraggable.enabled = false;
+        }
+
+        Debug.Log("ATTACH");
+        anchorPoint.transform.localPosition = CurrentTopOffset;
+        petriDishes.Push(go);
+    }
+
+    void OnAnchorPointDetach(GameObject go, Culture c, CultureAnchorPoint cap)
+    {
+        if(ignoreNextDetach)
+        {
+            ignoreNextDetach = false;
+            return;
+        }
+        petriDishes.Pop();
+        anchorPoint.transform.localPosition = CurrentTopOffset;
+
+        Debug.Log("DETACH");
+        if (petriDishes.Count > 0)
+        {
+            Draggable previousDraggable = petriDishes.Peek().GetComponent<Draggable>();
+            previousDraggable.enabled = true;
+            previousDraggable.AttachToAnchor(anchorPoint);
+        }
+    }
+
+    void OnAnchorPointChange(GameObject go, Culture c, CultureAnchorPoint cap)
+    {
+        if (ignoreNextDetach)
+        {
+            ignoreNextDetach = false;
+            return;
+        }
+        petriDishes.Pop();
+        anchorPoint.transform.localPosition = CurrentTopOffset;
+
+        Debug.Log("CHANGE");
+        if (petriDishes.Count > 0)
+        {
+            Draggable previousDraggable = petriDishes.Peek().GetComponent<Draggable>();
+            previousDraggable.enabled = true;
+            previousDraggable.AttachToAnchor(anchorPoint);
+        }
     }
 
     // Update is called once per frame
