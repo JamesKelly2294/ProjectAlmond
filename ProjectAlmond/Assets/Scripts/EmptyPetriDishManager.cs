@@ -120,7 +120,6 @@ public class EmptyPetriDishManager : MonoBehaviour
     void Start()
     {
         petriDishes = new Stack<GameObject>(8);
-        //anchorPoint.onDet.AddListener(OnAnchorPointDetach);
     }
 
     void OnAnchorPointAttach(GameObject go, Culture c, CultureAnchorPoint cap)
@@ -153,25 +152,6 @@ public class EmptyPetriDishManager : MonoBehaviour
         anchorPoint.transform.localPosition = CurrentTopOffset;
 
         Debug.Log("DETACH");
-        if (petriDishes.Count > 0)
-        {
-            Draggable previousDraggable = petriDishes.Peek().GetComponent<Draggable>();
-            previousDraggable.enabled = true;
-            previousDraggable.AttachToAnchor(anchorPoint);
-        }
-    }
-
-    void OnAnchorPointChange(GameObject go, Culture c, CultureAnchorPoint cap)
-    {
-        if (ignoreNextDetach)
-        {
-            ignoreNextDetach = false;
-            return;
-        }
-        petriDishes.Pop();
-        anchorPoint.transform.localPosition = CurrentTopOffset;
-
-        Debug.Log("CHANGE");
         if (petriDishes.Count > 0)
         {
             Draggable previousDraggable = petriDishes.Peek().GetComponent<Draggable>();

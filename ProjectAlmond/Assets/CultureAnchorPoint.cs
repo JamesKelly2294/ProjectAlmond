@@ -11,6 +11,7 @@ public class CultureAnchorPoint : AnchorBehavior
     public AnchorBehaviorGroup anchorGroup;
     public CultureAnchorPointEvent onAttach;
     public CultureAnchorPointEvent onDetach;
+    public CultureAnchorPointEvent onDirectedSwap;
     public Transform cameraAngle;
     public GameObject Culture { get; private set; }
 
