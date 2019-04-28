@@ -35,11 +35,6 @@ public abstract class AnchorBehavior : MonoBehaviour, Anchor
         Debug.Log(detachedObject + " detached from " + this);
         Occupied = false;
     }
-
-    public virtual void DirectedSwap(GameObject swappedInObject)
-    {
-        Debug.Log(swappedInObject + " swaped in " + this);
-    }
 }
 
 public enum DraggableType {

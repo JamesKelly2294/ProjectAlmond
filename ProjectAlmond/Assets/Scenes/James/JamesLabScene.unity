@@ -999,7 +999,7 @@ PrefabInstance:
     - target: {fileID: 3524661636658232649, guid: 74dcf6f35fb8046dca85282052dd8c34,
         type: 3}
       propertyPath: m_RootOrder
-      value: 16
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 3524661636658232649, guid: 74dcf6f35fb8046dca85282052dd8c34,
         type: 3}
@@ -2552,7 +2552,7 @@ PrefabInstance:
     - target: {fileID: 6019488171857178204, guid: e27423d28cce748b48564809e3741cb7,
         type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 6019488171857178204, guid: e27423d28cce748b48564809e3741cb7,
         type: 3}
@@ -2949,7 +2949,7 @@ PrefabInstance:
     - target: {fileID: 6019488171857178204, guid: b694b6a07712449649857e7cce96d344,
         type: 3}
       propertyPath: m_RootOrder
-      value: 15
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 6019488171857178204, guid: b694b6a07712449649857e7cce96d344,
         type: 3}
@@ -4910,18 +4910,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1701055481}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1706384338 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8607635920442270874, guid: ab01f4313fbbefe4daf87c10c592801a,
-    type: 3}
-  m_PrefabInstance: {fileID: 4005087223063407271}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68fa1949c7a575947b8f6c5c1601c389, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1727660213
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6280,7 +6268,7 @@ PrefabInstance:
         type: 3}
       propertyPath: anchorPoint
       value: 
-      objectReference: {fileID: 1706384338}
+      objectReference: {fileID: 0}
     - target: {fileID: 4005087224387632425, guid: ab01f4313fbbefe4daf87c10c592801a,
         type: 3}
       propertyPath: petriDishStackHeightBuffer
@@ -6379,7 +6367,7 @@ PrefabInstance:
         type: 3}
       propertyPath: cameraAngle
       value: 
-      objectReference: {fileID: 837004489}
+      objectReference: {fileID: 0}
     - target: {fileID: 4894026370770654814, guid: e4bb1803d623c8542b60cd855334ba30,
         type: 3}
       propertyPath: spawnPetriDishOnStart
