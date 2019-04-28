@@ -30,7 +30,8 @@ public class GameManager : MonoBehaviour
 
         } else
         {
-            cameraController.PanToAngle(cameraController.baseview, 2.0f);
+            cameraController.transform.position = cameraController.baseview.position;
+            cameraController.transform.rotation = cameraController.baseview.rotation;
             BeginGame();
         }
     }
