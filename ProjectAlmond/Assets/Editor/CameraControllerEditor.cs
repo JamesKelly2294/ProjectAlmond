@@ -41,6 +41,11 @@ public class CameraControllerEditor : Editor
         {
             cameraController.PanToAngle(cameraController.checkomatic, 1.0f);
         }
+
+        if (GUILayout.Button("Title"))
+        {
+            cameraController.PanToAngle(cameraController.title, 1.0f);
+        }
     }
     
 }
