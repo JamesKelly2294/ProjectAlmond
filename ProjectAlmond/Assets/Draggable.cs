@@ -47,11 +47,13 @@ public class Draggable : MonoBehaviour
     public void LockUserInteraction()
     {
         userCanInteract = false;
+        Debug.Log("Lock user interaction for " + gameObject);
     }
 
     public void UnlockUserInteraction()
     {
         userCanInteract = true;
+        Debug.Log("Unlock user interaction for " + gameObject);
     }
 
     void OnMouseDown()
@@ -61,7 +63,9 @@ public class Draggable : MonoBehaviour
             return;
         }
 
-        if(attached)
+        Debug.Log("Picked up " + gameObject);
+
+        if (attached)
         {
             attached = false;
             anchorPoint.GetComponent<Anchor>().Detach(transform.gameObject);
@@ -133,6 +137,7 @@ public class Draggable : MonoBehaviour
 
         if (anchorPoint)
         {
+            Debug.Log("Attaching " + gameObject + " to anchor point " + anchorPoint);
             transform.position = anchorPoint.position;
             transform.rotation = anchorPoint.rotation;
             attached = true;
@@ -140,6 +145,7 @@ public class Draggable : MonoBehaviour
         }
         else
         {
+            Debug.Log("Returning " + gameObject + " to its initial position");
             transform.position = mouseDownPosition;
             transform.rotation = mouseDownRotation;
         }

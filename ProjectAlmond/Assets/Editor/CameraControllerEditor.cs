@@ -51,5 +51,10 @@ public class CameraControllerEditor : Editor
         {
             cameraController.PanToAngle(cameraController.amalgamizer, 1.0f);
         }
+
+        if (GUILayout.Button("Resources"))
+        {
+            cameraController.PanToAngle(cameraController.resources, 1.0f);
+        }
     }
 }
