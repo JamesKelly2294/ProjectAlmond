@@ -89,11 +89,6 @@ GameObject:
   - component: {fileID: 627389296227287982}
   - component: {fileID: 627389296227287983}
   - component: {fileID: 627389296227287980}
-  - component: {fileID: 3461886721584563805}
-  - component: {fileID: 3952159924075039028}
-  - component: {fileID: 2525728579317849611}
-  - component: {fileID: 5073854759838026322}
-  - component: {fileID: 3549777820189031470}
   - component: {fileID: 1910285844052535597}
   m_Layer: 0
   m_Name: Coin
@@ -179,76 +174,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!136 &3461886721584563805
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 627389296227288017}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  m_Radius: 0.15
-  m_Height: 1
-  m_Direction: 2
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!136 &3952159924075039028
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 627389296227288017}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  m_Radius: 0.15
-  m_Height: 0.5
-  m_Direction: 2
-  m_Center: {x: 0.4, y: 0, z: -0.00000008940697}
---- !u!136 &2525728579317849611
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 627389296227288017}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  m_Radius: 0.15
-  m_Height: 0.8
-  m_Direction: 2
-  m_Center: {x: -0.2, y: 0, z: -0.00000008940697}
---- !u!136 &5073854759838026322
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 627389296227288017}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  m_Radius: 0.15
-  m_Height: 0.8
-  m_Direction: 2
-  m_Center: {x: 0.2, y: 0, z: -0.00000008940697}
---- !u!136 &3549777820189031470
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 627389296227288017}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  m_Radius: 0.15
-  m_Height: 0.5
-  m_Direction: 2
-  m_Center: {x: -0.38, y: 0, z: -0.00000008940697}
 --- !u!65 &1910285844052535597
 BoxCollider:
   m_ObjectHideFlags: 0

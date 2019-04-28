@@ -9,10 +9,14 @@ public class AnchorBehaviorGroup : MonoBehaviour
     CameraController cameraController;
     List<AnchorBehavior> anchors;
 
+    public void Awake()
+    {
+        anchors = new List<AnchorBehavior>();
+    }
+
     public void Start()
     {
         cameraController = Camera.main.GetComponent<CameraController>();
-        anchors = new List<AnchorBehavior>();
     }
 
     public void RegisterAnchor(AnchorBehavior anchor)
