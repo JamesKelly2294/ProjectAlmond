@@ -8,6 +8,8 @@ public class Culture : MonoBehaviour
 
     CultureRenderer cultureRenderer;
 
+    public string dishLabel;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,12 +25,12 @@ public class Culture : MonoBehaviour
 
         Genome = new CultureGenome(alleles.ToArray());
         cultureRenderer.Initialize(Genome);
+        cultureRenderer.GetComponentInChildren<TMPro.TextMeshPro>().text = dishLabel;
     }
 
     // Update is called once per frame
     void Update()
-    {
-        
+    {   
+        cultureRenderer.GetComponentInChildren<TMPro.TextMeshPro>().text = dishLabel;
     }
-
 }

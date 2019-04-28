@@ -48,6 +48,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cellMaterialBase: {fileID: 2100000, guid: 7f6fc9c64b5c1f647a0b2900f377ebdc, type: 2}
   dishMaterial: {fileID: 2100000, guid: b983f8813ba20524eb9d1602540c88c8, type: 2}
+  dishPrefab: {fileID: 4651969677571568255, guid: a6535e4485b924ce8a2ccd89dac6a993,
+    type: 3}
   seed: 38
   scale: 0.262
   octaves: 2
@@ -68,6 +70,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 435348233da712a48bd2c39f43aa56c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dishLabel: Example
 --- !u!65 &8147815359407597711
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -93,3 +96,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50af87fd09e22f943ae52bd96eb57a5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  draggableType: 0

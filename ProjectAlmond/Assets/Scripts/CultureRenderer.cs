@@ -8,6 +8,8 @@ public class CultureRenderer : MonoBehaviour
     public Material cellMaterialBase;
     public Material dishMaterial;
 
+    public GameObject dishPrefab;
+
     public int seed = 0;
     [Range(0.0f, 1.0f)]
     public float scale = 1.0f;
@@ -78,10 +80,9 @@ public class CultureRenderer : MonoBehaviour
     {
         initalized = true;
 
-        dish = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
-        Destroy(dish.GetComponent<CapsuleCollider>());
+        dish = Instantiate(dishPrefab);
         dish.transform.parent = transform;
-        dish.transform.localScale = new Vector3(petriDishRadius * 2.0f, petriDishHeight, petriDishRadius * 2.0f);
+        dish.transform.localScale = new Vector3(petriDishRadius * 2.0f, petriDishHeight * 2, petriDishRadius * 2.0f);
         dish.transform.localPosition = Vector3.zero;
         dish.GetComponent<MeshRenderer>().material = dishMaterial;
         dish.name = "Dish";
@@ -212,7 +213,7 @@ public class CultureRenderer : MonoBehaviour
             {
                 randPosition = new Vector2(Random.Range(-maxRange, maxRange), Random.Range(-maxRange, maxRange));
             } while (randPosition.magnitude >= maxRange);
-            cell.transform.localPosition = new Vector3(randPosition.x, petriDishHeight, randPosition.y);
+            cell.transform.localPosition = new Vector3(randPosition.x, 0, randPosition.y);
         }
 
         cellPositions = (from cell in cells

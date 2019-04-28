@@ -34,6 +34,10 @@ public class CheckOMatic : MonoBehaviour
         StartCoroutine(showMessage("Ejected..."));
         attachedDish.GetComponentInChildren<Draggable>().UnlockUserInteraction();
         this.GetComponentInChildren<DishReceptical>().stopAnimating();
+
+        attachedDish = null;
+        culture = null;
+        cultureAnchor = null;
     }
 
     public IEnumerator showMessage(string msg)
@@ -74,5 +78,7 @@ public class CheckOMatic : MonoBehaviour
         for (var i = 0; i < 8; i++) {
             tubes[i].setText("" + str[i]);
         }
+
+        g.GetComponentInChildren<Culture>().dishLabel = "96% Match";
     }
 }
