@@ -1,10 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class GameManager : MonoBehaviour
 {
     public bool shouldPlayIntroSequence;
+
+    List<PetriDishSlot> petriDishSlots;
+    EmptyPetriDishManager emptyPetriDishManager;
 
     bool gameBegun;
 
@@ -15,6 +19,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         cameraController = Camera.main.GetComponent<CameraController>();
+        petriDishSlots = FindObjectsOfType<PetriDishSlot>().ToList();
+        emptyPetriDishManager = FindObjectOfType<EmptyPetriDishManager>();
 
         if (shouldPlayIntroSequence)
         {
