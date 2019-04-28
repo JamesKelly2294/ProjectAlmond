@@ -20,9 +20,9 @@ public class NixyTube : MonoBehaviour
             setText("LOW");
         } else if (i == 1) {
             setText("HIGH");
-        } else if (i % 2 == 1) {
+        } else if (i % 27 == 1) {
             setText("GOOD");
-        } else if (i % 2 == 0) {
+        } else if (i % 17 == 0) {
             setText("");
         }
     }
