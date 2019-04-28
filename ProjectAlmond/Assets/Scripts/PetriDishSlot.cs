@@ -15,6 +15,7 @@ public class PetriDishSlot : MonoBehaviour
         if (spawnPetriDishOnStart)
         {
             petriDish = Instantiate(petriDishPrefab);
+            petriDish.GetComponent<Draggable>().AttachToAnchor(GetComponentInChildren<AnchorBehavior>());
             petriDish.transform.parent = transform;
             petriDish.transform.localPosition = Vector3.zero;
         }

@@ -67,6 +67,7 @@ public class EmptyPetriDishManager : MonoBehaviour
         GameObject petriDish = Instantiate(emptyPetriDishPrefab);
         petriDish.transform.parent = transform;
         petriDish.transform.localPosition = Vector3.zero + petriDishSpawnOffset;
+        anchorPoint.transform.localPosition = CurrentTopOffset;
         StartCoroutine(MovePetriDishToStack(petriDish, CurrentTopOffset, petriDishFallTime));
         
         petriDishes.Push(petriDish);

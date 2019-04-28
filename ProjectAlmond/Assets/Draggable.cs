@@ -21,16 +21,18 @@ public abstract class AnchorBehavior : MonoBehaviour, Anchor
             return;
         }
 
+        Debug.Log(attachedObject + " attached to " + this);
         Occupied = true;
     }
 
-    public virtual void Detach(GameObject detatchedObject)
+    public virtual void Detach(GameObject detachedObject)
     {
         if (!Occupied)
         {
             return;
         }
 
+        Debug.Log(detachedObject + " detached from " + this);
         Occupied = false;
     }
 }
@@ -42,9 +44,10 @@ public enum DraggableType {
 public class Draggable : MonoBehaviour
 {
     public DraggableType draggableType;
+    public AnchorBehavior currentAnchor;
 
     CameraController cameraController;
-
+    AnchorBehavior candidateAnchor;
     // Start is called before the first frame update
     void Start()
     {
@@ -59,7 +62,6 @@ public class Draggable : MonoBehaviour
 
     Vector3 mouseDownPosition;
     Quaternion mouseDownRotation;
-    AnchorBehavior anchorPoint;
     bool dragging;
     bool attached;
     bool userCanInteract = true;
@@ -117,11 +119,11 @@ public class Draggable : MonoBehaviour
 
         float distanceFromScreen = Camera.main.WorldToScreenPoint(transform.position).z;
 
-        if (anchorPoint != null)
+        if (candidateAnchor != null)
         {
 
-            transform.position = anchorPoint.transform.position;
-            transform.rotation = anchorPoint.transform.rotation;
+            transform.position = candidateAnchor.transform.position;
+            transform.rotation = candidateAnchor.transform.rotation;
         }
         else
         {
@@ -138,12 +140,12 @@ public class Draggable : MonoBehaviour
             AnchorBehavior behavior = hit.transform.GetComponent<AnchorBehavior>();
             if (behavior && behavior.draggableTypes.Contains(draggableType))
             {
-                anchorPoint = behavior;
+                candidateAnchor = behavior;
             }
         }
         else
         {
-            anchorPoint = null;
+            candidateAnchor = null;
         }
     }
 
@@ -166,9 +168,9 @@ public class Draggable : MonoBehaviour
 
         dragging = false;
 
-        if (anchorPoint)
+        if (candidateAnchor)
         {
-            AttachToAnchor(anchorPoint.GetComponent<AnchorBehavior>());
+            AttachToAnchor(candidateAnchor);
         }
         else
         {
@@ -183,14 +185,15 @@ public class Draggable : MonoBehaviour
         if (attached)
         {
             attached = false;
-            anchorPoint.GetComponent<AnchorBehavior>().Detach(transform.gameObject);
-            anchorPoint = null;
+            currentAnchor.Detach(transform.gameObject);
+            currentAnchor = null;
         }
     }
 
     public void AttachToAnchor(AnchorBehavior anchor)
     {
         Debug.Log("Attaching " + gameObject + " to anchor point " + anchor.gameObject);
+        currentAnchor = anchor;
         transform.position = anchor.transform.position;
         transform.rotation = anchor.transform.rotation;
         attached = true;

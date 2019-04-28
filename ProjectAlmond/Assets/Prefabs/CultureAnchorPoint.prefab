@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   draggableTypes: 0000000001000000
+  anchorGroup: {fileID: 0}
   onAttach:
     m_PersistentCalls:
       m_Calls: []
