@@ -99,7 +99,7 @@ public class CoinDropper : MonoBehaviour
         yield return new WaitForSeconds(2.0f);
         numberOfCoinsVisable += 1;
         coinTray.GetComponentInChildren<TMPro.TextMeshPro>().text = "" + numberOfCoinsVisable;
-        Destroy(coin.GetComponent<Rigidbody>(), 3.0f);
+        Destroy(coin.GetComponent<Rigidbody>(), 10.0f);
     }
 
     private IEnumerator RemoveCoin(GameObject coin, float duration)
