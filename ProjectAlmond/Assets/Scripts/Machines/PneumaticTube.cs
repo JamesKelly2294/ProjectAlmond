@@ -8,7 +8,7 @@ public class PneumaticTube : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        this.GetComponentInChildren<TMPro.TextMeshPro>().text = "Sell your Life";
     }
 
     // Update is called once per frame
@@ -22,6 +22,16 @@ public class PneumaticTube : MonoBehaviour
         a.Detach(g);
         Destroy(g.GetComponentInChildren<Rigidbody>());
         StartCoroutine(TakeDisk(g, 1f));
+    }
+
+    public void diskIsHovering(GameObject g, Culture c, CultureAnchorPoint a)
+    {   
+        this.GetComponentInChildren<TMPro.TextMeshPro>().text = "Sell: 100€";
+    }
+
+    public void diskIsNotHovering(GameObject g, Culture c, CultureAnchorPoint a)
+    {   
+        this.GetComponentInChildren<TMPro.TextMeshPro>().text = "Sell your Life";
     }
 
     private IEnumerator TakeDisk(GameObject disk, float duration)

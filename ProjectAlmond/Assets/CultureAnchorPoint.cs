@@ -12,6 +12,10 @@ public class CultureAnchorPoint : AnchorBehavior
     public CultureAnchorPointEvent onAttach;
     public CultureAnchorPointEvent onDetach;
     public CultureAnchorPointEvent onDirectedSwap;
+
+    public CultureAnchorPointEvent onHover;
+    public CultureAnchorPointEvent onUnhover;
+
     public Transform cameraAngle;
     public GameObject Culture { get; private set; }
 
@@ -62,4 +66,15 @@ public class CultureAnchorPoint : AnchorBehavior
 
         onDetach.Invoke(attachedObject, c, this);
     }
+
+    public override void HoverDidChange(GameObject hoveredObject, bool isHovering) {
+        Culture c = hoveredObject.GetComponent<Culture>();
+        if (isHovering) {
+            onHover.Invoke(hoveredObject, c, this);
+        } else {
+            onUnhover.Invoke(hoveredObject, c, this);
+        }
+    }
+
+        
 }

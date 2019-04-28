@@ -6,6 +6,7 @@ public interface Anchor
 {
     void Attach(GameObject attachedObject);
     void Detach(GameObject detatchedObject);
+    void HoverDidChange(GameObject hoveredObject, bool isHovering);
 }
 
 public abstract class AnchorBehavior : MonoBehaviour, Anchor
@@ -34,6 +35,10 @@ public abstract class AnchorBehavior : MonoBehaviour, Anchor
 
         Debug.Log(detachedObject + " detached from " + this);
         Occupied = false;
+    }
+
+    public virtual void HoverDidChange(GameObject hoveredObject, bool isHovering) {
+        Debug.Log(hoveredObject + " hovering? " + isHovering + " over " + this);
     }
 }
 
@@ -101,6 +106,8 @@ public class Draggable : MonoBehaviour
         cameraController.RequestPanToAngle(cameraController.baseview, 1.0f);
     }
 
+    private AnchorBehavior hoverTarget; 
+
     void OnMouseDrag()
     {
         if (!enabled)
@@ -122,12 +129,25 @@ public class Draggable : MonoBehaviour
 
         if (candidateAnchor != null)
         {
+            if (candidateAnchor != hoverTarget) {
+                if (hoverTarget != null) {
+                    hoverTarget.HoverDidChange(transform.gameObject, false);
+                }
+
+                hoverTarget = candidateAnchor;
+                hoverTarget.HoverDidChange(transform.gameObject, true);
+            }
 
             transform.position = candidateAnchor.transform.position;
             transform.rotation = candidateAnchor.transform.rotation;
         }
         else
         {
+            if (hoverTarget != null) {
+                hoverTarget.HoverDidChange(transform.gameObject, false);
+                hoverTarget = null;
+            }
+
             transform.rotation = mouseDownRotation;
             transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, distanceFromScreen));
         }
