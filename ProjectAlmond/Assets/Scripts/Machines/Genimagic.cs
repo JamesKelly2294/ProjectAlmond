@@ -30,7 +30,11 @@ public class Genimagic : MonoBehaviour
 
     public void diskWasAttached(GameObject g, Culture c, CultureAnchorPoint a)
     {
-        Debug.Log(g + " " + c + " " + a);
         this.GetComponentInChildren<Gauge>().SetNeedleProgress(0.7f, 0.1f);
+    }
+
+    public void diskWasDetached(GameObject g, Culture c, CultureAnchorPoint a)
+    {
+        this.GetComponentInChildren<Gauge>().SetNeedleProgress(0.0f, 0.1f);
     }
 }

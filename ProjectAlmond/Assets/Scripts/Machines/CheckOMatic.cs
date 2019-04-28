@@ -33,6 +33,7 @@ public class CheckOMatic : MonoBehaviour
     public void ejectButtonWasPressed() {
         StartCoroutine(showMessage("Ejected..."));
         attachedDish.GetComponentInChildren<Draggable>().UnlockUserInteraction();
+        this.GetComponentInChildren<DishReceptical>().stopAnimating();
     }
 
     public IEnumerator showMessage(string msg)
@@ -60,13 +61,18 @@ public class CheckOMatic : MonoBehaviour
 
     public void diskWasAttached(GameObject g, Culture c, CultureAnchorPoint a)
     {
-        Debug.Log(g + " " + c + " " + a);
+        this.GetComponentInChildren<DishReceptical>().startAnimating();
 
-        StartCoroutine(showMessage("Disk Inserted... Reading..."));
         attachedDish = g;
         culture = c;
         cultureAnchor = a;
 
         g.GetComponentInChildren<Draggable>().LockUserInteraction();
+
+
+        string str = c.Genome.String;
+        for (var i = 0; i < 8; i++) {
+            tubes[i].setText("" + str[i]);
+        }
     }
 }
