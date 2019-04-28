@@ -5463,6 +5463,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3275517491550935539, guid: a7e83751e8941114da30a2dbd2c3ec53,
         type: 3}
+      propertyPath: draggableTypes.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3275517491550935539, guid: a7e83751e8941114da30a2dbd2c3ec53,
+        type: 3}
       propertyPath: cameraAngle
       value: 
       objectReference: {fileID: 0}

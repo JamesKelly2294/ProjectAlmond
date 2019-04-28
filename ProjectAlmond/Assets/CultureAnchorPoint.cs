@@ -6,9 +6,10 @@ using UnityEngine.Events;
 [System.Serializable]
 public class CultureAnchorPointEvent : UnityEvent<GameObject, Culture, CultureAnchorPoint> { }
 
-public class CultureAnchorPoint : MonoBehaviour
+public class CultureAnchorPoint : AnchorBehavior
 {
     public CultureAnchorPointEvent onAttach;
+    public CultureAnchorPointEvent onDetach;
     public Transform cameraAngle;
 
     public GameObject Culture { get; private set; }
@@ -20,15 +21,36 @@ public class CultureAnchorPoint : MonoBehaviour
         cameraController = Camera.main.GetComponent<CameraController>();
     }
 
-    public void Attach(GameObject culture)
+    public override void Attach(GameObject attachedObject)
     {
-        Culture = culture;
+        Culture c = attachedObject.GetComponent<Culture>();
 
-        onAttach.Invoke(culture, culture.GetComponent<Culture>(), this);
+        if(c == null)
+        {
+            return;
+        }
+
+        Culture = attachedObject;
+
+        onAttach.Invoke(attachedObject, c, this);
 
         if(cameraAngle)
         {
             cameraController.RequestPanToAngle(cameraAngle, 1.0f);
         }
+    }
+
+    public override void Detach(GameObject attachedObject)
+    {
+        Culture c = attachedObject.GetComponent<Culture>();
+
+        if (c == null)
+        {
+            return;
+        }
+
+        Culture = null;
+
+        onDetach.Invoke(attachedObject, c, this);
     }
 }
