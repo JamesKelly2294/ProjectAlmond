@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &62731910840665980
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8349982567642353594}
+  m_Layer: 0
+  m_Name: Genimagic
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8349982567642353594
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 62731910840665980}
+  m_LocalRotation: {x: 0.06887934, y: -0, z: -0, w: 0.99762505}
+  m_LocalPosition: {x: -0.025, y: 0.6551998, z: -2.1071668}
+  m_LocalScale: {x: 0.1, y: 0.19937044, z: 0.16729629}
+  m_Children: []
+  m_Father: {fileID: 3524661636658232649}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 7.899, y: 0, z: 0}
 --- !u!1 &670788803654689569
 GameObject:
   m_ObjectHideFlags: 0
@@ -1155,6 +1185,7 @@ Transform:
   - {fileID: 5735822185135692142}
   - {fileID: 6202860301298370847}
   - {fileID: 7359074139382872271}
+  - {fileID: 8349982567642353594}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2455,6 +2486,61 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.2000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 886982895524955697, guid: 4daea106a1b5f46fb9c43cdabf85a283,
+        type: 3}
+      propertyPath: onAttach.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 886982895524955697, guid: 4daea106a1b5f46fb9c43cdabf85a283,
+        type: 3}
+      propertyPath: onAttach.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 886982895524955697, guid: 4daea106a1b5f46fb9c43cdabf85a283,
+        type: 3}
+      propertyPath: onAttach.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 886982895524955697, guid: 4daea106a1b5f46fb9c43cdabf85a283,
+        type: 3}
+      propertyPath: onAttach.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2700136755503881068}
+    - target: {fileID: 886982895524955697, guid: 4daea106a1b5f46fb9c43cdabf85a283,
+        type: 3}
+      propertyPath: onAttach.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: diskWasAttached
+      objectReference: {fileID: 0}
+    - target: {fileID: 886982895524955697, guid: 4daea106a1b5f46fb9c43cdabf85a283,
+        type: 3}
+      propertyPath: onAttach.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 886982895524955697, guid: 4daea106a1b5f46fb9c43cdabf85a283,
+        type: 3}
+      propertyPath: cameraAngle
+      value: 
+      objectReference: {fileID: 8349982567642353594}
+    - target: {fileID: 5734145616783851773, guid: 4daea106a1b5f46fb9c43cdabf85a283,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.x
+      value: NaN
+      objectReference: {fileID: 0}
+    - target: {fileID: 5734145616783851773, guid: 4daea106a1b5f46fb9c43cdabf85a283,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.y
+      value: NaN
+      objectReference: {fileID: 0}
+    - target: {fileID: 5734145616783851773, guid: 4daea106a1b5f46fb9c43cdabf85a283,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.z
+      value: NaN
+      objectReference: {fileID: 0}
+    - target: {fileID: 5734145616783851773, guid: 4daea106a1b5f46fb9c43cdabf85a283,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.w
+      value: 2.3510604e-38
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4daea106a1b5f46fb9c43cdabf85a283, type: 3}

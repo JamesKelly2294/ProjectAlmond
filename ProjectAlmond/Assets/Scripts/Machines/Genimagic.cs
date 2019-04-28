@@ -19,12 +19,18 @@ public class Genimagic : MonoBehaviour
     public void runButtonWasPressed() {
         Debug.Log("RUN GENIMAGIC");
         this.GetComponentInChildren<DishReceptical>().startAnimating();
-        this.GetComponentInChildren<Gauge>().SetNeedleProgress(0.7f, 0.1f);
+        this.GetComponentInChildren<Gauge>().SetNeedleProgress(0.95f, 0.1f);
     }
 
     public void ejectButtonWasPressed() {
         Debug.Log("EJECT GENIMAGIC");
         this.GetComponentInChildren<DishReceptical>().stopAnimating();
         this.GetComponentInChildren<Gauge>().SetNeedleProgress(0.0f, 0.1f);
+    }
+
+    public void diskWasAttached(GameObject g, Culture c, CultureAnchorPoint a)
+    {
+        Debug.Log(g + " " + c + " " + a);
+        this.GetComponentInChildren<Gauge>().SetNeedleProgress(0.7f, 0.1f);
     }
 }

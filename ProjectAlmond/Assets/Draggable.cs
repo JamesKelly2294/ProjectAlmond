@@ -82,6 +82,11 @@ public class Draggable : MonoBehaviour
             return;
         }
 
+        if (!userCanInteract)
+        {
+            return;
+        }
+
         float distanceFromScreen = Camera.main.WorldToScreenPoint(transform.position).z;
 
         if (anchorPoint != null)
@@ -117,6 +122,11 @@ public class Draggable : MonoBehaviour
     void OnMouseUp()
     {
         if (!dragging)
+        {
+            return;
+        }
+
+        if (!userCanInteract)
         {
             return;
         }

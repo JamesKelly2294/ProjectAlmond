@@ -37,6 +37,7 @@ Transform:
   - {fileID: 6019488173817011683}
   - {fileID: 6019488172156898457}
   - {fileID: 6091050905879608369}
+  - {fileID: 9014461037847138950}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1168,6 +1169,36 @@ Transform:
   m_Father: {fileID: 6019488171857178204}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6625596292953546884
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9014461037847138950}
+  m_Layer: 0
+  m_Name: Check-o-Matic Camera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9014461037847138950
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6625596292953546884}
+  m_LocalRotation: {x: 0.06887934, y: -0, z: -0, w: 0.99762505}
+  m_LocalPosition: {x: -0.036000002, y: 0.47, z: -2.31}
+  m_LocalScale: {x: 0.13333334, y: 0.3303902, z: 0.16991986}
+  m_Children: []
+  m_Father: {fileID: 6019488171857178204}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 7.899, y: 0, z: 0}
 --- !u!1001 &1530939251335279203
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1404,12 +1435,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 191e4717746c64ce3986b975fad9f977, type: 3}
---- !u!4 &7173164946396651344 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8795068514112717477, guid: 191e4717746c64ce3986b975fad9f977,
-    type: 3}
-  m_PrefabInstance: {fileID: 1838154419484024309}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2191280931816518043 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 570428631120768110, guid: 191e4717746c64ce3986b975fad9f977,
@@ -1422,6 +1447,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dded2a6a9fb84e879258026e25a2d91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &7173164946396651344 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8795068514112717477, guid: 191e4717746c64ce3986b975fad9f977,
+    type: 3}
+  m_PrefabInstance: {fileID: 1838154419484024309}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2489912938531234670
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1504,6 +1535,41 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.3333335
       objectReference: {fileID: 0}
+    - target: {fileID: 886982895524955697, guid: 4daea106a1b5f46fb9c43cdabf85a283,
+        type: 3}
+      propertyPath: onAttach.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 886982895524955697, guid: 4daea106a1b5f46fb9c43cdabf85a283,
+        type: 3}
+      propertyPath: onAttach.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 886982895524955697, guid: 4daea106a1b5f46fb9c43cdabf85a283,
+        type: 3}
+      propertyPath: onAttach.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 886982895524955697, guid: 4daea106a1b5f46fb9c43cdabf85a283,
+        type: 3}
+      propertyPath: onAttach.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5521419025049432048}
+    - target: {fileID: 886982895524955697, guid: 4daea106a1b5f46fb9c43cdabf85a283,
+        type: 3}
+      propertyPath: onAttach.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: diskWasAttached
+      objectReference: {fileID: 0}
+    - target: {fileID: 886982895524955697, guid: 4daea106a1b5f46fb9c43cdabf85a283,
+        type: 3}
+      propertyPath: onAttach.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 886982895524955697, guid: 4daea106a1b5f46fb9c43cdabf85a283,
+        type: 3}
+      propertyPath: cameraAngle
+      value: 
+      objectReference: {fileID: 9014461037847138950}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4daea106a1b5f46fb9c43cdabf85a283, type: 3}
 --- !u!4 &6091050905879608369 stripped
@@ -2129,12 +2195,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 191e4717746c64ce3986b975fad9f977, type: 3}
---- !u!4 &2692153228351506336 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8795068514112717477, guid: 191e4717746c64ce3986b975fad9f977,
-    type: 3}
-  m_PrefabInstance: {fileID: 6868604264465908997}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &6393069672162601323 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 570428631120768110, guid: 191e4717746c64ce3986b975fad9f977,
@@ -2147,6 +2207,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dded2a6a9fb84e879258026e25a2d91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &2692153228351506336 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8795068514112717477, guid: 191e4717746c64ce3986b975fad9f977,
+    type: 3}
+  m_PrefabInstance: {fileID: 6868604264465908997}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &9064817527112605588
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -7,6 +7,10 @@ public class CheckOMatic : MonoBehaviour
 
     public NixyTube[] tubes;
 
+    GameObject attachedDish;
+    Culture culture;
+    CultureAnchorPoint cultureAnchor;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,20 +31,21 @@ public class CheckOMatic : MonoBehaviour
     }
 
     public void ejectButtonWasPressed() {
-        StartCoroutine("showEjectMessage");
+        StartCoroutine(showMessage("Ejected..."));
+        attachedDish.GetComponentInChildren<Draggable>().UnlockUserInteraction();
     }
 
-    public IEnumerator showEjectMessage()
+    public IEnumerator showMessage(string msg)
     {
 
-        string str = "        EJECTED!        ";
+        string str = "        " + msg + "        ";
 
-        for (var i = 0; i < 16; i ++) {
+        for (var i = 0; i < ((str.Length) - 8); i ++) {
             for (var j = 0; j < 8; j++) {
                 tubes[j].setText(""+str[i + j]);
             }
 
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.25f);
         }
 
         tubes[0].setText("");
@@ -51,5 +56,17 @@ public class CheckOMatic : MonoBehaviour
         tubes[5].setText("");
         tubes[6].setText("");
         tubes[7].setText("");
+    }
+
+    public void diskWasAttached(GameObject g, Culture c, CultureAnchorPoint a)
+    {
+        Debug.Log(g + " " + c + " " + a);
+
+        StartCoroutine(showMessage("Disk Inserted... Reading..."));
+        attachedDish = g;
+        culture = c;
+        cultureAnchor = a;
+
+        g.GetComponentInChildren<Draggable>().LockUserInteraction();
     }
 }
