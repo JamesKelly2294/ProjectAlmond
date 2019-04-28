@@ -135,6 +135,8 @@ public class Draggable : MonoBehaviour
             return;
         }
 
+        dragging = false;
+
         if (anchorPoint)
         {
             Debug.Log("Attaching " + gameObject + " to anchor point " + anchorPoint);
