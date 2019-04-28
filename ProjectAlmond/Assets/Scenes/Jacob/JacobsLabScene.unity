@@ -4830,18 +4830,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1701055481}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1706384338 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8607635920442270874, guid: ab01f4313fbbefe4daf87c10c592801a,
-    type: 3}
-  m_PrefabInstance: {fileID: 4005087223063407271}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68fa1949c7a575947b8f6c5c1601c389, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1727660213
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6200,7 +6188,7 @@ PrefabInstance:
         type: 3}
       propertyPath: anchorPoint
       value: 
-      objectReference: {fileID: 1706384338}
+      objectReference: {fileID: 0}
     - target: {fileID: 4005087224387632425, guid: ab01f4313fbbefe4daf87c10c592801a,
         type: 3}
       propertyPath: petriDishStackHeightBuffer
@@ -6496,7 +6484,7 @@ PrefabInstance:
     - target: {fileID: 8276383586028026377, guid: 031c5bc416d6641a7884833bfac3d6e1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 43.5
+      value: 40.8
       objectReference: {fileID: 0}
     - target: {fileID: 8276383586028026377, guid: 031c5bc416d6641a7884833bfac3d6e1,
         type: 3}
@@ -6543,6 +6531,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5150514636319649711, guid: 031c5bc416d6641a7884833bfac3d6e1,
+        type: 3}
+      propertyPath: coinDropper
+      value: 
+      objectReference: {fileID: 746234847}
     - target: {fileID: 317134874580130662, guid: 031c5bc416d6641a7884833bfac3d6e1,
         type: 3}
       propertyPath: m_Mesh

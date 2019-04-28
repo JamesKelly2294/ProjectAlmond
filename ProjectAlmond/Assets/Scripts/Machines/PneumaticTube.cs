@@ -5,10 +5,12 @@ using UnityEngine;
 public class PneumaticTube : MonoBehaviour
 {
 
+    public GameObject coinDropper;
+
     // Start is called before the first frame update
     void Start()
     {
-        this.GetComponentInChildren<TMPro.TextMeshPro>().text = "Sell your Life";
+        resetText();
     }
 
     // Update is called once per frame
@@ -19,7 +21,11 @@ public class PneumaticTube : MonoBehaviour
 
     public void diskWasAttached(GameObject g, Culture c, CultureAnchorPoint a)
     {   
+        resetText();
         a.Detach(g);
+
+        coinDropper.GetComponent<CoinDropper>().give(100);
+
         Destroy(g.GetComponentInChildren<Rigidbody>());
         StartCoroutine(TakeDisk(g, 1f));
     }
@@ -31,7 +37,7 @@ public class PneumaticTube : MonoBehaviour
 
     public void diskIsNotHovering(GameObject g, Culture c, CultureAnchorPoint a)
     {   
-        this.GetComponentInChildren<TMPro.TextMeshPro>().text = "Sell your Life";
+        resetText();
     }
 
     private IEnumerator TakeDisk(GameObject disk, float duration)
@@ -48,5 +54,9 @@ public class PneumaticTube : MonoBehaviour
         }
 
         Destroy(disk, 0.1f);
+    }
+
+    void resetText() {
+        this.GetComponentInChildren<TMPro.TextMeshPro>().text = "Sell your Life";
     }
 }
