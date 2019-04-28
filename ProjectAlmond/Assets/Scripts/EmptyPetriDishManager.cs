@@ -13,7 +13,7 @@ public class EmptyPetriDishManager : MonoBehaviour
     [Range(0, 10)]
     public int petriDishStackMaxCount = 5;
     public GameObject emptyPetriDishPrefab;
-    public GameObject anchorPoint;
+    public AnchorBehavior anchorPoint;
 
     Vector3 petriDishSpawnOffset = new Vector3(0.0f, 15.0f, 0.0f);
     Stack<GameObject> petriDishes;
