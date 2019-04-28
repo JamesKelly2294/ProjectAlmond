@@ -3586,6 +3586,12 @@ Transform:
   m_Father: {fileID: 1650647451}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1412588280 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4151521974245540779, guid: 4af367275c9984982bc2a8bb76653de8,
+    type: 3}
+  m_PrefabInstance: {fileID: 57858900}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1493634430 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8549525195948345627, guid: b1a645cf78dd95e489662409513d593b,
@@ -6274,6 +6280,11 @@ PrefabInstance:
       propertyPath: petriDishStackHeightBuffer
       value: 0.225
       objectReference: {fileID: 0}
+    - target: {fileID: 4005087224387632425, guid: ab01f4313fbbefe4daf87c10c592801a,
+        type: 3}
+      propertyPath: coinDropper
+      value: 
+      objectReference: {fileID: 1412588280}
     - target: {fileID: 8607635920442270874, guid: ab01f4313fbbefe4daf87c10c592801a,
         type: 3}
       propertyPath: cameraAngle

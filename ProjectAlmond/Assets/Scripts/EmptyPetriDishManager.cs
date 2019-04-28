@@ -18,7 +18,6 @@ public class EmptyPetriDishManager : MonoBehaviour
     public GameObject emptyPetriDishPrefab;
 
     public GameObject coinDropper;
-    public AnchorBehavior anchorPoint;
     public GameObject anchorPointPrefab;
 
     Vector3 petriDishSpawnOffset = new Vector3(0.0f, 15.0f, 0.0f);
