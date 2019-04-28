@@ -96,6 +96,16 @@ public class GameManager : MonoBehaviour
         gameBegun = true;
     }
 
+    public bool hasGameBegun()
+    {
+        return gameBegun;
+    }
+
+    public void EndGame()
+    {
+        // TODO
+    }
+
     // Update is called once per frame
     void Update()
     {
