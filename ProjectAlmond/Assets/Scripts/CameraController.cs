@@ -87,13 +87,14 @@ public class CameraController : MonoBehaviour
             Vector3 newPosition =
                 Vector3.SmoothDamp(transform.position, position.position, ref currentVelocity, transitionDuration);
             
-            if (transform.position == newPosition)
+            if (Vector3.Distance(newPosition, position.position) <= 0.01f)
             {
+                transform.position = position.position;
                 break;
             }
 
             transform.position = newPosition;
-            transitionDuration -= 0.0075f;
+            transitionDuration -= Time.deltaTime;
 
             yield return 0;
         }

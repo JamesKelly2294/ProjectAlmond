@@ -11,22 +11,28 @@ public class GameManager : MonoBehaviour
     EmptyPetriDishManager emptyPetriDishManager;
 
     bool gameBegun;
-
+    GameObject beginButton;
+    GameObject learnButton;
+    GameObject titleButtonsParent;
     Light fillLight;
     CameraController cameraController;
-    float spotAngleStart;
+    float spotAngleHigh;
+    float spotAngleLow = 23;
     // Start is called before the first frame update
     void Start()
     {
         cameraController = Camera.main.GetComponent<CameraController>();
         petriDishSlots = FindObjectsOfType<PetriDishSlot>().ToList();
         emptyPetriDishManager = FindObjectOfType<EmptyPetriDishManager>();
+        beginButton = GameObject.Find("BeginButton");
+        learnButton = GameObject.Find("LearnButton");
+        titleButtonsParent = GameObject.Find("TitleButtonsParent");
 
         if (shouldPlayIntroSequence)
         {
             fillLight = GameObject.Find("Fill Light").GetComponent<Light>();
-            spotAngleStart = fillLight.spotAngle;
-            fillLight.spotAngle = 0;
+            spotAngleHigh = fillLight.spotAngle;
+            fillLight.spotAngle = spotAngleLow;
 
         } else
         {
@@ -39,17 +45,27 @@ public class GameManager : MonoBehaviour
     public void BeginPlayIntroSequence()
     {
         cameraController.PanToAngle(cameraController.overview, 2.0f);
+        StartCoroutine(HideTitle());
         StartCoroutine(PlayIntroSequence());
+    }
+
+    IEnumerator HideTitle()
+    {
+        float t = 0.0f;
+        float duration = 1.0f;
+        Vector3 startingPos = titleButtonsParent.transform.localPosition;
+        while (t < 1.0f)
+        {
+            t += Time.deltaTime * (Time.timeScale / duration);
+
+            titleButtonsParent.transform.localPosition = Vector3.Lerp(startingPos, startingPos +  0.5f * Vector3.forward, t);
+            yield return 0;
+        }
     }
 
     IEnumerator PlayIntroSequence()
     {
-        while (!Input.GetMouseButtonUp(0))
-        {
-            yield return 0;
-        }
-
-        while (!cameraController.RequestPanToAngle(cameraController.baseview, 2.0f))
+        while (!Input.GetMouseButtonUp(0) || !cameraController.RequestPanToAngle(cameraController.baseview, 2.0f))
         {
             yield return 0;
         }
@@ -60,7 +76,7 @@ public class GameManager : MonoBehaviour
         {
             t += Time.deltaTime * (Time.timeScale / duration);
 
-            fillLight.spotAngle = Mathf.Lerp(0.0f, spotAngleStart, t);
+            fillLight.spotAngle = Mathf.Lerp(spotAngleLow, spotAngleHigh, t);
 
             yield return 0;
         }
@@ -75,6 +91,8 @@ public class GameManager : MonoBehaviour
             return;
         }
 
+        beginButton.SetActive(false);
+        learnButton.SetActive(false);
         gameBegun = true;
     }
 

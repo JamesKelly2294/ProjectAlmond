@@ -26,14 +26,15 @@ public class EmptyPetriDishManager : MonoBehaviour
         {
             Vector3 newPosition =
                 Vector3.SmoothDamp(petriDish.transform.localPosition, target, ref currentVelocity, transitionDuration);
-
-            if (petriDish.transform.localPosition == newPosition)
+            
+            if (Vector3.Distance(newPosition, target) <= 0.01f)
             {
+                petriDish.transform.localPosition = target;
                 break;
             }
 
             petriDish.transform.localPosition = newPosition;
-            transitionDuration -= 0.0075f;
+            transitionDuration -= Time.deltaTime;
 
             yield return 0;
         }
