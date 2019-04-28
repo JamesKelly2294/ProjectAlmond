@@ -7,6 +7,7 @@ public class CameraController : MonoBehaviour
     public Transform overview;
     public Transform baseview;
     public Transform petriDishes;
+    public Transform genimagic;
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +31,6 @@ public class CameraController : MonoBehaviour
         float t = 0.0f;
         Vector3 startingPos = transform.position;
         Quaternion startingRotation = transform.rotation;
-        Vector3 velocity = Vector3.zero;
         while (t < 1.0f)
         {
             t += Time.deltaTime * (Time.timeScale / transitionDuration);

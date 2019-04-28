@@ -32,6 +32,11 @@ public class CameraControllerEditor : Editor
             cameraController.PanToAngle(cameraController.petriDishes, 1.0f);
         }
 
+        if (GUILayout.Button("Genimagic"))
+        {
+            cameraController.PanToAngle(cameraController.genimagic, 1.0f);
+        }
+
     }
     
 }
