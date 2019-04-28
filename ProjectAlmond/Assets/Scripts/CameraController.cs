@@ -25,8 +25,33 @@ public class CameraController : MonoBehaviour
 
     }
 
+    bool panning;
+    bool rotating;
+
+    public bool RequestPanToAngle(Transform angle, float transitionDuration)
+    {
+        if (panning && rotating)
+        {
+            return false;
+        }
+
+        panning = true;
+        rotating = true;
+        StartCoroutine(BeginPanToAngle(angle, transitionDuration));
+        StartCoroutine(BeginPanToPosition(angle, transitionDuration));
+
+        return true;
+    }
+
     public void PanToAngle(Transform angle, float transitionDuration)
     {
+        if(panning && rotating)
+        {
+            return;
+        }
+
+        panning = true;
+        rotating = true;
         StartCoroutine(BeginPanToAngle(angle, transitionDuration));
         StartCoroutine(BeginPanToPosition(angle, transitionDuration));
     }
@@ -44,6 +69,8 @@ public class CameraController : MonoBehaviour
             //transform.position = Vector3.Lerp(startingPos, angle.position, t);
             yield return 0;
         }
+
+        rotating = false;
     }
 
     IEnumerator BeginPanToPosition(Transform position, float transitionDuration)
@@ -70,6 +97,8 @@ public class CameraController : MonoBehaviour
 
             yield return 0;
         }
+
+        panning = false;
     }
 
 

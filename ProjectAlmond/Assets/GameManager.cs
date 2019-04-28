@@ -48,9 +48,13 @@ public class GameManager : MonoBehaviour
             yield return 0;
         }
 
+        while (!cameraController.RequestPanToAngle(cameraController.baseview, 2.0f))
+        {
+            yield return 0;
+        }
+
         float t = 0;
         float duration = 2.0f;
-        cameraController.PanToAngle(cameraController.baseview, 2.0f);
         while (t < 1.0f)
         {
             t += Time.deltaTime * (Time.timeScale / duration);
