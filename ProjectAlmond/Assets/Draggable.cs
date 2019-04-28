@@ -65,6 +65,7 @@ public class Draggable : MonoBehaviour
     bool dragging;
     bool attached;
     bool userCanInteract = true;
+    AnchorBehavior abandondedAnchor;
     public void LockUserInteraction()
     {
         userCanInteract = false;
@@ -138,7 +139,7 @@ public class Draggable : MonoBehaviour
         if (Physics.Raycast(ray, out hit, 25.0f, layerMask))
         {
             AnchorBehavior behavior = hit.transform.GetComponent<AnchorBehavior>();
-            if (behavior && behavior.draggableTypes.Contains(draggableType))
+            if (behavior && behavior.draggableTypes.Contains(draggableType) && !behavior.Occupied)
             {
                 candidateAnchor = behavior;
             }
@@ -175,6 +176,7 @@ public class Draggable : MonoBehaviour
         else
         {
             Debug.Log("Returning " + gameObject + " to its initial position");
+            AttachToAnchor(abandondedAnchor);
             transform.position = mouseDownPosition;
             transform.rotation = mouseDownRotation;
         }
@@ -186,12 +188,14 @@ public class Draggable : MonoBehaviour
         {
             attached = false;
             currentAnchor.Detach(transform.gameObject);
+            abandondedAnchor = currentAnchor;
             currentAnchor = null;
         }
     }
 
     public void AttachToAnchor(AnchorBehavior anchor)
     {
+        abandondedAnchor = null;
         Debug.Log("Attaching " + gameObject + " to anchor point " + anchor.gameObject);
         currentAnchor = anchor;
         transform.position = anchor.transform.position;
