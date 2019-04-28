@@ -10,10 +10,29 @@ public interface Anchor
 
 public abstract class AnchorBehavior : MonoBehaviour, Anchor
 {
+
+    public bool Occupied { get; set; }
     public List<DraggableType> draggableTypes;
 
-    public abstract void Attach(GameObject attachedObject);
-    public abstract void Detach(GameObject detatchedObject);
+    public virtual void Attach(GameObject attachedObject)
+    {
+        if (Occupied)
+        {
+            return;
+        }
+
+        Occupied = true;
+    }
+
+    public virtual void Detach(GameObject detatchedObject)
+    {
+        if (!Occupied)
+        {
+            return;
+        }
+
+        Occupied = false;
+    }
 }
 
 public enum DraggableType {
@@ -40,7 +59,7 @@ public class Draggable : MonoBehaviour
 
     Vector3 mouseDownPosition;
     Quaternion mouseDownRotation;
-    Transform anchorPoint;
+    AnchorBehavior anchorPoint;
     bool dragging;
     bool attached;
     bool userCanInteract = true;
@@ -58,6 +77,11 @@ public class Draggable : MonoBehaviour
 
     void OnMouseDown()
     {
+        if(!enabled)
+        {
+            return;
+        }
+
         if (!userCanInteract)
         {
             return;
@@ -65,12 +89,7 @@ public class Draggable : MonoBehaviour
 
         Debug.Log("Picked up " + gameObject);
 
-        if (attached)
-        {
-            attached = false;
-            anchorPoint.GetComponent<Anchor>().Detach(transform.gameObject);
-            anchorPoint = null;
-        }
+        DetachFromAnchor();
 
         dragging = true;
         mouseDownPosition = transform.position;
@@ -81,6 +100,11 @@ public class Draggable : MonoBehaviour
 
     void OnMouseDrag()
     {
+        if (!enabled)
+        {
+            return;
+        }
+
         if (!dragging)
         {
             return;
@@ -96,8 +120,8 @@ public class Draggable : MonoBehaviour
         if (anchorPoint != null)
         {
 
-            transform.position = anchorPoint.position;
-            transform.rotation = anchorPoint.rotation;
+            transform.position = anchorPoint.transform.position;
+            transform.rotation = anchorPoint.transform.rotation;
         }
         else
         {
@@ -114,7 +138,7 @@ public class Draggable : MonoBehaviour
             AnchorBehavior behavior = hit.transform.GetComponent<AnchorBehavior>();
             if (behavior && behavior.draggableTypes.Contains(draggableType))
             {
-                anchorPoint = hit.transform;
+                anchorPoint = behavior;
             }
         }
         else
@@ -125,6 +149,11 @@ public class Draggable : MonoBehaviour
 
     void OnMouseUp()
     {
+        if (!enabled)
+        {
+            return;
+        }
+
         if (!dragging)
         {
             return;
@@ -139,11 +168,7 @@ public class Draggable : MonoBehaviour
 
         if (anchorPoint)
         {
-            Debug.Log("Attaching " + gameObject + " to anchor point " + anchorPoint);
-            transform.position = anchorPoint.position;
-            transform.rotation = anchorPoint.rotation;
-            attached = true;
-            anchorPoint.GetComponent<Anchor>().Attach(transform.gameObject);
+            AttachToAnchor(anchorPoint.GetComponent<AnchorBehavior>());
         }
         else
         {
@@ -151,5 +176,24 @@ public class Draggable : MonoBehaviour
             transform.position = mouseDownPosition;
             transform.rotation = mouseDownRotation;
         }
+    }
+
+    public void DetachFromAnchor()
+    {
+        if (attached)
+        {
+            attached = false;
+            anchorPoint.GetComponent<AnchorBehavior>().Detach(transform.gameObject);
+            anchorPoint = null;
+        }
+    }
+
+    public void AttachToAnchor(AnchorBehavior anchor)
+    {
+        Debug.Log("Attaching " + gameObject + " to anchor point " + anchor.gameObject);
+        transform.position = anchor.transform.position;
+        transform.rotation = anchor.transform.rotation;
+        attached = true;
+        anchor.Attach(transform.gameObject);
     }
 }

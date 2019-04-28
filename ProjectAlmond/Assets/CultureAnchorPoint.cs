@@ -8,10 +8,10 @@ public class CultureAnchorPointEvent : UnityEvent<GameObject, Culture, CultureAn
 
 public class CultureAnchorPoint : AnchorBehavior
 {
+    public AnchorBehaviorGroup anchorGroup;
     public CultureAnchorPointEvent onAttach;
     public CultureAnchorPointEvent onDetach;
     public Transform cameraAngle;
-
     public GameObject Culture { get; private set; }
 
     CameraController cameraController;
@@ -19,35 +19,43 @@ public class CultureAnchorPoint : AnchorBehavior
     public void Start()
     {
         cameraController = Camera.main.GetComponent<CameraController>();
+
+        if (anchorGroup)
+        {
+            anchorGroup.RegisterAnchor(this);
+        }
     }
 
     public override void Attach(GameObject attachedObject)
     {
-        Culture c = attachedObject.GetComponent<Culture>();
+        base.Attach(attachedObject);
 
-        if(c == null)
+        if (anchorGroup)
         {
-            return;
+            anchorGroup.AnchorAttached(this);
         }
+        else if (cameraAngle)
+        {
+            cameraController.RequestPanToAngle(cameraAngle, 1.0f);
+        }
+
+        Culture c = attachedObject.GetComponent<Culture>();
 
         Culture = attachedObject;
 
         onAttach.Invoke(attachedObject, c, this);
-
-        if(cameraAngle)
-        {
-            cameraController.RequestPanToAngle(cameraAngle, 1.0f);
-        }
     }
 
     public override void Detach(GameObject attachedObject)
     {
-        Culture c = attachedObject.GetComponent<Culture>();
+        base.Detach(attachedObject);
 
-        if (c == null)
+        if (anchorGroup)
         {
-            return;
+            anchorGroup.AnchorDetached(this);
         }
+
+        Culture c = attachedObject.GetComponent<Culture>();
 
         Culture = null;
 

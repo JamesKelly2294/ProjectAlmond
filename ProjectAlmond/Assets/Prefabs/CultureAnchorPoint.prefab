@@ -44,13 +44,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68fa1949c7a575947b8f6c5c1601c389, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  draggableTypes: 0000000001000000
   onAttach:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  cameraAngle: {fileID: 7888624918293999866, guid: b68749cb785aecc44a760b80308f4ecb,
-    type: 3}
+    m_TypeName: CultureAnchorPointEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  onDetach:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: CultureAnchorPointEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  cameraAngle: {fileID: 0}
 --- !u!65 &5759817921022781426
 BoxCollider:
   m_ObjectHideFlags: 0

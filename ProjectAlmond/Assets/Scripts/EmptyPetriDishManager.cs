@@ -13,10 +13,18 @@ public class EmptyPetriDishManager : MonoBehaviour
     [Range(0, 10)]
     public int petriDishStackMaxCount = 5;
     public GameObject emptyPetriDishPrefab;
+    public GameObject anchorPoint;
 
     Vector3 petriDishSpawnOffset = new Vector3(0.0f, 15.0f, 0.0f);
     Stack<GameObject> petriDishes;
     bool currentlyOrderingDish;
+
+    Vector3 CurrentTopOffset {
+        get
+        {
+            return petriDishes.Count * new Vector3(0.0f, petriDishStackHeightBuffer, 0.0f);
+        }
+    }
 
     IEnumerator MovePetriDishToStack(GameObject petriDish, Vector3 target, float transitionDuration)
     {
@@ -49,13 +57,17 @@ public class EmptyPetriDishManager : MonoBehaviour
             return;
         }
 
+        if(petriDishes.Count > 0)
+        {
+            petriDishes.Peek().GetComponent<Draggable>().enabled = false;
+        }
+
         currentlyOrderingDish = true;
 
         GameObject petriDish = Instantiate(emptyPetriDishPrefab);
         petriDish.transform.parent = transform;
         petriDish.transform.localPosition = Vector3.zero + petriDishSpawnOffset;
-        Vector3 target = petriDishes.Count * new Vector3(0.0f, petriDishStackHeightBuffer, 0.0f);
-        StartCoroutine(MovePetriDishToStack(petriDish, target, petriDishFallTime));
+        StartCoroutine(MovePetriDishToStack(petriDish, CurrentTopOffset, petriDishFallTime));
         
         petriDishes.Push(petriDish);
 
