@@ -2852,6 +2852,21 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6723585785852418943, guid: b694b6a07712449649857e7cce96d344,
+        type: 3}
+      propertyPath: onPress.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6723585785852418943, guid: b694b6a07712449649857e7cce96d344,
+        type: 3}
+      propertyPath: onPress.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6723585785852418943, guid: b694b6a07712449649857e7cce96d344,
+        type: 3}
+      propertyPath: onPress.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b694b6a07712449649857e7cce96d344, type: 3}
 --- !u!1 &1428967097
@@ -4100,11 +4115,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 465484859}
     m_Modifications:
-    - target: {fileID: 3524661636658232648, guid: 74dcf6f35fb8046dca85282052dd8c34,
-        type: 3}
-      propertyPath: m_Name
-      value: Genimagic
-      objectReference: {fileID: 0}
     - target: {fileID: 3524661636658232649, guid: 74dcf6f35fb8046dca85282052dd8c34,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4159,6 +4169,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3524661636658232648, guid: 74dcf6f35fb8046dca85282052dd8c34,
+        type: 3}
+      propertyPath: m_Name
+      value: Genimagic
       objectReference: {fileID: 0}
     - target: {fileID: 3524661637372194051, guid: 74dcf6f35fb8046dca85282052dd8c34,
         type: 3}
@@ -4351,6 +4366,36 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5603805803549136206, guid: 74dcf6f35fb8046dca85282052dd8c34,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2547377394734679826, guid: 74dcf6f35fb8046dca85282052dd8c34,
+        type: 3}
+      propertyPath: needleProgress
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4573040095479528949, guid: 74dcf6f35fb8046dca85282052dd8c34,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3584089409835450051, guid: 74dcf6f35fb8046dca85282052dd8c34,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3584089409835450051, guid: 74dcf6f35fb8046dca85282052dd8c34,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3584089409835450051, guid: 74dcf6f35fb8046dca85282052dd8c34,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3584089409835450051, guid: 74dcf6f35fb8046dca85282052dd8c34,
         type: 3}
       propertyPath: m_textInfo.pageCount
       value: 0
