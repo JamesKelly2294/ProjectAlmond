@@ -11,9 +11,15 @@ public class EmptyPetriDishManager : MonoBehaviour
     public float petriDishFallTime = 2.0f;
 
     [Range(0, 10)]
+    public int petriDishCost = 5;
+
+    [Range(0, 10)]
     public int petriDishStackMaxCount = 5;
     public GameObject emptyPetriDishPrefab;
-    public CultureAnchorPoint anchorPoint;
+
+    public GameObject coinDropper;
+
+    public AnchorBehavior anchorPoint;
 
     Vector3 petriDishSpawnOffset = new Vector3(0.0f, 15.0f, 0.0f);
     Stack<GameObject> petriDishes;
@@ -66,6 +72,13 @@ public class EmptyPetriDishManager : MonoBehaviour
             return;
         }
 
+        coinDropper.GetComponent<CoinDropper>().take(petriDishCost);
+
+        if(petriDishes.Count > 0)
+        {
+            petriDishes.Peek().GetComponent<Draggable>().enabled = false;
+        }
+
         currentlyOrderingDish = true;
 
         GameObject petriDish = Instantiate(emptyPetriDishPrefab);
@@ -96,6 +109,10 @@ public class EmptyPetriDishManager : MonoBehaviour
 
     bool ValidatePurchase()
     {
+        if (!coinDropper.GetComponent<CoinDropper>().canTake(petriDishCost)) {
+            return false;
+        }
+
         return !currentlyOrderingDish && petriDishes.Count < petriDishStackMaxCount;
     }
 
@@ -103,8 +120,6 @@ public class EmptyPetriDishManager : MonoBehaviour
     void Start()
     {
         petriDishes = new Stack<GameObject>(8);
-        anchorPoint.onAttach.AddListener(OnAnchorPointAttach);
-        anchorPoint.onDetach.AddListener(OnAnchorPointDetach);
         //anchorPoint.onDet.AddListener(OnAnchorPointDetach);
     }
 

@@ -74,6 +74,26 @@ public class CoinDropper : MonoBehaviour
         }
     }
 
+    public void give(int coins) {
+        if (coins > 0 ) {
+            numberOfCoinsNeedingVending += coins;
+        }
+    }
+
+    public void take(int coins) {
+        if (canTake(coins)) {
+            numberOfCoinsNeedingConsuming += coins;
+        }
+    }
+
+    public bool canTake(int coins) {
+        if (coins > 0 && numberOfCoinsVisable >= coins ) {
+            return true;
+        }
+
+        return false;
+    }
+
     private IEnumerator AddCoin(GameObject coin)
     {
         yield return new WaitForSeconds(2.0f);
