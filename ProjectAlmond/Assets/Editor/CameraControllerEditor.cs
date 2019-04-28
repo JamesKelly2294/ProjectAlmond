@@ -37,6 +37,10 @@ public class CameraControllerEditor : Editor
             cameraController.PanToAngle(cameraController.genimagic, 1.0f);
         }
 
+        if (GUILayout.Button("Check-o-matic"))
+        {
+            cameraController.PanToAngle(cameraController.checkomatic, 1.0f);
+        }
     }
     
 }

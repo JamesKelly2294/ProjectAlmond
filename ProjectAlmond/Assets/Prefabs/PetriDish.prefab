@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8625050361119894647}
   - component: {fileID: 8625050361119894646}
+  - component: {fileID: -4975849888995722574}
   m_Layer: 0
-  m_Name: PetriDish8
+  m_Name: PetriDish
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51,6 +52,17 @@ MonoBehaviour:
   persistance: 0.41
   lacunarity: 0.164
   offset: {x: 1.12, y: 0.51}
-  growth: 0.28
   cellCount: 250
   cellGroupCount: 10
+--- !u!114 &-4975849888995722574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8625050361119894641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 435348233da712a48bd2c39f43aa56c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -66,9 +66,18 @@ public class CultureRenderer : MonoBehaviour
 
     int randomOffset;
 
+    bool initalized;
+
     // Start is called before the first frame update
     void Start()
     {
+
+    }
+
+    public void Initialize(CultureGenome genome)
+    {
+        initalized = true;
+
         dish = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
         dish.transform.parent = transform;
         dish.transform.localScale = new Vector3(petriDishRadius * 2.0f, petriDishHeight, petriDishRadius * 2.0f);
@@ -78,7 +87,8 @@ public class CultureRenderer : MonoBehaviour
 
         randomOffset = Random.Range(0, 250000);
 
-        Color baseColor = Random.ColorHSV(0.0f, 1.0f, 0.65f, 1.00f, 0.45f, 0.75f);
+        //Color baseColor = Random.ColorHSV(0.0f, 1.0f, 0.65f, 1.00f, 0.45f, 0.75f);
+        Color baseColor = genome.color;
         cellMaterials = new List<Material>(cellGroupCount);
 
         for (int i = 0; i < cellGroupCount; i++)
@@ -101,6 +111,10 @@ public class CultureRenderer : MonoBehaviour
     //int counter = 0;
     private void FixedUpdate()
     {
+        if(!initalized)
+        {
+            return;
+        }
         //counter++;
         //if (counter % 4 == 0)
         //{

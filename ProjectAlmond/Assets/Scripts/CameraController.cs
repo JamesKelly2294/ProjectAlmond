@@ -8,6 +8,7 @@ public class CameraController : MonoBehaviour
     public Transform baseview;
     public Transform petriDishes;
     public Transform genimagic;
+    public Transform checkomatic;
 
     // Start is called before the first frame update
     void Start()
