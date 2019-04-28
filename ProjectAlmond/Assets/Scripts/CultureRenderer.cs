@@ -168,8 +168,6 @@ public class CultureRenderer : MonoBehaviour
 
     void GenerateCulture()
     {
-        Random.InitState(seed);
-
         if (!culture)
         {
             culture = new GameObject
@@ -218,7 +216,7 @@ public class CultureRenderer : MonoBehaviour
         cellPositions = (from cell in cells
                                        select cell.transform.localPosition).ToList();
 
-
+        int seed = Random.Range(0, int.MaxValue);
         cellRadii = PerlinNoise(cellPositions, seed, scale, octaves, persistance, lacunarity, offset);
         cellRadii = (from radius in cellRadii
                      select (radius + 0.5f) * 0.75f).ToList();
