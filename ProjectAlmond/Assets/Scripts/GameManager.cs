@@ -287,12 +287,12 @@ m_Instance = singletonObject.AddComponent<GameManager>();
         if (lastGrowthRenderUpdate > TimeBetweenCultureRenderUpdates)
         {
             lastGrowthRenderUpdate = 0.0f;
-            StartCoroutine(UpdateCultureRenderForGrowth());
+            UpdateCultureRenderForGrowth();
         }
 
     }
 
-    private IEnumerator UpdateCultureRenderForGrowth()
+    private void UpdateCultureRenderForGrowth()
     {
         Debug.Log("Number of growable cultures: " + GrowableCultures.Count);
 
@@ -301,7 +301,6 @@ m_Instance = singletonObject.AddComponent<GameManager>();
             var renderer = culture.GetComponent<CultureRenderer>();
             renderer.Growth = culture.Growth;
             Debug.Log("Rerendering cultures: Growth = " + culture.Growth);
-            yield return 0;
         }
     }
 

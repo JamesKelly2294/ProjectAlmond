@@ -53,7 +53,7 @@ public class PneumaticTube : MonoBehaviour
             yield return 0;
         }
 
-        Destroy(disk, 0.1f);
+        disk.GetComponent<Culture>().Growth = -1;
     }
 
     void resetText() {
