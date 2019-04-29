@@ -51,9 +51,10 @@ public class ReagentBehavior : MonoBehaviour
 
     public GameObject PluckedReagent()
     {
-        if (coinDropper.numberOfCoinsVisable >= reagentData.price)
+        if (coinDropper.numberOfCoinsVisable < reagentData.price)
         {
-
+            // TODO: play sound here
+            return null;
         }
 
         GameObject plucked = GameObject.CreatePrimitive(PrimitiveType.Sphere);
