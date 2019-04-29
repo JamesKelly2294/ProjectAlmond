@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 543156478235708099}
   - component: {fileID: 135024389676719983}
   m_Layer: 0
-  m_Name: Resource Label
+  m_Name: Product Name Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -205,7 +205,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: Chilli Peppers
+  m_text: fawefw
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 702c61460f4d80d42a88c1d8e09cfacc, type: 2}
   m_sharedMaterial: {fileID: 1856804968301812716, guid: 702c61460f4d80d42a88c1d8e09cfacc,
@@ -275,10 +275,10 @@ MonoBehaviour:
   m_margin: {x: -1.2458616, y: -2.333644, z: 9.83661, w: 4.3571887}
   m_textInfo:
     textComponent: {fileID: 135024389676719983}
-    characterCount: 14
+    characterCount: 6
     spriteCount: 0
-    spaceCount: 1
-    wordCount: 2
+    spaceCount: 0
+    wordCount: 1
     linkCount: 0
     lineCount: 1
     pageCount: 1
@@ -312,7 +312,7 @@ GameObject:
   - component: {fileID: 1479731870651479529}
   - component: {fileID: 8395370289527312618}
   m_Layer: 0
-  m_Name: Resource Flavor Text Label
+  m_Name: Flavor Text Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -410,7 +410,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: '"So hot!"'
+  m_text: fawefawfwe
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 702c61460f4d80d42a88c1d8e09cfacc, type: 2}
   m_sharedMaterial: {fileID: 1856804968301812716, guid: 702c61460f4d80d42a88c1d8e09cfacc,
@@ -480,10 +480,10 @@ MonoBehaviour:
   m_margin: {x: -3.1875293, y: -2.333644, z: 10.76687, w: 5.0631423}
   m_textInfo:
     textComponent: {fileID: 8395370289527312618}
-    characterCount: 9
+    characterCount: 10
     spriteCount: 0
-    spaceCount: 1
-    wordCount: 2
+    spaceCount: 0
+    wordCount: 1
     linkCount: 0
     lineCount: 1
     pageCount: 1
@@ -516,7 +516,7 @@ GameObject:
   - component: {fileID: 333893985506805483}
   - component: {fileID: 9143878498213450662}
   m_Layer: 0
-  m_Name: Resource
+  m_Name: Reagent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -603,8 +603,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8549525195948345627}
+  - component: {fileID: 5181726469277425291}
   m_Layer: 0
-  m_Name: Resource
+  m_Name: Reagent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -627,6 +628,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5181726469277425291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7991916191847692256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39661fe061d33b345b7c117f1fb505ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reagentData: {fileID: 11400000, guid: 5140fd29a1603674d9f0888b03ec5d8f, type: 2}
+  reagentRenderer: {fileID: 333893985506805483}
+  productNameLabel: {fileID: 135024389676719983}
+  flavorTextLabel: {fileID: 8395370289527312618}
 --- !u!1 &8005914586559814645
 GameObject:
   m_ObjectHideFlags: 0
