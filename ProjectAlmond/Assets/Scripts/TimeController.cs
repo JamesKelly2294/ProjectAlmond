@@ -9,17 +9,6 @@ public class TimeController : MonoBehaviour
     public float SecondsPerInGameDay = 30.0f;
 
     /// <summary>
-    /// The number of seconds (though this will usually be milliseconds)
-    /// to wait before triggering updates on culture growth levels.
-    /// </summary>
-    public float SecondsPerGrowthCheck = 10 * (1 / 60.0f);
-
-    /// <summary>
-    /// I said a bad word.
-    /// </summary>
-    public float GrowthRetardingFactor = 0.01f;
-
-    /// <summary>
     /// The days per game.
     /// </summary>
     public int DaysPerGame = 30;
@@ -28,11 +17,6 @@ public class TimeController : MonoBehaviour
     /// The accumulated time.
     /// </summary>
     private float timeSinceInGameDayStarted = 0.0f;
-
-    /// <summary>
-    /// The time since last growth check.
-    /// </summary>
-    private float timeSinceLastGrowthCheck = 0;
 
     /// <summary>
     /// The number of days which have passed.
@@ -69,9 +53,6 @@ public class TimeController : MonoBehaviour
         // Track the accumulated time so far.
         IncrementTime();
 
-        // Kick off any tasks related to incrementing culture growth.
-        IncrementGrowth();
-
         // Kick off any tasks which are dependent upon the game ending.
         CheckForGameEnd();
 
@@ -83,7 +64,6 @@ public class TimeController : MonoBehaviour
     {
         var delta = Time.timeScale * Time.deltaTime;
         timeSinceInGameDayStarted += delta;
-        timeSinceLastGrowthCheck += delta;
     }
 
     private void TimeStarted()
@@ -104,40 +84,6 @@ public class TimeController : MonoBehaviour
         }
     }
 
-    private void IncrementGrowth()
-    {
-        var cultures = FindObjectsOfType<Culture>();
-        if (cultures == null || cultures.Length == 0) {
-            return;
-        }
-
-        foreach (var culture in cultures)
-        {
-            // Cap growth at 100%
-            if (culture.Growth >= 1.0f)
-            {
-                culture.Growth = 1.0f;
-            }
-
-            // Remove the culture if it dies or is used up.
-            else if (culture.Growth < 0.001f)
-            {
-                Destroy(culture.gameObject);
-                //culture.GetComponent<Draggable>().draggableType = DraggableType.EmptyDish;
-                //var renderer = culture.GetComponent<CultureRenderer>();
-                //Destroy(renderer);
-            }
-
-            // Increment growth.
-            else
-            {
-                var growthFactor = (float)culture.Genome.growRate.value;
-                var delta = GrowthRetardingFactor * Time.timeScale * Time.deltaTime * growthFactor;
-                culture.Growth += delta;
-            }
-        }
-    }
-
     private void CheckForGameEnd()
     {
         if (daysPassed > DaysPerGame)
@@ -155,16 +101,12 @@ public class TimeController : MonoBehaviour
         clock.setDay(daysPassed);
     }
 
-    // At some interval, queue up the cultures, look at their growth rate, and grow them by some amount
-    // This should probably happen in the GameManager by the time will trigger the 
-
     private void OnGameOver()
     {
         isDone = true;
 
         if(clock != null)
         {
-            clock.setDay(1);
             clock.stopClock();
         }
 

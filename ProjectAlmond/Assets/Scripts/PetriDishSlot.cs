@@ -6,6 +6,7 @@ public class PetriDishSlot : MonoBehaviour
 {
     public bool spawnPetriDishOnStart;
     public GameObject petriDishPrefab;
+    public float cultureInitialGrowth = 0.25f;
 
     public bool shouldSpawnEvilPetriDish;
 
@@ -39,6 +40,7 @@ public class PetriDishSlot : MonoBehaviour
 
     void spawn() {
         petriDish = Instantiate(petriDishPrefab);
+        petriDish.GetComponent<Culture>().Growth = cultureInitialGrowth;
         petriDish.GetComponent<Draggable>().AttachToAnchor(GetComponentInChildren<AnchorBehavior>());
 
         petriDish.transform.rotation = transform.rotation;

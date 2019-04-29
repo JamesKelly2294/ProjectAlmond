@@ -78,6 +78,7 @@ public class Clock : MonoBehaviour
 
     public void stopClock()
     {
+        setDay(1);
         this.isLive = false;
     }
 }

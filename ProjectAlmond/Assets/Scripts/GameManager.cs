@@ -22,6 +22,13 @@ public class GameManager : MonoBehaviour
     CameraController cameraController;
     float spotAngleHigh;
     float spotAngleLow = 23;
+
+
+    /// <summary>
+    /// I said a bad word.
+    /// </summary>
+    public float GrowthRetardingFactor = 0.01f;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -118,6 +125,47 @@ public class GameManager : MonoBehaviour
         if(Input.GetKeyUp(KeyCode.Escape))
         {
             Application.Quit();
+        }
+
+        // Kick off any tasks related to incrementing culture growth.
+        IncrementGrowth();
+    }
+
+    // At some interval, queue up the cultures, look at their growth rate, and grow them by some amount
+    // This should probably happen in the GameManager by the time will trigger the 
+
+    private void IncrementGrowth()
+    {
+        var cultures = FindObjectsOfType<Culture>();
+        if (cultures == null || cultures.Length == 0)
+        {
+            return;
+        }
+
+        foreach (var culture in cultures)
+        {
+            // Cap growth at 100%
+            if (culture.Growth >= 1.0f)
+            {
+                culture.Growth = 1.0f;
+            }
+
+            // Remove the culture if it dies or is used up.
+            else if (culture.Growth < 0.001f && culture.Growth > -0.001)
+            {
+                Destroy(culture.gameObject);
+                //culture.GetComponent<Draggable>().draggableType = DraggableType.EmptyDish;
+                //var renderer = culture.GetComponent<CultureRenderer>();
+                //Destroy(renderer);
+            }
+
+            // Increment growth.
+            else
+            {
+                var growthFactor = (float) culture.Genome.growRate.value;
+                var delta = GrowthRetardingFactor * Time.timeScale * Time.deltaTime * growthFactor;
+                culture.Growth += delta;
+            }
         }
     }
 
