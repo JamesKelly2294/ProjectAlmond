@@ -107,13 +107,15 @@ public class CultureRenderer : MonoBehaviour
         SetGenome(genome);
     }
 
-    //int counter = 0;
+
+    //static int counter = 0;
     private void FixedUpdate()
     {
         if(!initalized)
         {
             return;
         }
+
         //counter++;
         //if (counter % 4 == 0)
         //{
@@ -208,7 +210,7 @@ public class CultureRenderer : MonoBehaviour
             Transform oldParent = cell.transform.parent;
             cell.transform.parent = null;
             //float cellRadiusModifier = Mathf.Max(0.7f, 1.25f * sqrtGrowth) * cellRadii[i] + (0.15f * Mathf.Sin(Time.time + cell.transform.localPosition.x + cell.transform.localPosition.y));
-            float cellRadiusModifier = _growth * cellRadii[i] + (0.15f * Mathf.Sin(Time.time + cell.transform.localPosition.x + cell.transform.localPosition.y));
+            float cellRadiusModifier = _growth * cellRadii[i] + 0.15f; // + (0.15f * Mathf.Sin(Time.time + cell.transform.localPosition.x + cell.transform.localPosition.y));
             Vector3 cellScale = new Vector3(cellRadius * cellRadiusModifier, cellRadius * cellRadiusModifier, cellRadius * cellRadiusModifier);
             cell.transform.localScale = cellScale;
             cell.transform.parent = oldParent;

@@ -312,7 +312,7 @@ m_Instance = singletonObject.AddComponent<GameManager>();
         if (lastGrowthRenderUpdate > TimeBetweenCultureRenderUpdates)
         {
             lastGrowthRenderUpdate = 0.0f;
-            UpdateCultureRenderForGrowth();
+            //UpdateCultureRenderForGrowth();
         }
 
     }
