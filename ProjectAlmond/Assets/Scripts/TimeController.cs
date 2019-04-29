@@ -113,10 +113,22 @@ public class TimeController : MonoBehaviour
 
         foreach (var culture in cultures)
         {
+            // Cap growth at 100%
             if (culture.Growth >= 1.0f)
             {
                 culture.Growth = 1.0f;
             }
+
+            // Remove the culture if it dies or is used up.
+            else if (culture.Growth < 0.001f)
+            {
+                Destroy(culture.gameObject);
+                //culture.GetComponent<Draggable>().draggableType = DraggableType.EmptyDish;
+                //var renderer = culture.GetComponent<CultureRenderer>();
+                //Destroy(renderer);
+            }
+
+            // Increment growth.
             else
             {
                 var growthFactor = (float)culture.Genome.growRate.value;
