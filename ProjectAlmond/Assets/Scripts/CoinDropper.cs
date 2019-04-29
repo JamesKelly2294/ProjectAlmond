@@ -94,6 +94,14 @@ public class CoinDropper : MonoBehaviour
         return false;
     }
 
+    public void prepareToTake(int coins) {
+        if (coins > 0 && numberOfCoinsVisable >= coins ) {
+            coinTray.GetComponentInChildren<TMPro.TextMeshPro>().text = "" + (numberOfCoinsVisable - coins);
+        } else {
+            coinTray.GetComponentInChildren<TMPro.TextMeshPro>().text = "" + numberOfCoinsVisable;
+        }
+    }
+
     private IEnumerator AddCoin(GameObject coin)
     {
         yield return new WaitForSeconds(2.0f);

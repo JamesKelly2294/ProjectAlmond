@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
 
     public CultureGenome winningGenome;
 
+    public CoinDropper coinDropper;
+
     bool gameBegun;
     GameObject beginButton;
     GameObject learnButton;
