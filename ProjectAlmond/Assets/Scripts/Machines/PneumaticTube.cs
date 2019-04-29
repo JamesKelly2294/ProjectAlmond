@@ -27,7 +27,7 @@ public class PneumaticTube : MonoBehaviour
         coinDropper.GetComponent<CoinDropper>().give(100);
 
         Destroy(g.GetComponentInChildren<Rigidbody>());
-        StartCoroutine(TakeDisk(g, 1f));
+        StartCoroutine(TakeDisk(g, 0.3f));
     }
 
     public void diskIsHovering(GameObject g, Culture c, CultureAnchorPoint a)

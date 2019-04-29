@@ -21,7 +21,8 @@ public class PluckedReagentAnchorPoint : AnchorBehavior
         base.Attach(attachedObject);
         attachedObject.AddComponent<Rigidbody>();
 
-        GameObject.FindObjectOfType<GameManager>().coinDropper.take(40);
+        var price = (attachedObject.GetComponentInChildren<Draggable>().Data as ReagentData).price;
+        GameObject.FindObjectOfType<GameManager>().coinDropper.take(price);
     }
 
     public override void Detach(GameObject attachedObject)
@@ -32,7 +33,8 @@ public class PluckedReagentAnchorPoint : AnchorBehavior
     public override void HoverDidChange(GameObject hoveredObject, bool isHovering)
     {
         if (isHovering) {
-            GameObject.FindObjectOfType<GameManager>().coinDropper.prepareToTake(40);
+            var price = (hoveredObject.GetComponentInChildren<Draggable>().Data as ReagentData).price;
+            GameObject.FindObjectOfType<GameManager>().coinDropper.prepareToTake(price);
         } else {
             GameObject.FindObjectOfType<GameManager>().coinDropper.prepareToTake(0);
         }
