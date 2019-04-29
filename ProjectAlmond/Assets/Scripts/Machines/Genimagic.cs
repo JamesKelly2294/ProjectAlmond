@@ -9,31 +9,16 @@ public class Genimagic : MonoBehaviour
     Culture culture;
     CultureAnchorPoint cultureAnchor;
 
+    public GameObject screen;
+
     System.Random rand = new System.Random();
 
-    public List<List<AlleleModifier>> modifiers = new List<List<AlleleModifier>>();
+    public List<ReagentData> modifiers = new List<ReagentData>();
 
     // Start is called before the first frame update
     void Start()
     {
-        var a = new List<AlleleModifier>();
-        a.Add(new AlleleModifier(AlleleType.HeatResistance, AlleleEffect.Increase, AlleleStrength.Strong));
-
-        var b = new List<AlleleModifier>();
-        a.Add(new AlleleModifier(AlleleType.RadiationResistance, AlleleEffect.Increase, AlleleStrength.Strong));
-
-        var c = new List<AlleleModifier>();
-        a.Add(new AlleleModifier(AlleleType.ColdResistance, AlleleEffect.Increase, AlleleStrength.Strong));
-
-
-        modifiers.Add(a);
-        modifiers.Add(b);
-        modifiers.Add(c);
-
-        modifiers.Add(a);
-        modifiers.Add(b);
-        modifiers.Add(c);
-
+        evaluatePowerAndDanger();
     }
 
     private bool shouldStartRunning = false;
@@ -65,8 +50,10 @@ public class Genimagic : MonoBehaviour
                 modifiers.RemoveAt(0);
 
                 Debug.Log("Working on: " + modifier);
-                culture.Genome.apply(modifier, rand);
+                culture.Genome.apply(modifier.modifiers, rand);
                 culture.SetGenome(culture.Genome);
+
+                evaluatePowerAndDanger();
             }
 
             Debug.Log(attachedDish);
@@ -85,11 +72,13 @@ public class Genimagic : MonoBehaviour
 
             running = false;
             shouldEject = false;
+
+            evaluatePowerAndDanger();
         }
     }
 
     public void runButtonWasPressed() {
-        if (!shouldEject && !running) {
+        if (!shouldEject && !running && modifiers.Count > 0 && attachedDish != null) {
             shouldStartRunning = true;
         }
     }
@@ -107,19 +96,40 @@ public class Genimagic : MonoBehaviour
         culture = c;
         cultureAnchor = a;
 
-        this.GetComponentInChildren<Gauge>().SetNeedleProgress(0.7f, 0.1f);
+        evaluatePowerAndDanger();
     }
 
     public void diskWasDetached(GameObject g, Culture c, CultureAnchorPoint a)
     {
-        this.GetComponentInChildren<Gauge>().SetNeedleProgress(0.0f, 0.1f);
-
         attachedDish = null;
         culture = null;
         cultureAnchor = null;
+
+        evaluatePowerAndDanger();
     }
 
     public void reagentWasDropped(GameObject droppedObject, ReagentData data, PluckedReagentAnchorPoint point) {
-        Debug.Log("Price was: " + data.price);
+        modifiers.Add(data);
+        evaluatePowerAndDanger();
+    }
+
+    public void evaluatePowerAndDanger() {
+        if (modifiers.Count == 0) {
+            screen.GetComponent<TMPro.TextMeshPro>().text = "";
+        } else {
+            var str = "";
+
+            foreach (var data in modifiers) {
+                str += "" + data.name + "\n";
+            }
+
+            screen.GetComponent<TMPro.TextMeshPro>().text = str;
+        }
+
+        if (attachedDish == null) {
+            this.GetComponentInChildren<Gauge>().SetNeedleProgress(0.0f, 0.1f);
+        } else {
+            this.GetComponentInChildren<Gauge>().SetNeedleProgress(Mathf.Min(0.1f * modifiers.Count, 1f), 0.1f);
+        }
     }
 }
