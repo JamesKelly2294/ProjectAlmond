@@ -27,13 +27,13 @@ public class PetriDishSlot : MonoBehaviour
     void Update()
     {
        if (shouldSpawnEvilPetriDish) {
-            var winningGenome = FindObjectOfType<GameManager>().winningGenome;
+            var diseaseGenome = FindObjectOfType<GameManager>().diseaseGenome;
             shouldSpawnEvilPetriDish = false;
 
             spawn(true);
 
             var cultureRenderer = GetComponentInChildren<CultureRenderer>();
-            cultureRenderer.SetGenome(winningGenome);
+            cultureRenderer.SetGenome(diseaseGenome);
        } 
     }
 

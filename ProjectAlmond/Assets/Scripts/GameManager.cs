@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     EmptyPetriDishManager emptyPetriDishManager;
 
     public CultureGenome winningGenome;
+    public CultureGenome diseaseGenome;
 
     public CoinDropper coinDropper;
 
@@ -212,12 +213,17 @@ public class GameManager : MonoBehaviour
 
     public void GenerateWinning() {
         var rand = new System.Random();
-        Allele[] allels = new Allele[CultureGenome.Length];
+        Allele[] wAllels = new Allele[CultureGenome.Length];
+        Allele[] lAllels = new Allele[CultureGenome.Length];
         for (var i = 0; i < CultureGenome.Length; i++) {
-            allels[i] = new Allele(rand.Next(0, Allele.AlleleStrength));
+            wAllels[i] = new Allele(rand.Next(0, Allele.AlleleStrength));
+            lAllels[i] = new Allele(Allele.AlleleStrength - wAllels[i].value);
         }
 
-        winningGenome = new CultureGenome(allels);
+        winningGenome = new CultureGenome(wAllels);
+        diseaseGenome = new CultureGenome(lAllels);
+        
         Debug.Log("Winning Genome is: " + winningGenome.String);
+        Debug.Log("Disease Genome is: " + diseaseGenome.String);
     }
 }

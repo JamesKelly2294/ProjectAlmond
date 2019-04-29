@@ -121,7 +121,7 @@ public class Genimagic : MonoBehaviour
             var str = "";
 
             foreach (var data in modifiers) {
-                str += "" + data.name + "\n";
+                str += "" + data.productName + "\n";
             }
 
             screen.GetComponent<TMPro.TextMeshPro>().text = str;

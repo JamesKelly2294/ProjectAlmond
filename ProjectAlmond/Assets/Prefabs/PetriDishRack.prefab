@@ -213,7 +213,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4894026370653392618}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -296,17 +296,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7388704903363151654, guid: c227fde1c06895f4faff76f26758cc39,
         type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7388704903363151654, guid: c227fde1c06895f4faff76f26758cc39,
-        type: 3}
       propertyPath: m_LocalScale.z
       value: 0.397059
-      objectReference: {fileID: 0}
-    - target: {fileID: 40878513, guid: c227fde1c06895f4faff76f26758cc39, type: 3}
-      propertyPath: spawnPetriDishOnStart
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c227fde1c06895f4faff76f26758cc39, type: 3}
@@ -390,22 +381,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7388704903363151654, guid: c227fde1c06895f4faff76f26758cc39,
         type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7388704903363151654, guid: c227fde1c06895f4faff76f26758cc39,
-        type: 3}
       propertyPath: m_LocalScale.z
       value: 0.397059
-      objectReference: {fileID: 0}
-    - target: {fileID: 40878513, guid: c227fde1c06895f4faff76f26758cc39, type: 3}
-      propertyPath: spawnPetriDishOnStart
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5189644336744416565, guid: c227fde1c06895f4faff76f26758cc39,
-        type: 3}
-      propertyPath: cameraAngle
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c227fde1c06895f4faff76f26758cc39, type: 3}
@@ -499,6 +476,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 40878513, guid: c227fde1c06895f4faff76f26758cc39, type: 3}
       propertyPath: spawnPetriDishOnStart
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 40878513, guid: c227fde1c06895f4faff76f26758cc39, type: 3}
+      propertyPath: cultureInitialGrowth
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -595,6 +576,10 @@ PrefabInstance:
       propertyPath: spawnPetriDishOnStart
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 40878513, guid: c227fde1c06895f4faff76f26758cc39, type: 3}
+      propertyPath: cultureInitialGrowth
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c227fde1c06895f4faff76f26758cc39, type: 3}
 --- !u!4 &2693962899048724299 stripped
@@ -677,17 +662,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7388704903363151654, guid: c227fde1c06895f4faff76f26758cc39,
         type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7388704903363151654, guid: c227fde1c06895f4faff76f26758cc39,
-        type: 3}
       propertyPath: m_LocalScale.z
       value: 0.397059
-      objectReference: {fileID: 0}
-    - target: {fileID: 40878513, guid: c227fde1c06895f4faff76f26758cc39, type: 3}
-      propertyPath: spawnPetriDishOnStart
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c227fde1c06895f4faff76f26758cc39, type: 3}
@@ -779,10 +755,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.397059
       objectReference: {fileID: 0}
-    - target: {fileID: 40878513, guid: c227fde1c06895f4faff76f26758cc39, type: 3}
-      propertyPath: spawnPetriDishOnStart
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c227fde1c06895f4faff76f26758cc39, type: 3}
 --- !u!4 &2693962898438451593 stripped
@@ -873,10 +845,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.397059
       objectReference: {fileID: 0}
-    - target: {fileID: 40878513, guid: c227fde1c06895f4faff76f26758cc39, type: 3}
-      propertyPath: spawnPetriDishOnStart
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c227fde1c06895f4faff76f26758cc39, type: 3}
 --- !u!4 &2693962898440172803 stripped
@@ -959,17 +927,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7388704903363151654, guid: c227fde1c06895f4faff76f26758cc39,
         type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7388704903363151654, guid: c227fde1c06895f4faff76f26758cc39,
-        type: 3}
       propertyPath: m_LocalScale.z
       value: 0.397059
-      objectReference: {fileID: 0}
-    - target: {fileID: 40878513, guid: c227fde1c06895f4faff76f26758cc39, type: 3}
-      propertyPath: spawnPetriDishOnStart
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c227fde1c06895f4faff76f26758cc39, type: 3}
