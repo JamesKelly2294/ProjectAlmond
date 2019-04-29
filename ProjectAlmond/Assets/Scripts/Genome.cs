@@ -5,7 +5,7 @@ using UnityEngine;
 public struct Allele {
     public byte value;
 
-    public static int AlleleStrength = 4; // Adjust range to allow stronger Alleles.
+    public static int AlleleStrength = 7; // Adjust range to allow stronger Alleles.
 
     public Allele(byte initialValue) {
         value = (byte)Mathf.Min(initialValue, Allele.AlleleStrength); 
@@ -123,8 +123,8 @@ public class CultureGenome: Genome {
         var strength = 0;
         switch (modifier.strength)
         {
-            case AlleleStrength.Strong: { strength = 1; break; }
-            case AlleleStrength.Weak: { strength = 3; break; }
+            case AlleleStrength.Strong: { strength = 3; break; }
+            case AlleleStrength.Weak: { strength = 1; break; }
             case AlleleStrength.Random: { strength = rand.Next(0, 3); break; }
         }
 

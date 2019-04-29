@@ -33,8 +33,6 @@ public class Genimagic : MonoBehaviour
         if (shouldStartRunning) {
             Debug.Log("RUN GENIMAGIC");
             this.GetComponentInChildren<DishReceptical>().startAnimating();
-            this.GetComponentInChildren<Gauge>().SetNeedleProgress(0.95f, 0.1f);
-            this.GetComponentInChildren<DishReceptical>().startAnimating();
             attachedDish.GetComponentInChildren<Draggable>().LockUserInteraction();
             attachedDish.GetComponentInChildren<Culture>().dishLabel = "";
             running = true;
@@ -51,6 +49,7 @@ public class Genimagic : MonoBehaviour
 
                 Debug.Log("Working on: " + modifier);
                 culture.Genome.apply(modifier.modifiers, rand);
+                culture.Genome.mutate(rand);
                 culture.SetGenome(culture.Genome);
 
                 evaluatePowerAndDanger();
@@ -79,7 +78,7 @@ public class Genimagic : MonoBehaviour
 
     public void runButtonWasPressed() {
         Debug.Log("Run Button was Pressed...");
-        if (!shouldEject && !running && modifiers.Count > 0) {
+        if (!shouldEject && !running && modifiers.Count > 0 && attachedDish != null) {
             Debug.Log("Setting should run...");
             shouldStartRunning = true;
         }
@@ -131,7 +130,8 @@ public class Genimagic : MonoBehaviour
         if (attachedDish == null) {
             this.GetComponentInChildren<Gauge>().SetNeedleProgress(0.0f, 0.1f);
         } else {
-            this.GetComponentInChildren<Gauge>().SetNeedleProgress(Mathf.Min(0.1f * modifiers.Count, 1f), 0.1f);
+            var danger = Allele.AlleleStrength - attachedDish.GetComponent<Culture>().Genome.radiationResistance.value;
+            this.GetComponentInChildren<Gauge>().SetNeedleProgress(Mathf.Min(((float)danger)/((float)Allele.AlleleStrength), 1f), 0.1f);
         }
     }
 }

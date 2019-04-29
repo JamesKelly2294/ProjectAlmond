@@ -12,11 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16d678ba7b47f3c4e86383a0d814fe2e, type: 3}
   m_Name: ReagentB
   m_EditorClassIdentifier: 
-  productName: Cold
-  flavorText: Vrr cold
   color: {r: 0, g: 0.6218536, b: 1, a: 1}
   emissiveness: 0.3
-  modifiers: []
+  productName: Ice
+  flavorText: Something Something Alaska
+  price: 20
+  modifiers:
+  - type: 0
+    effect: 1
+    strength: 1
+  - type: 4
+    effect: 0
+    strength: 0
+  - type: 2
+    effect: 1
+    strength: 1
+  - type: 7
+    effect: 2
+    strength: 2
   OnValidation:
     m_PersistentCalls:
       m_Calls: []
