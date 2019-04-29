@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
     float spotAngleHigh;
     float spotAngleLow = 23;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         cameraController = Camera.main.GetComponent<CameraController>();
         petriDishSlots = FindObjectsOfType<PetriDishSlot>().ToList();

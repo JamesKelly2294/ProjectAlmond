@@ -53,6 +53,7 @@ public class CultureRenderer : MonoBehaviour
     [Range(1, 20)]
     public int cellGroupCount;
 
+    GameObject petriDishContainer;
     GameObject dish;
     GameObject culture;
     List<GameObject> cellGroups;
@@ -78,12 +79,26 @@ public class CultureRenderer : MonoBehaviour
 
     public void Initialize(CultureGenome genome)
     {
+        if(initalized)
+        {
+            return;
+        }
+
         initalized = true;
+
+        petriDishContainer = new GameObject
+        {
+            name = "Petri Dish Container"
+        };
+        petriDishContainer.transform.parent = transform;
+        petriDishContainer.transform.localPosition = Vector3.zero;
+        petriDishContainer.transform.rotation = transform.rotation;
 
         dish = Instantiate(dishPrefab);
         dish.transform.parent = transform;
         dish.transform.localScale = new Vector3(petriDishRadius * 2.0f, petriDishHeight * 2, petriDishRadius * 2.0f);
         dish.transform.localPosition = Vector3.zero;
+        dish.transform.rotation = transform.rotation;
         dish.GetComponent<MeshRenderer>().material = dishMaterial;
         dish.name = "Dish";
 
@@ -122,44 +137,18 @@ public class CultureRenderer : MonoBehaviour
         }
     }
 
-    void GenerateRadialCulture()
-    {
-        //int rings = 12;
-        //int samples = 1;
-        //for (int r = 0; r < rings; r++)
-        //{
-        //    float radius = (r / (float)rings) * petriDishRadius;
-        //    for (int theta = 0; theta < samples; theta++)
-        //    {
-        //        float radians = (theta / (float)samples) * (Mathf.PI * 2.0f);
-        //        GameObject cell = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-        //        cell.transform.position = new Vector3(radius * Mathf.Cos(radians), petriDishHeight, radius * Mathf.Sin(radians));
-        //        cell.transform.parent = culture.transform;
-        //        cell.GetComponent<MeshRenderer>().material = cellMaterial;
-        //        cells.Add(cell);
-        //    }
-
-        //    if(r % 2 == 0)
-        //    {
-        //        samples += 3;
-        //    }
-        //    else
-        //    {
-        //        samples += 2;
-        //    }
-        //}
-    }
-
     void GenerateCulture()
     {
+
         if (!culture)
         {
             culture = new GameObject
             {
                 name = "Culture"
             };
-            culture.transform.parent = transform;
+            culture.transform.parent = petriDishContainer.transform;
             culture.transform.localPosition = Vector3.zero;
+            culture.transform.localRotation = Quaternion.identity;
 
             cellGroups = new List<GameObject>();
             for (int i = 0; i < cellGroupCount; i++)
@@ -170,6 +159,7 @@ public class CultureRenderer : MonoBehaviour
 
                 cellGroup.transform.parent = culture.transform;
                 cellGroup.transform.localPosition = Vector3.zero;
+                cellGroup.transform.localRotation = Quaternion.identity;
                 cellGroups.Add(cellGroup);
             }
 
@@ -177,8 +167,8 @@ public class CultureRenderer : MonoBehaviour
             for (int i = 0; i < cellCount; i++)
             {
                 GameObject cell = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-
                 cell.transform.parent = cellGroups[Random.Range(0, cellGroups.Count)].transform;
+                cell.transform.localRotation = Quaternion.identity;
                 Destroy(cell.GetComponent<SphereCollider>());
                 cell.GetComponent<MeshRenderer>().material = cellMaterials[Random.Range(0, cellMaterials.Count)];
                 cell.GetComponent<MeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
@@ -309,6 +299,7 @@ public class CultureRenderer : MonoBehaviour
             cellMaterials.Add(cellGroupMaterial);
         }
 
+        Initialize(genome);
         GenerateCulture();
         Growth = 1.0f;
     }
