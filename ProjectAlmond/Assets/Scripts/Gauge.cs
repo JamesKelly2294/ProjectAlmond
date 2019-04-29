@@ -61,12 +61,6 @@ public class Gauge : MonoBehaviour
         return (this.sweepAngle - (2.0f * this.sweepAngle * progress)) / 180.0f;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void SetNeedleProgress(float progress, float transitionDuration)
     {
         StartCoroutine(BeginSetNeedleProgress(progress, transitionDuration));
