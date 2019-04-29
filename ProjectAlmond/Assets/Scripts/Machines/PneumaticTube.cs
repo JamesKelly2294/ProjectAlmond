@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PneumaticTube : MonoBehaviour
 {
-
+    public AudioClip sellDishAudio;
     public GameObject coinDropper;
 
     // Start is called before the first frame update
@@ -42,7 +42,8 @@ public class PneumaticTube : MonoBehaviour
 
     private IEnumerator TakeDisk(GameObject disk, float duration)
     {
-
+        AudioSource source = Camera.main.GetComponent<AudioSource>();
+        source.PlayOneShot(sellDishAudio);
         float t = 0.0f;
         Vector3 startingPos = disk.transform.localPosition;
         while (t < 1.0f)
