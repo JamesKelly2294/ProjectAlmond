@@ -104,12 +104,6 @@ public class TimeController : MonoBehaviour
     private void OnGameOver()
     {
         isDone = true;
-
-        if(clock != null)
-        {
-            clock.stopClock();
-        }
-
         gm.EndGame("You ran out of time. You succumb to the disease");
     }
 }

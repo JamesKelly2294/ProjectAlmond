@@ -10,6 +10,7 @@ public class CheckOMatic : MonoBehaviour
     GameObject attachedDish;
     Culture culture;
     CultureAnchorPoint cultureAnchor;
+    Clock clock;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +23,8 @@ public class CheckOMatic : MonoBehaviour
         tubes[5].setText("");
         tubes[6].setText("WOR");
         tubes[7].setText("LD!");
+
+        clock = FindObjectOfType<Clock>();
     }
 
     // Update is called once per frame
@@ -89,5 +92,11 @@ public class CheckOMatic : MonoBehaviour
         var s = Mathf.RoundToInt(simularity * 100);
         c.dishLabel = s + "% Match";
         c.coinValue = Mathf.RoundToInt(500 * simularity * c.Growth);
+
+        if (simularity >= 0.9f && (c.Genome == GameManager.Instance.diseaseGenome))
+        {
+            Debug.Log("Win Triggered");
+            GameManager.Instance.WinGame();
+        }
     }
 }

@@ -227,8 +227,15 @@ m_Instance = singletonObject.AddComponent<GameManager>();
         return gameBegun;
     }
 
+    public void WinGame()
+    {
+        clock.stopClock();
+        // TODO
+    }
+
     public void EndGame(string message="You died")
     {
+        clock.stopClock();
         // TODO
     }
 
@@ -295,7 +302,6 @@ m_Instance = singletonObject.AddComponent<GameManager>();
 
         if ( noPlatesLeft && canAffordPlate )
         {
-            clock.stopClock();
             EndGame("You can't afford any more petri dishes");
         }
     }
