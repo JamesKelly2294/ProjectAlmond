@@ -71,7 +71,7 @@ public class Combiner : MonoBehaviour
             if (tlDish && trDish) {
                 Culture tlCulture = tlDish.GetComponent<Culture>();
                 Culture trCulture = trDish.GetComponent<Culture>();
-                CultureGenome mutated = trCulture.Genome.combine(trCulture.Genome, new System.Random());
+                CultureGenome mutated = tlCulture.Genome.combine(trCulture.Genome, new System.Random());
 
                 Debug.Log("Parent A: " + tlCulture.Genome.String);
                 Debug.Log("Parent B: " + trCulture.Genome.String);
@@ -81,6 +81,7 @@ public class Combiner : MonoBehaviour
 
                 var culture = petriDish.GetComponent<Culture>();
                 culture.Growth = (tlCulture.Growth + trCulture.Growth) / 2.0f;
+                culture.SetGenome(mutated);
                 FindObjectOfType<GameManager>().GrowableCultures.Add(culture);
 
                 Draggable draggable = petriDish.GetComponent<Draggable>();
@@ -96,8 +97,8 @@ public class Combiner : MonoBehaviour
                 petriDish.transform.localPosition = Vector3.zero;
 
 
-                var cultureRenderer = GetComponentInChildren<CultureRenderer>();
-                cultureRenderer.SetGenome(mutated);
+                //var cultureRenderer = GetComponentInChildren<CultureRenderer>();
+                //cultureRenderer.SetGenome(mutated);
 
             } else if (tlDish)
             {

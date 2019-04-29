@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8147815359407597711}
   - component: {fileID: 5496835999911908022}
   m_Layer: 9
-  m_Name: PetriDish
+  m_Name: PetriDishDontInitialize
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,7 +77,7 @@ MonoBehaviour:
   dishLabel: 
   Growth: 0
   coinValue: 20
-  shouldInitializeGenome: 1
+  shouldInitializeGenome: 0
 --- !u!65 &8147815359407597711
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -176,7 +176,7 @@ PrefabInstance:
     - target: {fileID: 9184529642533609227, guid: c2d38be316814f142ad69af8f0af5404,
         type: 3}
       propertyPath: shouldInitializeGenome
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9184529642533609227, guid: c2d38be316814f142ad69af8f0af5404,
         type: 3}

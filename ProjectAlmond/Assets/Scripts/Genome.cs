@@ -108,16 +108,23 @@ public class CultureGenome: Genome {
     {
         System.Diagnostics.Debug.Assert(this.alleles.Length != otherGenome.alleles.Length);
 
-        Allele[] allels = this.alleles;
-        for (var i = 0; i < this.alleles.Length; i++)
+        Allele[] newAlelles = new Allele[alleles.Length];
+
+        for (int i = 0; i < alleles.Length; i++)
         {
-            if (rand.Next(0, 1) == 1)
+            Allele a = alleles[i];
+            newAlelles[i] = a;
+        }
+
+        for (var i = 0; i < alleles.Length; i++)
+        {
+            if (rand.Next(0, 2) == 1)
             {
-                allels[i] = otherGenome.alleles[i];
+                newAlelles[i] = otherGenome.alleles[i];
             }
         }
 
-        return new CultureGenome(alleles);
+        return new CultureGenome(newAlelles);
     }
 
     /// Creates a color from the internal representation of the genome.

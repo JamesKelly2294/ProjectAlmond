@@ -14,33 +14,55 @@ public class Culture : MonoBehaviour
 
     public int coinValue = 20;
 
-    // Start is called before the first frame update
+    public bool shouldInitializeGenome = true;
+
+    TMPro.TextMeshPro textMeshPro;
+    
     void Awake()
     {
-        System.Random rand = new System.Random();
-
-        List<Allele> alleles = new List<Allele>(CultureGenome.Length);
-
-        for(int i = 0; i < alleles.Capacity; i++)
+        cultureRenderer = GetComponent<CultureRenderer>();
+        if (shouldInitializeGenome)
         {
-            alleles.Add(new Allele(rand.Next(0, Allele.AlleleStrength)));
+            System.Random rand = new System.Random();
+
+            List<Allele> alleles = new List<Allele>(CultureGenome.Length);
+
+            for (int i = 0; i < alleles.Capacity; i++)
+            {
+                alleles.Add(new Allele(rand.Next(0, Allele.AlleleStrength)));
+            }
+
+            Genome = new CultureGenome(alleles.ToArray());
+            cultureRenderer.Initialize(Genome);
         }
 
-        Genome = new CultureGenome(alleles.ToArray());
-        cultureRenderer = GetComponent<CultureRenderer>();
-        cultureRenderer.Initialize(Genome);
-        cultureRenderer.GetComponentInChildren<TMPro.TextMeshPro>().text = dishLabel;
+
+    }
+
+    void Start()
+    {
+        textMeshPro = cultureRenderer.GetComponentInChildren<TMPro.TextMeshPro>();
+        if (textMeshPro)
+        {
+            textMeshPro.text = dishLabel;
+        }
     }
 
     // Update is called once per frame
     void Update()
-    {   
-        cultureRenderer.GetComponentInChildren<TMPro.TextMeshPro>().text = dishLabel;
+    {
+        if (textMeshPro)
+        {
+            textMeshPro.text = dishLabel;
+        }
     }
 
     public void SetGenome(CultureGenome genome)
     {
-        Debug.Log("Current: " + this.Genome.String);
+        if (Genome != null)
+        {
+            Debug.Log("Current: " + Genome.String);
+        }
         Debug.Log("New: " + genome.String);
         this.Genome = genome;
         cultureRenderer.SetGenome(genome);

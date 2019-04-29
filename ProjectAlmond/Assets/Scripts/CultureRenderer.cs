@@ -84,6 +84,8 @@ public class CultureRenderer : MonoBehaviour
             return;
         }
 
+        Debug.Log("Initializing culture renderer");
+
         initalized = true;
 
         petriDishContainer = new GameObject
@@ -285,9 +287,11 @@ public class CultureRenderer : MonoBehaviour
 
     public void SetGenome(CultureGenome genome)
     {
+        Debug.Log("Setting cell genome");
+
         Color baseColor = genome.color;
         cellMaterials = new List<Material>(cellGroupCount);
-
+        Debug.Log(baseColor);
         for (int i = 0; i < cellGroupCount; i++)
         {
             float H, S, V;

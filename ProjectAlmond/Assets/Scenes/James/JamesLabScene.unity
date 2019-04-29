@@ -2475,7 +2475,7 @@ PrefabInstance:
         type: 3}
       propertyPath: petriDishPrefab
       value: 
-      objectReference: {fileID: 8625050361119894641, guid: c428b42422e797b418bcb228766c8415,
+      objectReference: {fileID: 8625050361119894641, guid: e3c0a8404ab3b164f947ca64739d6771,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e27423d28cce748b48564809e3741cb7, type: 3}
