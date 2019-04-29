@@ -33,6 +33,8 @@ public class WorldButton : MonoBehaviour
         pressed = true;
         float t = 0.0f;
         Vector3 startingPos = transform.localPosition;
+
+        GameManager.Instance.RequestPlayButtonClickSound();
         while (t < 1.0f)
         {
             t += Time.deltaTime * (Time.timeScale / pressDuration);

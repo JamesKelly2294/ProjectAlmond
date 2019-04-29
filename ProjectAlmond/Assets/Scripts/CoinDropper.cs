@@ -82,6 +82,13 @@ public class CoinDropper : MonoBehaviour
 
     public void take(int coins) {
         if (canTake(coins)) {
+            if (coins < 15)
+            {
+                GameManager.Instance.RequestPlaySuckCoinsMicroSound();
+            } else
+            {
+                GameManager.Instance.RequestPlaySuckCoinsSmallSound();
+            }
             numberOfCoinsNeedingConsuming += coins;
         }
     }

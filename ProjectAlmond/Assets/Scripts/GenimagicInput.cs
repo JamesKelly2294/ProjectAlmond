@@ -19,7 +19,7 @@ public class GenimagicInput : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         other.gameObject.GetComponent<Draggable>().DetachFromAnchor();
-
+        GameManager.Instance.RequestPlayDropReagentSound();
         ReagentData c = (ReagentData)other.GetComponent<Draggable>().Data;
         Debug.Log("Sending the following resource to Genimagic: " + c.modifiers);
 

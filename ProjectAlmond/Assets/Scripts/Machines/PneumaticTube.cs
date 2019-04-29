@@ -42,8 +42,7 @@ public class PneumaticTube : MonoBehaviour
 
     private IEnumerator TakeDisk(GameObject disk, float duration)
     {
-        AudioSource source = Camera.main.GetComponent<AudioSource>();
-        source.PlayOneShot(sellDishAudio);
+        GameManager.Instance.RequestPlaySellDishSound();
         float t = 0.0f;
         Vector3 startingPos = disk.transform.localPosition;
         while (t < 1.0f)

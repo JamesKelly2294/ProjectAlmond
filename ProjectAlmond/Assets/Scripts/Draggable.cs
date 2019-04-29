@@ -117,6 +117,8 @@ public class Draggable : MonoBehaviour
             return;
         }
 
+        GameManager.Instance.RequestPlayDishPickUpSound();
+
         Debug.Log("Picked up " + gameObject);
 
         DetachFromAnchor();
@@ -162,6 +164,7 @@ public class Draggable : MonoBehaviour
 
             transform.position = candidateAnchor.transform.position;
             transform.rotation = candidateAnchor.transform.rotation;
+            
         }
         else
         {
@@ -181,9 +184,11 @@ public class Draggable : MonoBehaviour
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask))
         {
             AnchorBehavior behavior = hit.transform.GetComponent<AnchorBehavior>();
-            if (behavior && behavior.draggableTypes.Contains(draggableType) && !behavior.Occupied)
+            if (behavior && behavior.draggableTypes.Contains(draggableType) && !behavior.Occupied && behavior != candidateAnchor)
             {
                 candidateAnchor = behavior;
+
+                GameManager.Instance.RequestPlayDishPickUpSound();
             }
         }
         else
@@ -222,6 +227,7 @@ public class Draggable : MonoBehaviour
         else
         {
             Debug.Log("Returning " + gameObject + " to its initial position");
+            GameManager.Instance.RequestPlayDishPickUpSound();
             AttachToAnchor(abandondedAnchor);
             transform.position = mouseDownPosition;
             transform.rotation = mouseDownRotation;

@@ -5,6 +5,104 @@ using System.Linq;
 
 public class GameManager : MonoBehaviour
 {
+    // borrowed from https://wiki.unity3d.com/index.php/Singleton
+    static bool m_ShuttingDown = false;
+    static object m_Lock = new object();
+    static GameManager m_Instance;
+    public static GameManager Instance
+    {
+        get
+        {
+            if (m_ShuttingDown)
+            {
+                Debug.LogWarning("[Singleton] Instance '" + typeof(GameManager) +
+                    "' already destroyed. Returning null.");
+                return null;
+            }
+ 
+            lock (m_Lock)
+            {
+                if (m_Instance == null)
+                {
+                    // Search for existing instance.
+                    m_Instance = FindObjectOfType<GameManager>();
+ 
+                    // Create new instance if one doesn't already exist.
+                    if (m_Instance == null)
+                    {
+                        // Need to create a new GameObject to attach the singleton to.
+                        var singletonObject = new GameObject();
+m_Instance = singletonObject.AddComponent<GameManager>();
+                        singletonObject.name = typeof(GameManager).ToString() + " (Singleton)";
+ 
+                        // Make instance persistent.
+                        DontDestroyOnLoad(singletonObject);
+                    }
+                }
+ 
+                return m_Instance;
+            }
+        }
+    }
+
+    public List<AudioClip> CoinCoinCollisionSounds;
+    public AudioClip DishPickUpSound;
+    public AudioClip SellDishSound;
+    public AudioClip SuckCoinsSmallSound;
+    public AudioClip SuckCoinsMicroSound;
+    public AudioClip DropReagentSound;
+    public AudioClip ButtonClickSound;
+    public void RequestPlayCoinCoinCollisionSound()
+    {
+        if(CoinCoinCollisionSounds.Count <= 0)
+        {
+            return;
+        }
+
+        audioSource.PlayOneShot(CoinCoinCollisionSounds[Random.Range(0, CoinCoinCollisionSounds.Count)]);
+    }
+
+    public void RequestPlayDishPickUpSound()
+    {
+        audioSource.PlayOneShot(DishPickUpSound);
+    }
+
+    public void RequestPlaySellDishSound()
+    {
+        audioSource.PlayOneShot(SellDishSound);
+    }
+
+    public void RequestPlayDropReagentSound()
+    {
+        audioSource.PlayOneShot(DropReagentSound);
+    }
+
+    public void RequestPlaySuckCoinsMicroSound()
+    {
+        audioSource.PlayOneShot(SuckCoinsMicroSound);
+    }
+
+    public void RequestPlaySuckCoinsSmallSound()
+    {
+        audioSource.PlayOneShot(SuckCoinsSmallSound);
+    }
+
+    public void RequestPlayButtonClickSound()
+    {
+        audioSource.PlayOneShot(ButtonClickSound);
+    }
+
+    private void OnApplicationQuit()
+    {
+        m_ShuttingDown = true;
+    }
+
+
+    private void OnDestroy()
+    {
+        m_ShuttingDown = true;
+    }
+
     public bool shouldPlayIntroSequence;
 
     List<PetriDishSlot> petriDishSlots;
@@ -37,10 +135,11 @@ public class GameManager : MonoBehaviour
     /// I said a bad word.
     /// </summary>
     public float GrowthRetardingFactor = 0.01f;
-
+    AudioSource audioSource;
     // Start is called before the first frame update
     void Awake()
     {
+        audioSource = GetComponent<AudioSource>();
         cameraController = Camera.main.GetComponent<CameraController>();
         petriDishSlots = FindObjectsOfType<PetriDishSlot>().ToList();
         emptyPetriDishManager = FindObjectOfType<EmptyPetriDishManager>();
