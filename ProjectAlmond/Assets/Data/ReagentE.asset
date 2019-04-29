@@ -12,9 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16d678ba7b47f3c4e86383a0d814fe2e, type: 3}
   m_Name: ReagentE
   m_EditorClassIdentifier: 
-  productName: fawefw
-  flavorText: fawefawfwe
   color: {r: 0.48942602, g: 0.8962264, b: 0.47770557, a: 1}
+  emissiveness: 0.1
+  productName: Sugar
+  flavorText: Zoom Zoom!
+  price: 40
+  modifiers: []
   OnValidation:
     m_PersistentCalls:
       m_Calls: []

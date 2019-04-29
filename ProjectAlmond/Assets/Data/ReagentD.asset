@@ -12,9 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16d678ba7b47f3c4e86383a0d814fe2e, type: 3}
   m_Name: ReagentD
   m_EditorClassIdentifier: 
-  productName: fawefw
-  flavorText: fawefawfwe
-  color: {r: 0.25048253, g: 0.3207547, b: 0.15886435, a: 1}
+  color: {r: 0.8009621, g: 0.8301887, b: 0.763617, a: 1}
+  emissiveness: 0.1
+  productName: Lithium
+  flavorText: Soothing
+  price: 40
+  modifiers: []
   OnValidation:
     m_PersistentCalls:
       m_Calls: []

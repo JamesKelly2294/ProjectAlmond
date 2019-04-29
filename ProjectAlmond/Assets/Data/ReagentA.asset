@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16d678ba7b47f3c4e86383a0d814fe2e, type: 3}
   m_Name: ReagentA
   m_EditorClassIdentifier: 
-  color: {r: 1, g: 0, b: 0, a: 1}
+  color: {r: 1, g: 0.82385063, b: 0, a: 1}
   emissiveness: 0.3
-  productName: Chillies
-  flavorText: Very Hot
+  productName: Sulfur
+  flavorText: Hot and smelly
   price: 20
   modifiers:
   - type: 0
