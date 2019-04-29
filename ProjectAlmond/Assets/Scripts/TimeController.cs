@@ -6,7 +6,18 @@ public class TimeController : MonoBehaviour
     /// <summary>
     /// How long an in-game day is in real-world seconds.
     /// </summary>
-    public float RealWorldSecondsPerIngameDay = 30.0f;
+    public float SecondsPerInGameDay = 30.0f;
+
+    /// <summary>
+    /// The number of seconds (though this will usually be milliseconds)
+    /// to wait before triggering updates on culture growth levels.
+    /// </summary>
+    public float SecondsPerGrowthCheck = 10 * (1 / 60.0f);
+
+    /// <summary>
+    /// I said a bad word.
+    /// </summary>
+    public float GrowthRetardingFactor = 0.01f;
 
     /// <summary>
     /// The days per game.
@@ -16,7 +27,12 @@ public class TimeController : MonoBehaviour
     /// <summary>
     /// The accumulated time.
     /// </summary>
-    private float accumulatedTime = 0.0f;
+    private float timeSinceInGameDayStarted = 0.0f;
+
+    /// <summary>
+    /// The time since last growth check.
+    /// </summary>
+    private float timeSinceLastGrowthCheck = 0;
 
     /// <summary>
     /// The number of days which have passed.
@@ -47,25 +63,66 @@ public class TimeController : MonoBehaviour
             return;
         }
 
+        // Kick off any tasks which were waiting for time to begin.
         TimeStarted();
+
+        // Track the accumulated time so far.
         IncrementTime();
+
+        // Kick off any tasks related to incrementing culture growth.
+        IncrementGrowth();
+
+        // Kick off any tasks which are dependent upon the game ending.
         CheckForGameEnd();
+
+        // Kick off tasks which are dependent upon a new day starting.
+        CheckForNewDay();
+    }
+
+    private void IncrementTime()
+    {
+        var delta = Time.timeScale * Time.deltaTime;
+        timeSinceInGameDayStarted += delta;
+        timeSinceLastGrowthCheck += delta;
     }
 
     private void TimeStarted()
     {
         if (clock != null && !clock.isLive)
         {
-            clock.startClock(RealWorldSecondsPerIngameDay);
+            clock.startClock(SecondsPerInGameDay);
         }
     }
 
-    private void IncrementTime()
+    private void CheckForNewDay()
     {
-        accumulatedTime += Time.timeScale * Time.deltaTime;
-        if (accumulatedTime > RealWorldSecondsPerIngameDay)
+        // Check to see if an ingame day has passed and trigger updates
+        // for things that care.
+        if (timeSinceInGameDayStarted > SecondsPerInGameDay)
         {
             OnDayPassed();
+        }
+    }
+
+    private void IncrementGrowth()
+    {
+        var cultures = FindObjectsOfType<Culture>();
+        if (cultures == null || cultures.Length == 0) {
+            return;
+        }
+
+        foreach (var culture in cultures)
+        {
+            if (culture.Growth >= 1.0f)
+            {
+                culture.Growth = 1.0f;
+            }
+            else
+            {
+                var growthFactor = (float)culture.Genome.growRate.value;
+                var delta = GrowthRetardingFactor * Time.timeScale * Time.deltaTime * growthFactor;
+                culture.Growth += delta;
+            }
         }
     }
 
@@ -78,12 +135,16 @@ public class TimeController : MonoBehaviour
     }
 
     private void OnDayPassed()
-    {
-        accumulatedTime = 0.0f;
+    { 
+        timeSinceInGameDayStarted = 0.0f;
         daysPassed += 1;
 
+        // Update the day displayed on the clock so the user knows wtf is going on.
         clock.setDay(daysPassed);
     }
+
+    // At some interval, queue up the cultures, look at their growth rate, and grow them by some amount
+    // This should probably happen in the GameManager by the time will trigger the 
 
     private void OnGameOver()
     {
@@ -91,6 +152,7 @@ public class TimeController : MonoBehaviour
 
         if(clock != null)
         {
+            clock.setDay(1);
             clock.stopClock();
         }
 
