@@ -118,4 +118,8 @@ public class Genimagic : MonoBehaviour
         culture = null;
         cultureAnchor = null;
     }
+
+    public void reagentWasDropped(GameObject droppedObject, ReagentData data, PluckedReagentAnchorPoint point) {
+        Debug.Log("Price was: " + data.price);
+    }
 }

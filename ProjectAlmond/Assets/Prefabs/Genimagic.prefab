@@ -2376,6 +2376,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   draggableTypes: 02000000
+  onAttach:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: ReagentAnchorPointEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  onDetach:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2700136755503881068}
+        m_MethodName: reagentWasDropped
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: ReagentAnchorPointEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  onHover:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: ReagentAnchorPointEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  onUnhover:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: ReagentAnchorPointEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!1001 &1737291038240488875
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2649,6 +2680,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3524661636658232649}
     m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: draggableTypes.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: onAttach.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: draggableTypes.Array.data[1]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: draggableTypes.Array.data[0]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: onAttach.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: onAttach.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: onAttach.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3524661636658232648}
     - target: {fileID: 3705823258027834079, guid: a7e83751e8941114da30a2dbd2c3ec53,
         type: 3}
       propertyPath: m_Name
@@ -2739,43 +2798,7 @@ PrefabInstance:
       propertyPath: m_Size.z
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 3275517491550935539, guid: a7e83751e8941114da30a2dbd2c3ec53,
-        type: 3}
-      propertyPath: draggableTypes.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3275517491550935539, guid: a7e83751e8941114da30a2dbd2c3ec53,
-        type: 3}
-      propertyPath: onAttach.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3275517491550935539, guid: a7e83751e8941114da30a2dbd2c3ec53,
-        type: 3}
-      propertyPath: draggableTypes.Array.data[1]
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3275517491550935539, guid: a7e83751e8941114da30a2dbd2c3ec53,
-        type: 3}
-      propertyPath: draggableTypes.Array.data[0]
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3275517491550935539, guid: a7e83751e8941114da30a2dbd2c3ec53,
-        type: 3}
-      propertyPath: onAttach.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3275517491550935539, guid: a7e83751e8941114da30a2dbd2c3ec53,
-        type: 3}
-      propertyPath: onAttach.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3275517491550935539, guid: a7e83751e8941114da30a2dbd2c3ec53,
-        type: 3}
-      propertyPath: onAttach.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 3524661636658232648}
-    m_RemovedComponents:
-    - {fileID: 3275517491550935539, guid: a7e83751e8941114da30a2dbd2c3ec53, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a7e83751e8941114da30a2dbd2c3ec53, type: 3}
 --- !u!1 &8603450257922735283 stripped
 GameObject:

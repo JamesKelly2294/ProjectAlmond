@@ -11,7 +11,6 @@ public class CultureAnchorPoint : AnchorBehavior
     public AnchorBehaviorGroup anchorGroup;
     public CultureAnchorPointEvent onAttach;
     public CultureAnchorPointEvent onDetach;
-    public CultureAnchorPointEvent onDirectedSwap;
 
     public CultureAnchorPointEvent onHover;
     public CultureAnchorPointEvent onUnhover;
