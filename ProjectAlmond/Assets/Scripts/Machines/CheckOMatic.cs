@@ -88,6 +88,6 @@ public class CheckOMatic : MonoBehaviour
 
         var s = Mathf.RoundToInt(simularity * 100);
         c.dishLabel = s + "% Match";
-        c.coinValue = Mathf.RoundToInt(500 * simularity);
+        c.coinValue = Mathf.RoundToInt(500 * simularity * c.Growth);
     }
 }
