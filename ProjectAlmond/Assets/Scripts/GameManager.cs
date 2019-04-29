@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
     private float lastGrowthRenderUpdate = 0.0f;
 
     // Once a second for the lulz.
-    public float TimeBetweenCultureRenderUpdates = 1.0f;
+    public float TimeBetweenCultureRenderUpdates = 0.04f;
 
     /// <summary>
     /// I said a bad word.
