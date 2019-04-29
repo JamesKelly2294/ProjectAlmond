@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     List<PetriDishSlot> petriDishSlots;
     EmptyPetriDishManager emptyPetriDishManager;
 
+    public CultureGenome winningGenome;
+
     bool gameBegun;
     GameObject beginButton;
     GameObject learnButton;
@@ -91,6 +93,8 @@ public class GameManager : MonoBehaviour
             return;
         }
 
+        GenerateWinning();
+
         beginButton.SetActive(false);
         learnButton.SetActive(false);
         gameBegun = true;
@@ -118,5 +122,16 @@ public class GameManager : MonoBehaviour
     public void CultureAnchorPointEventCallback(GameObject g, Culture c, CultureAnchorPoint a)
     {
         Debug.Log(g + " " + c + " " + a);
+    }
+
+    public void GenerateWinning() {
+        var rand = new System.Random();
+        Allele[] allels = new Allele[CultureGenome.Length];
+        for (var i = 0; i < CultureGenome.Length; i++) {
+            allels[i] = new Allele(rand.Next(0, Allele.AlleleStrength));
+        }
+
+        winningGenome = new CultureGenome(allels);
+        Debug.Log("Winning Genome is: " + winningGenome.String);
     }
 }

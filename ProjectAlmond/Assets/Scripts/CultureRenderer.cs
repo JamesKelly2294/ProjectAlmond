@@ -89,25 +89,7 @@ public class CultureRenderer : MonoBehaviour
 
         randomOffset = Random.Range(0, 250000);
 
-        //Color baseColor = Random.ColorHSV(0.0f, 1.0f, 0.65f, 1.00f, 0.45f, 0.75f);
-        Color baseColor = genome.color;
-        cellMaterials = new List<Material>(cellGroupCount);
-
-        for (int i = 0; i < cellGroupCount; i++)
-        {
-            float H, S, V;
-            Color.RGBToHSV(baseColor, out H, out S, out V);
-            H += Random.Range(-0.1f, 0.1f);
-            Color alteredColor = Color.HSVToRGB(H, S, V);
-            Color finalColor = alteredColor * Mathf.LinearToGammaSpace(Random.Range(0.25f, 0.35f));
-            Material cellGroupMaterial = new Material(cellMaterialBase);
-            cellGroupMaterial.SetColor("_EmissionColor", finalColor);
-
-            cellMaterials.Add(cellGroupMaterial);
-        }
-
-        GenerateCulture();
-        Growth = 1.0f;
+        SetGenome(genome);
     }
 
     //int counter = 0;
@@ -307,5 +289,27 @@ public class CultureRenderer : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void SetGenome(CultureGenome genome)
+    {
+        Color baseColor = genome.color;
+        cellMaterials = new List<Material>(cellGroupCount);
+
+        for (int i = 0; i < cellGroupCount; i++)
+        {
+            float H, S, V;
+            Color.RGBToHSV(baseColor, out H, out S, out V);
+            H += Random.Range(-0.1f, 0.1f);
+            Color alteredColor = Color.HSVToRGB(H, S, V);
+            Color finalColor = alteredColor * Mathf.LinearToGammaSpace(Random.Range(0.25f, 0.35f));
+            Material cellGroupMaterial = new Material(cellMaterialBase);
+            cellGroupMaterial.SetColor("_EmissionColor", finalColor);
+
+            cellMaterials.Add(cellGroupMaterial);
+        }
+
+        GenerateCulture();
+        Growth = 1.0f;
     }
 }

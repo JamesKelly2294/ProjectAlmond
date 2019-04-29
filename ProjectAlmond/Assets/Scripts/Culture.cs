@@ -13,7 +13,6 @@ public class Culture : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        cultureRenderer = GetComponent<CultureRenderer>();
         System.Random rand = new System.Random();
 
         List<Allele> alleles = new List<Allele>(CultureGenome.Length);
@@ -24,6 +23,7 @@ public class Culture : MonoBehaviour
         }
 
         Genome = new CultureGenome(alleles.ToArray());
+        cultureRenderer = GetComponent<CultureRenderer>();
         cultureRenderer.Initialize(Genome);
         cultureRenderer.GetComponentInChildren<TMPro.TextMeshPro>().text = dishLabel;
     }
@@ -32,5 +32,12 @@ public class Culture : MonoBehaviour
     void Update()
     {   
         cultureRenderer.GetComponentInChildren<TMPro.TextMeshPro>().text = dishLabel;
+    }
+
+    public void SetGenome(CultureGenome genome)
+    {
+        Debug.Log("Current: " + this.Genome.String);
+        Debug.Log("New: " + genome.String);
+        this.Genome = genome;
     }
 }
