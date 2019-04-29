@@ -33,7 +33,7 @@ public class PluckedReagentAnchorPoint : AnchorBehavior
         attachedObject.AddComponent<Rigidbody>();
 
         var data = (attachedObject.GetComponentInChildren<Draggable>().Data as ReagentData);
-        GameObject.FindObjectOfType<GameManager>().coinDropper.take(data.price);
+        FindObjectOfType<GameManager>().coinDropper.take(data.price);
 
         onAttach.Invoke(attachedObject, data, this);
     }
@@ -50,10 +50,10 @@ public class PluckedReagentAnchorPoint : AnchorBehavior
     {
         var data = (hoveredObject.GetComponentInChildren<Draggable>().Data as ReagentData);
         if (isHovering) {
-            GameObject.FindObjectOfType<GameManager>().coinDropper.prepareToTake(data.price);
+            FindObjectOfType<GameManager>().coinDropper.prepareToTake(data.price);
             onHover.Invoke(hoveredObject, data, this);
         } else {
-            GameObject.FindObjectOfType<GameManager>().coinDropper.prepareToTake(0);
+            FindObjectOfType<GameManager>().coinDropper.prepareToTake(0);
             onUnhover.Invoke(hoveredObject, data, this);
         }
     }

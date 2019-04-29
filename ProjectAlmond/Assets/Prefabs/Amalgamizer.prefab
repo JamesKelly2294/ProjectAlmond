@@ -1898,6 +1898,11 @@ PrefabInstance:
       propertyPath: draggableTypes.Array.data[1]
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1658075019952786586, guid: 4daea106a1b5f46fb9c43cdabf85a283,
+        type: 3}
+      propertyPath: anchorGroup
+      value: 
+      objectReference: {fileID: 9213061061738298918}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4daea106a1b5f46fb9c43cdabf85a283, type: 3}
 --- !u!4 &8899124038574247492 stripped
@@ -1987,6 +1992,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5319306845762100516}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &9213061061738298918 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3894108848743572226, guid: b4681117e33a0594cb4c61dba3504b93,
+    type: 3}
+  m_PrefabInstance: {fileID: 5319306845762100516}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bb5a61195506d64d9280a936cce7d42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5817676432407344226
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2079,6 +2096,11 @@ PrefabInstance:
       propertyPath: draggableTypes.Array.data[0]
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1658075019952786586, guid: 4daea106a1b5f46fb9c43cdabf85a283,
+        type: 3}
+      propertyPath: anchorGroup
+      value: 
+      objectReference: {fileID: 9213061061738298918}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4daea106a1b5f46fb9c43cdabf85a283, type: 3}
 --- !u!4 &2789621265244547901 stripped
@@ -2159,6 +2181,11 @@ PrefabInstance:
       propertyPath: draggableTypes.Array.data[1]
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1658075019952786586, guid: 4daea106a1b5f46fb9c43cdabf85a283,
+        type: 3}
+      propertyPath: anchorGroup
+      value: 
+      objectReference: {fileID: 9213061061738298918}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4daea106a1b5f46fb9c43cdabf85a283, type: 3}
 --- !u!4 &2440601653247627965 stripped

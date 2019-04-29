@@ -776,31 +776,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5994238123644233885, guid: c2b096e0d303b40c7b51ffd71e555dbb,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8026923694001040931, guid: c2b096e0d303b40c7b51ffd71e555dbb,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8026923694001040931, guid: c2b096e0d303b40c7b51ffd71e555dbb,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8026923694001040931, guid: c2b096e0d303b40c7b51ffd71e555dbb,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8026923694001040931, guid: c2b096e0d303b40c7b51ffd71e555dbb,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2b096e0d303b40c7b51ffd71e555dbb, type: 3}
 --- !u!4 &5904151571026402443 stripped
@@ -875,36 +850,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 285804169130669663, guid: da58cc60210d36d4ebeec1ff2946389d,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 285804169130669657, guid: da58cc60210d36d4ebeec1ff2946389d,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 18
-      objectReference: {fileID: 0}
-    - target: {fileID: 285804169130669657, guid: da58cc60210d36d4ebeec1ff2946389d,
-        type: 3}
-      propertyPath: m_textInfo.spaceCount
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 285804169130669657, guid: da58cc60210d36d4ebeec1ff2946389d,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 285804169130669657, guid: da58cc60210d36d4ebeec1ff2946389d,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 285804169130669657, guid: da58cc60210d36d4ebeec1ff2946389d,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da58cc60210d36d4ebeec1ff2946389d, type: 3}

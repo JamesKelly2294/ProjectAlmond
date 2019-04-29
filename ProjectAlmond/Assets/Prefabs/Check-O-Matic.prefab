@@ -1487,9 +1487,40 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1658075019952786586, guid: 4daea106a1b5f46fb9c43cdabf85a283,
         type: 3}
+      propertyPath: onAttach.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1658075019952786586, guid: 4daea106a1b5f46fb9c43cdabf85a283,
+        type: 3}
       propertyPath: draggableTypes.Array.data[1]
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1658075019952786586, guid: 4daea106a1b5f46fb9c43cdabf85a283,
+        type: 3}
+      propertyPath: onAttach.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5521419025049432048}
+    - target: {fileID: 1658075019952786586, guid: 4daea106a1b5f46fb9c43cdabf85a283,
+        type: 3}
+      propertyPath: onAttach.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: diskWasAttached
+      objectReference: {fileID: 0}
+    - target: {fileID: 1658075019952786586, guid: 4daea106a1b5f46fb9c43cdabf85a283,
+        type: 3}
+      propertyPath: onAttach.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1658075019952786586, guid: 4daea106a1b5f46fb9c43cdabf85a283,
+        type: 3}
+      propertyPath: onAttach.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1658075019952786586, guid: 4daea106a1b5f46fb9c43cdabf85a283,
+        type: 3}
+      propertyPath: cameraAngle
+      value: 
+      objectReference: {fileID: 8323878881891460258, guid: 3b11088b0ae5ced4f9ceb37b66e987b0,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4daea106a1b5f46fb9c43cdabf85a283, type: 3}
 --- !u!4 &6091050905879608369 stripped
