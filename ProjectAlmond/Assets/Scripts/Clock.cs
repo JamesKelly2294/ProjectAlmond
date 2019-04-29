@@ -66,7 +66,7 @@ public class Clock : MonoBehaviour
     public void setDay(int day)
     {
         this.currentDay = day;
-        this.GetComponentInChildren<TextMeshPro>().text = "" + day;
+        this.GetComponentsInChildren<TextMeshPro>()[1].text = "" + day;
         this.hourRotation = -90.0f;
         this.minuteRotation = -90.0f;
     }
