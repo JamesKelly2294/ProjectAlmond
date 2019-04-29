@@ -35,8 +35,6 @@ public class Culture : MonoBehaviour
             Genome = new CultureGenome(alleles.ToArray());
             cultureRenderer.Initialize(Genome);
         }
-
-
     }
 
     void Start()
@@ -66,5 +64,6 @@ public class Culture : MonoBehaviour
         Debug.Log("New: " + genome.String);
         this.Genome = genome;
         cultureRenderer.SetGenome(genome);
+        cultureRenderer.Growth = this.Growth;
     }
 }

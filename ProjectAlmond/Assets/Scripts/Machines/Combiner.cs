@@ -20,6 +20,9 @@ public class Combiner : MonoBehaviour
     Culture bCulture;
     CultureAnchorPoint bAnchor;
 
+    public Light combinerLightGood;
+    public Light combinerLightBad;
+
     public GameObject petriDishPrefab;
 
 
@@ -32,12 +35,30 @@ public class Combiner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (tlDish && trDish)
+        {
+            InputGrowth = tlCulture.Growth / 2.0f + trCulture.Growth / 2.0f;
+        }
+        else if (tlDish)
+        {
+            InputGrowth = tlCulture.Growth / 2.0f;
+        }
+        else if (trDish)
+        {
+            InputGrowth = trCulture.Growth / 2.0f;
+        }
+
+        ValidateInput(InputGrowth);
     }
+
+    float InputGrowth = 0.0f;
 
     public void run() {
         if ((tlDish != null || trDish != null) && bDish != null) {
-            StartCoroutine(amalgomate());
+            if(ValidateInput(InputGrowth))
+            {
+                StartCoroutine(amalgomate());
+            }
         }
     }
 
@@ -69,20 +90,52 @@ public class Combiner : MonoBehaviour
         if (bDish)
         {
             if (tlDish && trDish) {
-                Culture tlCulture = tlDish.GetComponent<Culture>();
-                Culture trCulture = trDish.GetComponent<Culture>();
                 CultureGenome mutated = tlCulture.Genome.combine(trCulture.Genome, new System.Random());
-
+                
                 Debug.Log("Parent A: " + tlCulture.Genome.String);
                 Debug.Log("Parent B: " + trCulture.Genome.String);
                 Debug.Log("Child: " + mutated.String);
 
                 GameObject petriDish = Instantiate(petriDishPrefab);
-
+                
                 var culture = petriDish.GetComponent<Culture>();
-                culture.Growth = (tlCulture.Growth + trCulture.Growth) / 2.0f;
+                culture.Growth = InputGrowth;
                 culture.SetGenome(mutated);
                 FindObjectOfType<GameManager>().GrowableCultures.Add(culture);
+
+
+                tlCulture.Growth = tlCulture.Growth / 2.0f;
+                tlCulture.GetComponent<CultureRenderer>().Growth = tlCulture.Growth;
+                trCulture.Growth = trCulture.Growth / 2.0f;
+                trCulture.GetComponent<CultureRenderer>().Growth = trCulture.Growth;
+                
+                Draggable draggable = petriDish.GetComponent<Draggable>();
+
+                CultureAnchorPoint anchor = bAnchor;
+                GameObject dish = bDish;
+                bDish.GetComponent<Draggable>().DetachFromAnchor();
+                Destroy(dish);
+                draggable.AttachToAnchor(anchor);
+
+                petriDish.transform.rotation = bAnchor.transform.rotation;
+                petriDish.transform.parent = bAnchor.transform;
+                petriDish.transform.localPosition = Vector3.zero;
+            } else if (tlDish)
+            {
+                CultureGenome mutated = tlCulture.Genome.combine(tlCulture.Genome, new System.Random());
+
+                Debug.Log("Split Parent A: " + tlCulture.Genome.String);
+                Debug.Log("Child: " + mutated.String);
+
+                GameObject petriDish = Instantiate(petriDishPrefab);
+
+                var culture = petriDish.GetComponent<Culture>();
+                culture.Growth = InputGrowth;
+                culture.SetGenome(mutated);
+                FindObjectOfType<GameManager>().GrowableCultures.Add(culture);
+
+                tlCulture.Growth = tlCulture.Growth / 2.0f;
+                tlCulture.GetComponent<CultureRenderer>().Growth = tlCulture.Growth;
 
                 Draggable draggable = petriDish.GetComponent<Draggable>();
 
@@ -95,17 +148,34 @@ public class Combiner : MonoBehaviour
                 petriDish.transform.rotation = bAnchor.transform.rotation;
                 petriDish.transform.parent = bAnchor.transform;
                 petriDish.transform.localPosition = Vector3.zero;
-
-
-                //var cultureRenderer = GetComponentInChildren<CultureRenderer>();
-                //cultureRenderer.SetGenome(mutated);
-
-            } else if (tlDish)
-            {
-
             } else if (trDish)
             {
+                CultureGenome mutated = trCulture.Genome.combine(trCulture.Genome, new System.Random());
 
+                Debug.Log("Split Parent B: " + trCulture.Genome.String);
+                Debug.Log("Child: " + mutated.String);
+
+                GameObject petriDish = Instantiate(petriDishPrefab);
+
+                var culture = petriDish.GetComponent<Culture>();
+                culture.Growth = InputGrowth;
+                culture.SetGenome(mutated);
+                FindObjectOfType<GameManager>().GrowableCultures.Add(culture);
+
+                trCulture.Growth = trCulture.Growth / 2.0f;
+                trCulture.GetComponent<CultureRenderer>().Growth = trCulture.Growth;
+
+                Draggable draggable = petriDish.GetComponent<Draggable>();
+
+                CultureAnchorPoint anchor = bAnchor;
+                GameObject dish = bDish;
+                bDish.GetComponent<Draggable>().DetachFromAnchor();
+                Destroy(dish);
+                draggable.AttachToAnchor(anchor);
+
+                petriDish.transform.rotation = bAnchor.transform.rotation;
+                petriDish.transform.parent = bAnchor.transform;
+                petriDish.transform.localPosition = Vector3.zero;
             }
         } 
         
@@ -124,6 +194,38 @@ public class Combiner : MonoBehaviour
             bDish.GetComponentInChildren<Draggable>().UnlockUserInteraction();
         }
 
+    }
+
+    public IEnumerator FlashLight(Light light)
+    {
+        int numFlashes = 5;
+
+        for(int i = 0; i <= numFlashes; i++)
+        {
+            light.enabled = true;
+            yield return new WaitForSeconds(0.5f);
+            light.enabled = false;
+            yield return new WaitForSeconds(0.5f);
+        }
+    }
+
+    public bool ValidateInput(float totalInputGrowth)
+    {
+        bool validated = false;
+
+        validated = totalInputGrowth >= 0.5f && bCulture == null && bDish != null;
+
+        if (validated)
+        {
+            combinerLightBad.enabled = false;
+            combinerLightGood.enabled = true;
+        } else
+        {
+            combinerLightBad.enabled = true;
+            combinerLightGood.enabled = false;
+        }
+
+        return validated;
     }
 
     public void topLeftDiskWasAttached(GameObject g, Culture c, CultureAnchorPoint a)

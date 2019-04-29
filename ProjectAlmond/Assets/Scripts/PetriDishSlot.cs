@@ -7,8 +7,7 @@ public class PetriDishSlot : MonoBehaviour
     public bool spawnPetriDishOnStart;
     public GameObject petriDishPrefab;
     public float cultureInitialGrowth = 0.25f;
-
-    public bool shouldSpawnEvilPetriDish;
+    
     public Material diseaseOverride;
 
     GameObject petriDish;
@@ -18,26 +17,36 @@ public class PetriDishSlot : MonoBehaviour
     {
         if (spawnPetriDishOnStart)
         {
-            spawn(false);
+            Spawn();
         }
 
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SpawnDisease(CultureGenome genome)
     {
-       if (shouldSpawnEvilPetriDish) {
-            var diseaseGenome = FindObjectOfType<GameManager>().diseaseGenome;
-            shouldSpawnEvilPetriDish = false;
+        var diseaseGenome = genome;
 
-            spawn(true);
+        if (!Spawn())
+        {
+            return;
+        }
 
-            var cultureRenderer = GetComponentInChildren<CultureRenderer>();
-            cultureRenderer.SetGenome(diseaseGenome);
-       } 
+        var c = petriDish.GetComponent<Culture>();
+
+        Debug.Log("Setting disease genome");
+        c.SetGenome(diseaseGenome);
+
+        Draggable draggable = petriDish.GetComponent<Draggable>();
+        draggable.draggableType = DraggableType.Disease;
+        petriDish.transform.Find("Dish").GetComponent<MeshRenderer>().material = diseaseOverride;
     }
 
-    void spawn(bool isDisease) {
+    bool Spawn() {
+        if(petriDish)
+        {
+            return false;
+        }
+
         petriDish = Instantiate(petriDishPrefab);
 
         var culture = petriDish.GetComponent<Culture>();
@@ -51,11 +60,6 @@ public class PetriDishSlot : MonoBehaviour
         petriDish.transform.parent = transform;
         petriDish.transform.localPosition = Vector3.zero;
 
-        if(isDisease)
-        {
-            draggable.draggableType = DraggableType.Disease;
-            // hacky af lel
-            petriDish.transform.Find("Dish").GetComponent<MeshRenderer>().material = diseaseOverride;
-        }
+        return true;
     }
 }

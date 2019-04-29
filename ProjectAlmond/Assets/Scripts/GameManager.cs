@@ -217,6 +217,8 @@ m_Instance = singletonObject.AddComponent<GameManager>();
 
         GenerateWinning();
 
+        coinDropper.numberOfCoinsNeedingVending = 100;
+
         beginButton.SetActive(false);
         learnButton.SetActive(false);
         gameBegun = true;
@@ -312,7 +314,7 @@ m_Instance = singletonObject.AddComponent<GameManager>();
         if (lastGrowthRenderUpdate > TimeBetweenCultureRenderUpdates)
         {
             lastGrowthRenderUpdate = 0.0f;
-            //UpdateCultureRenderForGrowth();
+            UpdateCultureRenderForGrowth();
         }
 
     }
@@ -331,6 +333,7 @@ m_Instance = singletonObject.AddComponent<GameManager>();
         Debug.Log(g + " " + c + " " + a);
     }
 
+    public PetriDishSlot diseaseSlot;
     public void GenerateWinning() {
         var rand = new System.Random();
         Allele[] wAllels = new Allele[CultureGenome.Length];
@@ -342,8 +345,10 @@ m_Instance = singletonObject.AddComponent<GameManager>();
 
         winningGenome = new CultureGenome(wAllels);
         diseaseGenome = new CultureGenome(lAllels);
-        
+
         Debug.Log("Winning Genome is: " + winningGenome.String);
         Debug.Log("Disease Genome is: " + diseaseGenome.String);
+
+        diseaseSlot.SpawnDisease(diseaseGenome);
     }
 }

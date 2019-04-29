@@ -52,12 +52,12 @@ public class PneumaticTube : MonoBehaviour
     {
         GameManager.Instance.RequestPlaySellDishSound();
         float t = 0.0f;
-        Vector3 startingPos = disk.transform.localPosition;
+        Vector3 startingPos = disk.transform.position;
         while (t < 1.0f)
         {
             t += Time.deltaTime * (Time.timeScale / duration);
             
-            disk.transform.localPosition = Vector3.Lerp(startingPos, startingPos + new Vector3(0, 10f, 0), t);
+            disk.transform.position = Vector3.Lerp(startingPos, startingPos + new Vector3(0, 10f, 0), t);
             yield return 0;
         }
 

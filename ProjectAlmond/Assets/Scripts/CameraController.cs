@@ -27,10 +27,10 @@ public class CameraController : MonoBehaviour
 
     bool panning;
     bool rotating;
-
     public bool RequestPanToAngle(Transform angle, float transitionDuration)
     {
-        if (panning && rotating)
+        Debug.Log("RequestPanToAngle");
+        if (panning || rotating || (angle.position == transform.position && angle.rotation == transform.rotation))
         {
             return false;
         }
@@ -45,10 +45,12 @@ public class CameraController : MonoBehaviour
 
     public void PanToAngle(Transform angle, float transitionDuration)
     {
-        if(panning && rotating)
+        Debug.Log("PanToAngle");
+        if (panning || rotating)
         {
             return;
         }
+
 
         panning = true;
         rotating = true;
@@ -70,6 +72,7 @@ public class CameraController : MonoBehaviour
             yield return 0;
         }
 
+        Debug.Log("Finished panning");
         rotating = false;
     }
 
@@ -86,7 +89,7 @@ public class CameraController : MonoBehaviour
 
             Vector3 newPosition =
                 Vector3.SmoothDamp(transform.position, position.position, ref currentVelocity, transitionDuration);
-            
+
             if (Vector3.Distance(newPosition, position.position) <= 0.01f)
             {
                 transform.position = position.position;

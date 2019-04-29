@@ -10,7 +10,7 @@ public class EmptyPetriDishManager : MonoBehaviour
     [Range(0.1f, 5.0f)]
     public float petriDishFallTime = 2.0f;
 
-    [Range(0, 10)]
+    [Range(0, 50)]
     public int petriDishCost = 5;
 
     [Range(0, 10)]

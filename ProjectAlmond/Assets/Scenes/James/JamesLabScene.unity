@@ -467,6 +467,16 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4151521974245540777, guid: 4af367275c9984982bc2a8bb76653de8,
+        type: 3}
+      propertyPath: numberOfCoinsNeedingVending
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4151521974245540777, guid: 4af367275c9984982bc2a8bb76653de8,
+        type: 3}
+      propertyPath: iterval
+      value: 0.005
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4747781133399607827, guid: 4af367275c9984982bc2a8bb76653de8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4af367275c9984982bc2a8bb76653de8, type: 3}
@@ -2354,10 +2364,36 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3993668387866973594, guid: 87b20f6a6a3f14c2390474ce26c6dc22,
+        type: 3}
+      propertyPath: petriDishPrefab
+      value: 
+      objectReference: {fileID: 8625050361119894641, guid: e3c0a8404ab3b164f947ca64739d6771,
+        type: 3}
     - target: {fileID: 3993668386640768957, guid: 87b20f6a6a3f14c2390474ce26c6dc22,
         type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3993668386640768955, guid: 87b20f6a6a3f14c2390474ce26c6dc22,
+        type: 3}
+      propertyPath: m_text
+      value: THE ENEMY
+      objectReference: {fileID: 0}
+    - target: {fileID: 3993668386640768955, guid: 87b20f6a6a3f14c2390474ce26c6dc22,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3993668386640768955, guid: 87b20f6a6a3f14c2390474ce26c6dc22,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3993668386640768955, guid: 87b20f6a6a3f14c2390474ce26c6dc22,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 813194292651901529, guid: 87b20f6a6a3f14c2390474ce26c6dc22,
         type: 3}
@@ -2461,22 +2497,19 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 9211555448223465002, guid: e27423d28cce748b48564809e3741cb7,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 2187661021982689794, guid: e27423d28cce748b48564809e3741cb7,
         type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 1728174406184941793, guid: e27423d28cce748b48564809e3741cb7,
-        type: 3}
-      propertyPath: petriDishPrefab
-      value: 
-      objectReference: {fileID: 8625050361119894641, guid: e3c0a8404ab3b164f947ca64739d6771,
-        type: 3}
+    - target: {fileID: 1020309012, guid: e27423d28cce748b48564809e3741cb7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 766928865, guid: e27423d28cce748b48564809e3741cb7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e27423d28cce748b48564809e3741cb7, type: 3}
 --- !u!1 &1207252888
@@ -5412,6 +5445,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 584370886}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2122694542 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3993668387866973594, guid: 87b20f6a6a3f14c2390474ce26c6dc22,
+    type: 3}
+  m_PrefabInstance: {fileID: 1177893730}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82cd7e4f7f2716b46b26f6212ca28fbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2146102639
 GameObject:
   m_ObjectHideFlags: 0
@@ -5783,6 +5828,26 @@ PrefabInstance:
       propertyPath: coinDropper
       value: 
       objectReference: {fileID: 1412588281}
+    - target: {fileID: 1899382796701959076, guid: 787231b5bc1bb4948acbb4d443d39673,
+        type: 3}
+      propertyPath: diseaseSlot
+      value: 
+      objectReference: {fileID: 2122694542}
+    - target: {fileID: 1899382796701959076, guid: 787231b5bc1bb4948acbb4d443d39673,
+        type: 3}
+      propertyPath: shouldPlayIntroSequence
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899382796701959076, guid: 787231b5bc1bb4948acbb4d443d39673,
+        type: 3}
+      propertyPath: GrowthRetardingFactor
+      value: 0.0036
+      objectReference: {fileID: 0}
+    - target: {fileID: 1899382796701959078, guid: 787231b5bc1bb4948acbb4d443d39673,
+        type: 3}
+      propertyPath: SecondsPerInGameDay
+      value: 30
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 787231b5bc1bb4948acbb4d443d39673, type: 3}
 --- !u!1001 &2889130374392042217
@@ -6025,6 +6090,11 @@ PrefabInstance:
       propertyPath: coinDropper
       value: 
       objectReference: {fileID: 1412588280}
+    - target: {fileID: 4005087224387632425, guid: ab01f4313fbbefe4daf87c10c592801a,
+        type: 3}
+      propertyPath: petriDishCost
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 8607635920442270874, guid: ab01f4313fbbefe4daf87c10c592801a,
         type: 3}
       propertyPath: cameraAngle

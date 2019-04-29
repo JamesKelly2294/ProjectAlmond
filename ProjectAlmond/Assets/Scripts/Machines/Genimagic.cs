@@ -57,9 +57,9 @@ public class Genimagic : MonoBehaviour
                 evaluatePowerAndDanger();
             }
 
-            Debug.Log(attachedDish);
-            Debug.Log(shouldEject);
-            Debug.Log(modifiers);
+            //Debug.Log(attachedDish);
+            //Debug.Log(shouldEject);
+            //Debug.Log(modifiers);
             if (attachedDish == null || shouldEject || modifiers.Count <= 0) {
                 Debug.Log("EJECTING... GENIMAGIC");
                 shouldEject = true;

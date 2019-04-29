@@ -13,7 +13,7 @@ public class CoinDropper : MonoBehaviour
 
     List<GameObject> coins = new List<GameObject>();
     public int numberOfCoinsVisable = 0;
-    public int numberOfCoinsNeedingVending = 100;
+    public int numberOfCoinsNeedingVending = 0;
 
     public int numberOfCoinsNeedingConsuming = 0;
 

@@ -80,7 +80,7 @@ public class CheckOMatic : MonoBehaviour
 
         g.GetComponentInChildren<Draggable>().LockUserInteraction();
 
-
+        Debug.Log("Received culture " + c + " with Genome " + c.Genome.String);
         string str = c.Genome.String;
         for (var i = 0; i < 8; i++) {
             tubes[i].setText("" + str[i]);
@@ -91,7 +91,7 @@ public class CheckOMatic : MonoBehaviour
 
         var s = Mathf.RoundToInt(simularity * 100);
         c.dishLabel = s + "% Match";
-        c.coinValue = Mathf.RoundToInt(500 * simularity * c.Growth);
+        c.coinValue = Mathf.RoundToInt(250 * simularity * c.Growth);
 
         if (simularity >= 0.9f && (c.Genome == GameManager.Instance.diseaseGenome))
         {
