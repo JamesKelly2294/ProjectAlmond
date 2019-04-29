@@ -67,6 +67,8 @@ public class Clock : MonoBehaviour
     {
         this.currentDay = day;
         this.GetComponentInChildren<TextMeshPro>().text = "" + day;
+        this.hourRotation = -90.0f;
+        this.minuteRotation = -90.0f;
     }
 
     public void startClock(float realWorldSecondsPerDay) {
