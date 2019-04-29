@@ -10,7 +10,7 @@ public class Culture : MonoBehaviour
 
     public string dishLabel;
 
-    public float Growth = 0.25f;
+    public float Growth;
 
     // Start is called before the first frame update
     void Awake()

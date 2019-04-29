@@ -153,7 +153,8 @@ public class GameManager : MonoBehaviour
             // Remove the culture if it dies or is used up.
             else if (culture.Growth < 0.001f && culture.Growth > -0.001)
             {
-                Destroy(culture.gameObject);
+                Debug.Log("Destroying culture " + culture.name);
+                //Destroy(culture.gameObject);
                 //culture.GetComponent<Draggable>().draggableType = DraggableType.EmptyDish;
                 //var renderer = culture.GetComponent<CultureRenderer>();
                 //Destroy(renderer);
