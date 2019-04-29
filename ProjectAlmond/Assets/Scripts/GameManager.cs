@@ -23,6 +23,14 @@ public class GameManager : MonoBehaviour
     float spotAngleHigh;
     float spotAngleLow = 23;
 
+    // Cultures that will be updated during rendering.
+    public List<Culture> GrowableCultures;
+
+    // How long ago the last growth update was kicked off, in seconds.
+    private float lastGrowthRenderUpdate = 0.0f;
+
+    // Once a second for the lulz.
+    public float TimeBetweenCultureRenderUpdates = 1.0f;
 
     /// <summary>
     /// I said a bad word.
@@ -38,6 +46,8 @@ public class GameManager : MonoBehaviour
         beginButton = GameObject.Find("BeginButton");
         learnButton = GameObject.Find("LearnButton");
         titleButtonsParent = GameObject.Find("TitleButtonsParent");
+
+        GrowableCultures = new List<Culture>();
 
         if (shouldPlayIntroSequence)
         {
@@ -129,6 +139,9 @@ public class GameManager : MonoBehaviour
 
         // Kick off any tasks related to incrementing culture growth.
         IncrementGrowth();
+
+        // 
+        CheckForCultureRenderUpdate();
     }
 
     // At some interval, queue up the cultures, look at their growth rate, and grow them by some amount
@@ -154,10 +167,8 @@ public class GameManager : MonoBehaviour
             else if (culture.Growth < 0.001f && culture.Growth > -0.001)
             {
                 Debug.Log("Destroying culture " + culture.name);
-                //Destroy(culture.gameObject);
-                //culture.GetComponent<Draggable>().draggableType = DraggableType.EmptyDish;
-                //var renderer = culture.GetComponent<CultureRenderer>();
-                //Destroy(renderer);
+                GrowableCultures.Remove(culture);
+                Destroy(culture.gameObject);
             }
 
             // Increment growth.
@@ -167,6 +178,30 @@ public class GameManager : MonoBehaviour
                 var delta = GrowthRetardingFactor * Time.timeScale * Time.deltaTime * growthFactor;
                 culture.Growth += delta;
             }
+        }
+    }
+
+    private void CheckForCultureRenderUpdate()
+    {
+        lastGrowthRenderUpdate += Time.deltaTime * Time.timeScale;
+        if (lastGrowthRenderUpdate > TimeBetweenCultureRenderUpdates)
+        {
+            lastGrowthRenderUpdate = 0.0f;
+            StartCoroutine(UpdateCultureRenderForGrowth());
+        }
+
+    }
+
+    private IEnumerator UpdateCultureRenderForGrowth()
+    {
+        Debug.Log("Number of growable cultures: " + GrowableCultures.Count);
+
+        foreach( var culture in GrowableCultures )
+        {
+            var renderer = culture.GetComponent<CultureRenderer>();
+            renderer.Growth = culture.Growth;
+            Debug.Log("Rerendering cultures: Growth = " + culture.Growth);
+            yield return 0;
         }
     }
 

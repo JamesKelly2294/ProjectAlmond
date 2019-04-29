@@ -40,7 +40,9 @@ public class PetriDishSlot : MonoBehaviour
     void spawn(bool isDisease) {
         petriDish = Instantiate(petriDishPrefab);
 
-        petriDish.GetComponent<Culture>().Growth = cultureInitialGrowth;
+        var culture = petriDish.GetComponent<Culture>();
+        culture.Growth = cultureInitialGrowth;
+        FindObjectOfType<GameManager>().GrowableCultures.Add(culture);
 
         Draggable draggable = petriDish.GetComponent<Draggable>();
         draggable.AttachToAnchor(GetComponentInChildren<AnchorBehavior>());
