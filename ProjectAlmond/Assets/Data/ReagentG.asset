@@ -17,7 +17,28 @@ MonoBehaviour:
   productName: Radium
   flavorText: Mutagenic
   price: 40
-  modifiers: []
+  modifiers:
+  - type: 0
+    effect: 1
+    strength: 0
+  - type: 1
+    effect: 1
+    strength: 0
+  - type: 2
+    effect: 0
+    strength: 0
+  - type: 3
+    effect: 1
+    strength: 0
+  - type: 4
+    effect: 1
+    strength: 0
+  - type: 5
+    effect: 1
+    strength: 0
+  - type: 6
+    effect: 1
+    strength: 0
   OnValidation:
     m_PersistentCalls:
       m_Calls: []

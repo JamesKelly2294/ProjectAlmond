@@ -12,12 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16d678ba7b47f3c4e86383a0d814fe2e, type: 3}
   m_Name: ReagentF
   m_EditorClassIdentifier: 
-  color: {r: 1, g: 0.504717, b: 0.9538556, a: 1}
+  color: {r: 0.8867924, g: 0.8662748, b: 0.6065326, a: 1}
   emissiveness: 0.3
   productName: Lard
   flavorText: And How!
   price: 40
-  modifiers: []
+  modifiers:
+  - type: 0
+    effect: 0
+    strength: 0
+  - type: 0
+    effect: 0
+    strength: 0
+  - type: 2
+    effect: 1
+    strength: 1
   OnValidation:
     m_PersistentCalls:
       m_Calls: []

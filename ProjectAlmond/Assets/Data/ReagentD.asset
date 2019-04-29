@@ -17,7 +17,16 @@ MonoBehaviour:
   productName: Lithium
   flavorText: Soothing
   price: 40
-  modifiers: []
+  modifiers:
+  - type: 3
+    effect: 0
+    strength: 1
+  - type: 1
+    effect: 1
+    strength: 1
+  - type: 2
+    effect: 1
+    strength: 1
   OnValidation:
     m_PersistentCalls:
       m_Calls: []

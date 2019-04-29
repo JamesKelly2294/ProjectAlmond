@@ -17,7 +17,28 @@ MonoBehaviour:
   productName: Iodine
   flavorText: Stabilizer
   price: 80
-  modifiers: []
+  modifiers:
+  - type: 0
+    effect: 0
+    strength: 0
+  - type: 1
+    effect: 1
+    strength: 1
+  - type: 2
+    effect: 1
+    strength: 1
+  - type: 3
+    effect: 1
+    strength: 1
+  - type: 4
+    effect: 1
+    strength: 1
+  - type: 5
+    effect: 1
+    strength: 1
+  - type: 6
+    effect: 1
+    strength: 1
   OnValidation:
     m_PersistentCalls:
       m_Calls: []
