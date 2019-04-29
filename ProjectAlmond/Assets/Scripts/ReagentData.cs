@@ -46,10 +46,17 @@ public struct AlleleModifier
 [CreateAssetMenu(fileName = "Reagent", menuName = "Reagent", order = 1)]
 public class ReagentData : ScriptableObject
 {
-    public string productName = "Reagent A";
-    public string flavorText = "Yeet";
+    [Header("Shader Settings")]
     public Color color = Color.red;
     public float emissiveness = 0.1f;
+
+    [Header("Info")]
+    public string productName = "Reagent A";
+    public string flavorText = "Yeet";
+
+    [Header("Game Elements")]
+    [Tooltip("The price, in Republic Credits")]
+    public int price = 40;
     public List<AlleleModifier> modifiers;
 
     [HideInInspector]
