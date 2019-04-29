@@ -36,6 +36,12 @@ public class Pluckable : MonoBehaviour
     void OnMouseDown()
     {
         plucked = reagentBehavior.PluckedReagent();
+
+        if(!plucked)
+        {
+            return;
+        }
+
         plucked.GetComponent<Draggable>().RequestBeginDrag();
 
         //dragging = true;

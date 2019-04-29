@@ -15,10 +15,12 @@ public class PluckedReagentAnchorPoint : AnchorBehavior
     public ReagentAnchorPointEvent onHover;
     public ReagentAnchorPointEvent onUnhover;
 
+    CoinDropper coinDropper;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        coinDropper = FindObjectOfType<GameManager>().coinDropper;
     }
 
     // Update is called once per frame
@@ -33,7 +35,7 @@ public class PluckedReagentAnchorPoint : AnchorBehavior
         attachedObject.AddComponent<Rigidbody>();
 
         var data = (attachedObject.GetComponentInChildren<Draggable>().Data as ReagentData);
-        FindObjectOfType<GameManager>().coinDropper.take(data.price);
+        coinDropper.take(data.price);
 
         onAttach.Invoke(attachedObject, data, this);
     }
@@ -50,10 +52,10 @@ public class PluckedReagentAnchorPoint : AnchorBehavior
     {
         var data = (hoveredObject.GetComponentInChildren<Draggable>().Data as ReagentData);
         if (isHovering) {
-            FindObjectOfType<GameManager>().coinDropper.prepareToTake(data.price);
+            coinDropper.prepareToTake(data.price);
             onHover.Invoke(hoveredObject, data, this);
         } else {
-            FindObjectOfType<GameManager>().coinDropper.prepareToTake(0);
+            coinDropper.prepareToTake(0);
             onUnhover.Invoke(hoveredObject, data, this);
         }
     }

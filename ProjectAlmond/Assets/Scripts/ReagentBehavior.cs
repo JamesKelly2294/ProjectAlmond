@@ -12,10 +12,13 @@ public class ReagentBehavior : MonoBehaviour
     public TextMeshPro flavorTextLabel;
     public TextMeshPro priceLabel;
 
+    CoinDropper coinDropper;
+
     // Start is called before the first frame update
     void Start()
     {
         reagentRenderer.material = new Material(reagentRenderer.material);
+        coinDropper = FindObjectOfType<GameManager>().coinDropper;
         OnReagentValidation();
     }
 
@@ -48,6 +51,11 @@ public class ReagentBehavior : MonoBehaviour
 
     public GameObject PluckedReagent()
     {
+        if (coinDropper.numberOfCoinsVisable >= reagentData.price)
+        {
+
+        }
+
         GameObject plucked = GameObject.CreatePrimitive(PrimitiveType.Sphere);
         plucked.GetComponent<MeshRenderer>().material = reagentRenderer.material;
         Draggable draggable = plucked.AddComponent<Draggable>();
