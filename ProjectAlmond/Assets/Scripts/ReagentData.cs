@@ -5,9 +5,9 @@ using UnityEngine.Events;
 
 public enum AlleleType
 {
-    HeatResistance,
+    HeatResistance = 0,
     Aggression,
-    radiationResistance,
+    RadiationResistance,
     GrowRate,
     ColdResistance,
     Mobility,
@@ -35,6 +35,12 @@ public struct AlleleModifier
     public AlleleType type;
     public AlleleEffect effect;
     public AlleleStrength strength;
+
+    public AlleleModifier(AlleleType type, AlleleEffect effect, AlleleStrength strength) {
+        this.type = type;
+        this.effect = effect;
+        this.strength = strength;
+    }
 }
 
 [CreateAssetMenu(fileName = "Reagent", menuName = "Reagent", order = 1)]

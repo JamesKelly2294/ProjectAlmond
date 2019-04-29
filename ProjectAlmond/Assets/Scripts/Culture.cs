@@ -39,5 +39,6 @@ public class Culture : MonoBehaviour
         Debug.Log("Current: " + this.Genome.String);
         Debug.Log("New: " + genome.String);
         this.Genome = genome;
+        cultureRenderer.SetGenome(genome);
     }
 }

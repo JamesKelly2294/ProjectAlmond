@@ -102,17 +102,41 @@ public class CultureGenome: Genome {
         }
      }
 
-     public Genome mutate(System.Random rand) {
-
-        Allele[] allels = this.alleles;
+     public void mutate(System.Random rand) {
         for (var i = 0; i < this.alleles.Length; i++) {
 
             if ( rand.Next(100) <= 10 && rand.Next(100) % (this.radiationResistance.value + 1) == 0 ) {
                 int mutation = rand.Next(-1, 1);
-                allels[i].incrementValueByWrapping(mutation);
+                this.alleles[i].incrementValueByWrapping(mutation);
             }
         }
+    }
 
-        return new Genome(alleles);
+    public void apply(List<AlleleModifier> modifiers, System.Random rand) {
+        foreach (var modifier in modifiers) {
+            apply(modifier, rand);
+        }
+    }
+
+    public void apply(AlleleModifier modifier, System.Random rand) {
+        var current = alleles[modifier.type.GetHashCode()].value;
+        var strength = 0;
+        switch (modifier.strength)
+        {
+            case AlleleStrength.Strong: { strength = 1; break; }
+            case AlleleStrength.Weak: { strength = 3; break; }
+            case AlleleStrength.Random: { strength = rand.Next(0, 3); break; }
+        }
+
+        var effect = 0;
+        switch (modifier.effect)
+        {
+            case AlleleEffect.Increase: { effect =  1; break; }
+            case AlleleEffect.Decrease: { effect = -1; break; }
+            case AlleleEffect.Random: { effect = rand.Next(-1, 1); break; }
+        }
+
+        var adjust = strength * effect;
+        alleles[modifier.type.GetHashCode()].setValue((current + adjust));
     }
 }
