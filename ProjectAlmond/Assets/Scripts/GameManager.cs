@@ -165,7 +165,7 @@ public class GameManager : MonoBehaviour
             }
 
             // Remove the culture if it dies or is used up.
-            else if (culture.Growth < 0.001f && culture.Growth > -0.001)
+            else if (culture.Growth < 0.0f)
             {
                 Debug.Log("Destroying culture " + culture.name);
                 GrowableCultures.Remove(culture);
