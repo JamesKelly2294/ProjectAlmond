@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2051956782760078610}
   - component: {fileID: 5759817921022781426}
+  - component: {fileID: 3907261361584345944}
   m_Layer: 8
   m_Name: CultureAnchorPoint
   m_TagString: Untagged
@@ -44,3 +45,38 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.8, y: 0.7, z: 1.8}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3907261361584345944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3705823258027834079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68fa1949c7a575947b8f6c5c1601c389, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  draggableTypes: 0000000001000000
+  anchorGroup: {fileID: 0}
+  onAttach:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: CultureAnchorPointEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  onDetach:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: CultureAnchorPointEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  onHover:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: CultureAnchorPointEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  onUnhover:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: CultureAnchorPointEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  cameraAngle: {fileID: 0}

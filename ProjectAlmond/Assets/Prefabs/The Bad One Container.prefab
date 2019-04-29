@@ -1176,6 +1176,16 @@ PrefabInstance:
       propertyPath: shouldSpawnEvilPetriDish
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6001268927561469854, guid: c227fde1c06895f4faff76f26758cc39,
+        type: 3}
+      propertyPath: draggableTypes.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6001268927561469854, guid: c227fde1c06895f4faff76f26758cc39,
+        type: 3}
+      propertyPath: draggableTypes.Array.data[0]
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c227fde1c06895f4faff76f26758cc39, type: 3}
 --- !u!4 &7313444020137183983 stripped

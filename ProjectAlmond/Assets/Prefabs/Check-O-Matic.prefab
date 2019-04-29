@@ -1206,11 +1206,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6019488172156898457}
     m_Modifications:
-    - target: {fileID: 8795068514112717481, guid: 191e4717746c64ce3986b975fad9f977,
-        type: 3}
-      propertyPath: m_Name
-      value: Nixy Tube
-      objectReference: {fileID: 0}
     - target: {fileID: 8795068514112717477, guid: 191e4717746c64ce3986b975fad9f977,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1281,30 +1276,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.45335713
       objectReference: {fileID: 0}
-    - target: {fileID: 8795068514268857809, guid: 191e4717746c64ce3986b975fad9f977,
+    - target: {fileID: 8795068514112717481, guid: 191e4717746c64ce3986b975fad9f977,
         type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8795068514268857809, guid: 191e4717746c64ce3986b975fad9f977,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8795068514268857809, guid: 191e4717746c64ce3986b975fad9f977,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8795068514268857809, guid: 191e4717746c64ce3986b975fad9f977,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8795068514268857807, guid: 191e4717746c64ce3986b975fad9f977,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
+      propertyPath: m_Name
+      value: Nixy Tube
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 191e4717746c64ce3986b975fad9f977, type: 3}
@@ -1333,11 +1308,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6019488172156898457}
     m_Modifications:
-    - target: {fileID: 8795068514112717481, guid: 191e4717746c64ce3986b975fad9f977,
-        type: 3}
-      propertyPath: m_Name
-      value: Nixy Tube (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 8795068514112717477, guid: 191e4717746c64ce3986b975fad9f977,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1408,33 +1378,19 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.45335978
       objectReference: {fileID: 0}
-    - target: {fileID: 8795068514268857809, guid: 191e4717746c64ce3986b975fad9f977,
+    - target: {fileID: 8795068514112717481, guid: 191e4717746c64ce3986b975fad9f977,
         type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8795068514268857809, guid: 191e4717746c64ce3986b975fad9f977,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8795068514268857809, guid: 191e4717746c64ce3986b975fad9f977,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8795068514268857809, guid: 191e4717746c64ce3986b975fad9f977,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8795068514268857807, guid: 191e4717746c64ce3986b975fad9f977,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
+      propertyPath: m_Name
+      value: Nixy Tube (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 191e4717746c64ce3986b975fad9f977, type: 3}
+--- !u!4 &7173164946396651344 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8795068514112717477, guid: 191e4717746c64ce3986b975fad9f977,
+    type: 3}
+  m_PrefabInstance: {fileID: 1838154419484024309}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2191280931816518043 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 570428631120768110, guid: 191e4717746c64ce3986b975fad9f977,
@@ -1447,12 +1403,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dded2a6a9fb84e879258026e25a2d91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &7173164946396651344 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8795068514112717477, guid: 191e4717746c64ce3986b975fad9f977,
-    type: 3}
-  m_PrefabInstance: {fileID: 1838154419484024309}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2489912938531234670
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1535,41 +1485,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.3333335
       objectReference: {fileID: 0}
-    - target: {fileID: 886982895524955697, guid: 4daea106a1b5f46fb9c43cdabf85a283,
+    - target: {fileID: 1658075019952786586, guid: 4daea106a1b5f46fb9c43cdabf85a283,
         type: 3}
-      propertyPath: onAttach.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      propertyPath: draggableTypes.Array.data[1]
+      value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 886982895524955697, guid: 4daea106a1b5f46fb9c43cdabf85a283,
-        type: 3}
-      propertyPath: onAttach.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 886982895524955697, guid: 4daea106a1b5f46fb9c43cdabf85a283,
-        type: 3}
-      propertyPath: onAttach.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 886982895524955697, guid: 4daea106a1b5f46fb9c43cdabf85a283,
-        type: 3}
-      propertyPath: onAttach.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 5521419025049432048}
-    - target: {fileID: 886982895524955697, guid: 4daea106a1b5f46fb9c43cdabf85a283,
-        type: 3}
-      propertyPath: onAttach.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: diskWasAttached
-      objectReference: {fileID: 0}
-    - target: {fileID: 886982895524955697, guid: 4daea106a1b5f46fb9c43cdabf85a283,
-        type: 3}
-      propertyPath: onAttach.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 886982895524955697, guid: 4daea106a1b5f46fb9c43cdabf85a283,
-        type: 3}
-      propertyPath: cameraAngle
-      value: 
-      objectReference: {fileID: 9014461037847138950}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4daea106a1b5f46fb9c43cdabf85a283, type: 3}
 --- !u!4 &6091050905879608369 stripped
@@ -1585,11 +1505,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6019488172156898457}
     m_Modifications:
-    - target: {fileID: 8795068514112717481, guid: 191e4717746c64ce3986b975fad9f977,
-        type: 3}
-      propertyPath: m_Name
-      value: Nixy Tube (6)
-      objectReference: {fileID: 0}
     - target: {fileID: 8795068514112717477, guid: 191e4717746c64ce3986b975fad9f977,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1660,30 +1575,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.45335978
       objectReference: {fileID: 0}
-    - target: {fileID: 8795068514268857809, guid: 191e4717746c64ce3986b975fad9f977,
+    - target: {fileID: 8795068514112717481, guid: 191e4717746c64ce3986b975fad9f977,
         type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8795068514268857809, guid: 191e4717746c64ce3986b975fad9f977,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8795068514268857809, guid: 191e4717746c64ce3986b975fad9f977,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8795068514268857809, guid: 191e4717746c64ce3986b975fad9f977,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8795068514268857807, guid: 191e4717746c64ce3986b975fad9f977,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
+      propertyPath: m_Name
+      value: Nixy Tube (6)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 191e4717746c64ce3986b975fad9f977, type: 3}
@@ -1712,11 +1607,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6019488172156898457}
     m_Modifications:
-    - target: {fileID: 8795068514112717481, guid: 191e4717746c64ce3986b975fad9f977,
-        type: 3}
-      propertyPath: m_Name
-      value: Nixy Tube (2)
-      objectReference: {fileID: 0}
     - target: {fileID: 8795068514112717477, guid: 191e4717746c64ce3986b975fad9f977,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1787,33 +1677,19 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.45335978
       objectReference: {fileID: 0}
-    - target: {fileID: 8795068514268857809, guid: 191e4717746c64ce3986b975fad9f977,
+    - target: {fileID: 8795068514112717481, guid: 191e4717746c64ce3986b975fad9f977,
         type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8795068514268857809, guid: 191e4717746c64ce3986b975fad9f977,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8795068514268857809, guid: 191e4717746c64ce3986b975fad9f977,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8795068514268857809, guid: 191e4717746c64ce3986b975fad9f977,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8795068514268857807, guid: 191e4717746c64ce3986b975fad9f977,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
+      propertyPath: m_Name
+      value: Nixy Tube (2)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 191e4717746c64ce3986b975fad9f977, type: 3}
+--- !u!4 &5076344746480597172 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8795068514112717477, guid: 191e4717746c64ce3986b975fad9f977,
+    type: 3}
+  m_PrefabInstance: {fileID: 4358517494609885713}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &4293620673196480127 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 570428631120768110, guid: 191e4717746c64ce3986b975fad9f977,
@@ -1826,12 +1702,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dded2a6a9fb84e879258026e25a2d91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &5076344746480597172 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8795068514112717477, guid: 191e4717746c64ce3986b975fad9f977,
-    type: 3}
-  m_PrefabInstance: {fileID: 4358517494609885713}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4544449269040220749
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1839,11 +1709,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6019488172156898457}
     m_Modifications:
-    - target: {fileID: 8795068514112717481, guid: 191e4717746c64ce3986b975fad9f977,
-        type: 3}
-      propertyPath: m_Name
-      value: Nixy Tube (4)
-      objectReference: {fileID: 0}
     - target: {fileID: 8795068514112717477, guid: 191e4717746c64ce3986b975fad9f977,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1914,30 +1779,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.45335978
       objectReference: {fileID: 0}
-    - target: {fileID: 8795068514268857809, guid: 191e4717746c64ce3986b975fad9f977,
+    - target: {fileID: 8795068514112717481, guid: 191e4717746c64ce3986b975fad9f977,
         type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8795068514268857809, guid: 191e4717746c64ce3986b975fad9f977,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8795068514268857809, guid: 191e4717746c64ce3986b975fad9f977,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8795068514268857809, guid: 191e4717746c64ce3986b975fad9f977,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8795068514268857807, guid: 191e4717746c64ce3986b975fad9f977,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
+      propertyPath: m_Name
+      value: Nixy Tube (4)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 191e4717746c64ce3986b975fad9f977, type: 3}
@@ -1966,11 +1811,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6019488172156898457}
     m_Modifications:
-    - target: {fileID: 8795068514112717481, guid: 191e4717746c64ce3986b975fad9f977,
-        type: 3}
-      propertyPath: m_Name
-      value: Nixy Tube (5)
-      objectReference: {fileID: 0}
     - target: {fileID: 8795068514112717477, guid: 191e4717746c64ce3986b975fad9f977,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2041,30 +1881,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.45335978
       objectReference: {fileID: 0}
-    - target: {fileID: 8795068514268857809, guid: 191e4717746c64ce3986b975fad9f977,
+    - target: {fileID: 8795068514112717481, guid: 191e4717746c64ce3986b975fad9f977,
         type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8795068514268857809, guid: 191e4717746c64ce3986b975fad9f977,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8795068514268857809, guid: 191e4717746c64ce3986b975fad9f977,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8795068514268857809, guid: 191e4717746c64ce3986b975fad9f977,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8795068514268857807, guid: 191e4717746c64ce3986b975fad9f977,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
+      propertyPath: m_Name
+      value: Nixy Tube (5)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 191e4717746c64ce3986b975fad9f977, type: 3}
@@ -2093,11 +1913,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6019488172156898457}
     m_Modifications:
-    - target: {fileID: 8795068514112717481, guid: 191e4717746c64ce3986b975fad9f977,
-        type: 3}
-      propertyPath: m_Name
-      value: Nixy Tube (3)
-      objectReference: {fileID: 0}
     - target: {fileID: 8795068514112717477, guid: 191e4717746c64ce3986b975fad9f977,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2168,33 +1983,19 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.45335978
       objectReference: {fileID: 0}
-    - target: {fileID: 8795068514268857809, guid: 191e4717746c64ce3986b975fad9f977,
+    - target: {fileID: 8795068514112717481, guid: 191e4717746c64ce3986b975fad9f977,
         type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8795068514268857809, guid: 191e4717746c64ce3986b975fad9f977,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8795068514268857809, guid: 191e4717746c64ce3986b975fad9f977,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8795068514268857809, guid: 191e4717746c64ce3986b975fad9f977,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8795068514268857807, guid: 191e4717746c64ce3986b975fad9f977,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
+      propertyPath: m_Name
+      value: Nixy Tube (3)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 191e4717746c64ce3986b975fad9f977, type: 3}
+--- !u!4 &2692153228351506336 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8795068514112717477, guid: 191e4717746c64ce3986b975fad9f977,
+    type: 3}
+  m_PrefabInstance: {fileID: 6868604264465908997}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &6393069672162601323 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 570428631120768110, guid: 191e4717746c64ce3986b975fad9f977,
@@ -2207,12 +2008,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dded2a6a9fb84e879258026e25a2d91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &2692153228351506336 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8795068514112717477, guid: 191e4717746c64ce3986b975fad9f977,
-    type: 3}
-  m_PrefabInstance: {fileID: 6868604264465908997}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &9064817527112605588
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2220,11 +2015,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6019488172156898457}
     m_Modifications:
-    - target: {fileID: 8795068514112717481, guid: 191e4717746c64ce3986b975fad9f977,
-        type: 3}
-      propertyPath: m_Name
-      value: Nixy Tube (7)
-      objectReference: {fileID: 0}
     - target: {fileID: 8795068514112717477, guid: 191e4717746c64ce3986b975fad9f977,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2295,30 +2085,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.45335978
       objectReference: {fileID: 0}
-    - target: {fileID: 8795068514268857809, guid: 191e4717746c64ce3986b975fad9f977,
+    - target: {fileID: 8795068514112717481, guid: 191e4717746c64ce3986b975fad9f977,
         type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8795068514268857809, guid: 191e4717746c64ce3986b975fad9f977,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8795068514268857809, guid: 191e4717746c64ce3986b975fad9f977,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8795068514268857809, guid: 191e4717746c64ce3986b975fad9f977,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8795068514268857807, guid: 191e4717746c64ce3986b975fad9f977,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
+      propertyPath: m_Name
+      value: Nixy Tube (7)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 191e4717746c64ce3986b975fad9f977, type: 3}
