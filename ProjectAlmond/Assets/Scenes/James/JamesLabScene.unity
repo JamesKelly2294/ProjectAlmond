@@ -2471,6 +2471,12 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1728174406184941793, guid: e27423d28cce748b48564809e3741cb7,
+        type: 3}
+      propertyPath: petriDishPrefab
+      value: 
+      objectReference: {fileID: 8625050361119894641, guid: c428b42422e797b418bcb228766c8415,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e27423d28cce748b48564809e3741cb7, type: 3}
 --- !u!1 &1207252888

@@ -313,13 +313,10 @@ m_Instance = singletonObject.AddComponent<GameManager>();
 
     private void UpdateCultureRenderForGrowth()
     {
-        Debug.Log("Number of growable cultures: " + GrowableCultures.Count);
-
         foreach( var culture in GrowableCultures )
         {
             var renderer = culture.GetComponent<CultureRenderer>();
             renderer.Growth = culture.Growth;
-            Debug.Log("Rerendering cultures: Growth = " + culture.Growth);
         }
     }
 

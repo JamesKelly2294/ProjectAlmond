@@ -20,6 +20,8 @@ public class Combiner : MonoBehaviour
     Culture bCulture;
     CultureAnchorPoint bAnchor;
 
+    public GameObject petriDishPrefab;
+
 
     // Start is called before the first frame update
     void Start()
@@ -62,8 +64,49 @@ public class Combiner : MonoBehaviour
         // Create new SPAWN here
         //  - Perform amalgomation
         //  - Create Petri Dish
-        ////
         ///
+        
+        if (bDish)
+        {
+            if (tlDish && trDish) {
+                Culture tlCulture = tlDish.GetComponent<Culture>();
+                Culture trCulture = trDish.GetComponent<Culture>();
+                CultureGenome mutated = trCulture.Genome.combine(trCulture.Genome, new System.Random());
+
+                Debug.Log("Parent A: " + tlCulture.Genome.String);
+                Debug.Log("Parent B: " + trCulture.Genome.String);
+                Debug.Log("Child: " + mutated.String);
+
+                GameObject petriDish = Instantiate(petriDishPrefab);
+
+                var culture = petriDish.GetComponent<Culture>();
+                culture.Growth = (tlCulture.Growth + trCulture.Growth) / 2.0f;
+                FindObjectOfType<GameManager>().GrowableCultures.Add(culture);
+
+                Draggable draggable = petriDish.GetComponent<Draggable>();
+
+                CultureAnchorPoint anchor = bAnchor;
+                GameObject dish = bDish;
+                bDish.GetComponent<Draggable>().DetachFromAnchor();
+                Destroy(dish);
+                draggable.AttachToAnchor(anchor);
+
+                petriDish.transform.rotation = bAnchor.transform.rotation;
+                petriDish.transform.parent = bAnchor.transform;
+                petriDish.transform.localPosition = Vector3.zero;
+
+
+                var cultureRenderer = GetComponentInChildren<CultureRenderer>();
+                cultureRenderer.SetGenome(mutated);
+
+            } else if (tlDish)
+            {
+
+            } else if (trDish)
+            {
+
+            }
+        } 
         
         if (tlDish != null) { 
             tlHolder.GetComponent<DishReceptical>().stopAnimating(); 

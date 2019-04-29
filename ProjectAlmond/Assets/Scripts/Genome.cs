@@ -104,6 +104,22 @@ public class CultureGenome: Genome {
     public Allele size { get { return alleles[6]; } set { alleles[6] = value; } }
     public Allele unused { get { return alleles[7]; } set { alleles[7] = value; } }
 
+    public CultureGenome combine(CultureGenome otherGenome, System.Random rand)
+    {
+        System.Diagnostics.Debug.Assert(this.alleles.Length != otherGenome.alleles.Length);
+
+        Allele[] allels = this.alleles;
+        for (var i = 0; i < this.alleles.Length; i++)
+        {
+            if (rand.Next(0, 1) == 1)
+            {
+                allels[i] = otherGenome.alleles[i];
+            }
+        }
+
+        return new CultureGenome(alleles);
+    }
+
     /// Creates a color from the internal representation of the genome.
     public Color color { 
         get {
