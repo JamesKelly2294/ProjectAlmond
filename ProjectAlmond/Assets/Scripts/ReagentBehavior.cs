@@ -43,4 +43,14 @@ public class ReagentBehavior : MonoBehaviour
     {
         reagentData.OnValidation.AddListener(OnReagentValidation);
     }
+
+    public GameObject PluckedReagent()
+    {
+        GameObject plucked = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+        plucked.GetComponent<MeshRenderer>().material = reagentRenderer.material;
+        plucked.transform.name = reagentData.name + " Sample";
+        plucked.transform.localScale = Vector3.one * 0.5f;
+
+        return plucked;
+    }
 }

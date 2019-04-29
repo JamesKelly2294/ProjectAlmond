@@ -37,15 +37,6 @@ public struct AlleleModifier
     public AlleleStrength strength;
 }
 
-[System.Serializable]
-public struct EquippedItem
-{
-    public long id;
-    public string type;
-    public string name;
-    public string equipmentSlot;
-}
-
 [CreateAssetMenu(fileName = "Reagent", menuName = "Reagent", order = 1)]
 public class ReagentData : ScriptableObject
 {

@@ -62,7 +62,16 @@ public class Draggable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (dragging)
+        {
+            if(Input.GetMouseButton(0))
+            {
+                MouseDrag();
+            } else
+            {
+                MouseUp();
+            }
+        }
     }
 
     Vector3 mouseDownPosition;
@@ -108,7 +117,7 @@ public class Draggable : MonoBehaviour
 
     private AnchorBehavior hoverTarget; 
 
-    void OnMouseDrag()
+    void MouseDrag()
     {
         if (!enabled)
         {
@@ -170,7 +179,7 @@ public class Draggable : MonoBehaviour
         }
     }
 
-    void OnMouseUp()
+    void MouseUp()
     {
         if (!enabled)
         {

@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68fa1949c7a575947b8f6c5c1601c389, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  draggableTypes: 0000000001000000
+  draggableTypes: 01000000
   anchorGroup: {fileID: 0}
   onAttach:
     m_PersistentCalls:
@@ -57,6 +57,16 @@ MonoBehaviour:
     m_TypeName: CultureAnchorPointEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   onDirectedSwap:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: CultureAnchorPointEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  onHover:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: CultureAnchorPointEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  onUnhover:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: CultureAnchorPointEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
