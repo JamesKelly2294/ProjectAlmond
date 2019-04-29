@@ -17,17 +17,17 @@ public class Pluckable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(dragging)
-        {
-            if(!Input.GetMouseButton(0))
-            {
-                Destroy(plucked);
-                dragging = false;
-            }
+        //if(dragging)
+        //{
+        //    if(!Input.GetMouseButton(0))
+        //    {
+        //        Destroy(plucked);
+        //        dragging = false;
+        //    }
 
-            float distanceFromScreen = Camera.main.WorldToScreenPoint(transform.position).z;
-            plucked.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, distanceFromScreen));
-        }
+        //    float distanceFromScreen = Camera.main.WorldToScreenPoint(transform.position).z;
+        //    plucked.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, distanceFromScreen));
+        //}
     }
 
     GameObject plucked;
@@ -36,7 +36,8 @@ public class Pluckable : MonoBehaviour
     void OnMouseDown()
     {
         plucked = reagentBehavior.PluckedReagent();
+        plucked.GetComponent<Draggable>().RequestBeginDrag();
 
-        dragging = true;
+        //dragging = true;
     }
 }

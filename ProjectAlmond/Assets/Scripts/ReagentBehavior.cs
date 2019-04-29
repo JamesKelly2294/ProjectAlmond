@@ -48,6 +48,10 @@ public class ReagentBehavior : MonoBehaviour
     {
         GameObject plucked = GameObject.CreatePrimitive(PrimitiveType.Sphere);
         plucked.GetComponent<MeshRenderer>().material = reagentRenderer.material;
+        Draggable draggable = plucked.AddComponent<Draggable>();
+        draggable.Data = reagentData;
+        draggable.draggableType = DraggableType.PluckedReagent;
+        draggable.DiesOnRelease = true;
         plucked.transform.name = reagentData.name + " Sample";
         plucked.transform.localScale = Vector3.one * 0.5f;
 
