@@ -12,16 +12,6 @@ public class PetriDishSlot : MonoBehaviour
 
     GameObject petriDish;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        if (spawnPetriDishOnStart)
-        {
-            Spawn();
-        }
-
-    }
-
     public void SpawnDisease(CultureGenome genome)
     {
         var diseaseGenome = genome;
@@ -41,7 +31,7 @@ public class PetriDishSlot : MonoBehaviour
         petriDish.transform.Find("Dish").GetComponent<MeshRenderer>().material = diseaseOverride;
     }
 
-    bool Spawn() {
+    public bool Spawn() {
         if(petriDish)
         {
             return false;

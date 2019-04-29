@@ -19,42 +19,42 @@ public class CameraControllerEditor : Editor
         
         if (GUILayout.Button("Title"))
         {
-            cameraController.PanToAngle(cameraController.title, 1.0f);
+            cameraController.RequestPanToAngle(cameraController.title, 1.0f);
         }
 
         if (GUILayout.Button("Overview"))
         {
-            cameraController.PanToAngle(cameraController.overview, 1.0f);
+            cameraController.RequestPanToAngle(cameraController.overview, 1.0f);
         }
 
         if (GUILayout.Button("Baseview"))
         {
-            cameraController.PanToAngle(cameraController.baseview, 1.0f);
+            cameraController.RequestPanToAngle(cameraController.baseview, 1.0f);
         }
 
         if (GUILayout.Button("Petri Dishes"))
         {
-            cameraController.PanToAngle(cameraController.petriDishes, 1.0f);
+            cameraController.RequestPanToAngle(cameraController.petriDishes, 1.0f);
         }
 
         if (GUILayout.Button("Genimagic"))
         {
-            cameraController.PanToAngle(cameraController.genimagic, 1.0f);
+            cameraController.RequestPanToAngle(cameraController.genimagic, 1.0f);
         }
 
         if (GUILayout.Button("Check-o-matic"))
         {
-            cameraController.PanToAngle(cameraController.checkomatic, 1.0f);
+            cameraController.RequestPanToAngle(cameraController.checkomatic, 1.0f);
         }
 
         if (GUILayout.Button("Amalgamizer"))
         {
-            cameraController.PanToAngle(cameraController.amalgamizer, 1.0f);
+            cameraController.RequestPanToAngle(cameraController.amalgamizer, 1.0f);
         }
 
         if (GUILayout.Button("Resources"))
         {
-            cameraController.PanToAngle(cameraController.resources, 1.0f);
+            cameraController.RequestPanToAngle(cameraController.resources, 1.0f);
         }
     }
 }

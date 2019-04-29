@@ -79,6 +79,8 @@ public class Combiner : MonoBehaviour
             bDish.GetComponentInChildren<Draggable>().LockUserInteraction();
         }
 
+        GameManager.Instance.RequestPlayCombinerSound();
+
         yield return new WaitForSeconds(2);
 
         ////

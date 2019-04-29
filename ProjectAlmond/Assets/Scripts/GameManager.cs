@@ -1,25 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Linq;
 
 public class GameManager : MonoBehaviour
 {
     // borrowed from https://wiki.unity3d.com/index.php/Singleton
-    static bool m_ShuttingDown = false;
     static object m_Lock = new object();
     static GameManager m_Instance;
     public static GameManager Instance
     {
         get
         {
-            if (m_ShuttingDown)
-            {
-                Debug.LogWarning("[Singleton] Instance '" + typeof(GameManager) +
-                    "' already destroyed. Returning null.");
-                return null;
-            }
- 
             lock (m_Lock)
             {
                 if (m_Instance == null)
@@ -52,6 +45,9 @@ m_Instance = singletonObject.AddComponent<GameManager>();
     public AudioClip SuckCoinsMicroSound;
     public AudioClip DropReagentSound;
     public AudioClip ButtonClickSound;
+    public AudioClip CombinerSound;
+    public AudioClip CheckerSound;
+    public List<AudioClip> ModifierSounds;
     public void RequestPlayCoinCoinCollisionSound()
     {
         if(CoinCoinCollisionSounds.Count <= 0)
@@ -92,15 +88,35 @@ m_Instance = singletonObject.AddComponent<GameManager>();
         LoudAudioSource.PlayOneShot(ButtonClickSound);
     }
 
+    public void RequestPlayCombinerSound()
+    {
+        LoudAudioSource.PlayOneShot(CombinerSound);
+    }
+
+    public void RequestPlayCheckerSound()
+    {
+        LoudAudioSource.PlayOneShot(CheckerSound);
+    }
+
+    public void RequestPlayModifierSound()
+    {
+        if (ModifierSounds.Count <= 0)
+        {
+            return;
+        }
+
+        QuietAudioSource.PlayOneShot(ModifierSounds[Random.Range(0, ModifierSounds.Count)]);
+    }
+
     private void OnApplicationQuit()
     {
-        m_ShuttingDown = true;
+        //m_ShuttingDown = true;
     }
 
 
     private void OnDestroy()
     {
-        m_ShuttingDown = true;
+        //m_ShuttingDown = true;
     }
 
     public bool shouldPlayIntroSequence;
@@ -153,7 +169,7 @@ m_Instance = singletonObject.AddComponent<GameManager>();
 
         GrowableCultures = new List<Culture>();
 
-        if (shouldPlayIntroSequence)
+        if (shouldPlayIntroSequence || !Application.isEditor)
         {
             fillLight = GameObject.Find("Fill Light").GetComponent<Light>();
             spotAngleHigh = fillLight.spotAngle;
@@ -168,7 +184,7 @@ m_Instance = singletonObject.AddComponent<GameManager>();
 
     public void BeginPlayIntroSequence()
     {
-        cameraController.PanToAngle(cameraController.overview, 2.0f);
+        cameraController.RequestPanToAngle(cameraController.overview, 2.0f);
         StartCoroutine(HideTitle());
         StartCoroutine(PlayIntroSequence());
     }
@@ -208,6 +224,7 @@ m_Instance = singletonObject.AddComponent<GameManager>();
         BeginGame();
     }
 
+    float gameStartTime = -1;
     void BeginGame()
     {
         if (gameBegun)
@@ -215,12 +232,22 @@ m_Instance = singletonObject.AddComponent<GameManager>();
             return;
         }
 
+        gameStartTime = Time.time;
+
         GenerateWinning();
+
+        foreach (var slot in FindObjectsOfType<PetriDishSlot>())
+        {
+            if(slot.spawnPetriDishOnStart)
+            {
+                slot.Spawn();
+            }
+        }
 
         coinDropper.numberOfCoinsNeedingVending = 100;
 
-        beginButton.SetActive(false);
-        learnButton.SetActive(false);
+        if (beginButton) beginButton.SetActive(false);
+        if (learnButton) learnButton.SetActive(false);
         gameBegun = true;
     }
 
@@ -232,13 +259,35 @@ m_Instance = singletonObject.AddComponent<GameManager>();
     public void WinGame()
     {
         clock.stopClock();
-        // TODO
+        TransitionToGameOverScreen("You have discovered the cure. Congratulations - you survive!");
     }
 
-    public void EndGame(string message="You died")
+    public void EndGame(string message= "You were too slow - you have succumbed to the disease.")
     {
+        gameStartTime = -1;
+        gameBegun = false;
         clock.stopClock();
-        // TODO
+        TransitionToGameOverScreen(message);
+    }
+
+    public GameObject gameOverScreen;
+    public GameObject theGame;
+    public void TransitionToGameOverScreen(string message)
+    {
+        gameOverScreen.transform.Find("Game Over Label").GetComponent<TMPro.TextMeshPro>().text = message;
+
+        theGame.SetActive(false);
+        gameOverScreen.SetActive(true);
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
     }
 
     // Update is called once per frame
@@ -298,13 +347,18 @@ m_Instance = singletonObject.AddComponent<GameManager>();
 
     private void CheckForGameOver()
     {
+        if(!gameBegun || (Time.time - gameStartTime) < 10)
+        {
+            return;
+        }
+
         var minPlateCost = 5.0f;
         var noPlatesLeft = !emptyPetriDishManager.HasEmptyPetriDishes;
         var canAffordPlate = coinDropper.numberOfCoinsVisable < minPlateCost;
 
         if ( noPlatesLeft && canAffordPlate )
         {
-            EndGame("You can't afford any more petri dishes");
+            EndGame("You can't afford any more petri dishes. Poor and destitute, the disease overtakes you without a fight.");
         }
     }
 

@@ -73,6 +73,7 @@ public class CheckOMatic : MonoBehaviour
     public void diskWasAttached(GameObject g, Culture c, CultureAnchorPoint a)
     {
         this.GetComponentInChildren<DishReceptical>().startAnimating();
+        GameManager.Instance.RequestPlayCheckerSound();
 
         attachedDish = g;
         culture = c;

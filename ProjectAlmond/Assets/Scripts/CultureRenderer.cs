@@ -65,16 +65,21 @@ public class CultureRenderer : MonoBehaviour
     List<Vector3> cellPositions;
     List<float> cellRadii;
 
-    List<Material> cellMaterials;
+    Material[] cellMaterials;
 
     int randomOffset;
 
     bool initalized;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
 
+        cellMaterials = new Material[cellGroupCount];
+        for (int i = 0; i < cellGroupCount; i++)
+        {
+            cellMaterials[i] = new Material(cellMaterialBase);
+        }
     }
 
     public void Initialize(CultureGenome genome)
@@ -83,6 +88,7 @@ public class CultureRenderer : MonoBehaviour
         {
             return;
         }
+
 
         Debug.Log("Initializing culture renderer");
 
@@ -174,7 +180,7 @@ public class CultureRenderer : MonoBehaviour
                 cell.transform.parent = cellGroups[Random.Range(0, cellGroups.Count)].transform;
                 cell.transform.localRotation = Quaternion.identity;
                 Destroy(cell.GetComponent<SphereCollider>());
-                cell.GetComponent<MeshRenderer>().material = cellMaterials[Random.Range(0, cellMaterials.Count)];
+                cell.GetComponent<MeshRenderer>().material = cellMaterials[Random.Range(0, cellMaterials.Length)];
                 cell.GetComponent<MeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
                 cells.Add(cell);
             }
@@ -290,7 +296,6 @@ public class CultureRenderer : MonoBehaviour
         Debug.Log("Setting cell genome");
 
         Color baseColor = genome.color;
-        cellMaterials = new List<Material>(cellGroupCount);
         Debug.Log(baseColor);
         for (int i = 0; i < cellGroupCount; i++)
         {
@@ -299,10 +304,7 @@ public class CultureRenderer : MonoBehaviour
             H += Random.Range(-0.1f, 0.1f);
             Color alteredColor = Color.HSVToRGB(H, S, V);
             Color finalColor = alteredColor * Mathf.LinearToGammaSpace(Random.Range(0.25f, 0.35f));
-            Material cellGroupMaterial = new Material(cellMaterialBase);
-            cellGroupMaterial.SetColor("_EmissionColor", finalColor);
-
-            cellMaterials.Add(cellGroupMaterial);
+            cellMaterials[i].SetColor("_EmissionColor", finalColor);
         }
 
         Initialize(genome);

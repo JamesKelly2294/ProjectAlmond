@@ -558,7 +558,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 1856804968301812716, guid: 702c61460f4d80d42a88c1d8e09cfacc, type: 2}
+  - {fileID: 4466840257000854574, guid: fbb02334501714d38ade7f950fd3d2c4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -616,8 +616,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: fawefawfwe
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 702c61460f4d80d42a88c1d8e09cfacc, type: 2}
-  m_sharedMaterial: {fileID: 1856804968301812716, guid: 702c61460f4d80d42a88c1d8e09cfacc,
+  m_fontAsset: {fileID: 11400000, guid: fbb02334501714d38ade7f950fd3d2c4, type: 2}
+  m_sharedMaterial: {fileID: 4466840257000854574, guid: fbb02334501714d38ade7f950fd3d2c4,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -643,14 +643,14 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 18
+  m_fontSizeBase: 18
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 32
-  m_textAlignment: 260
+  m_fontStyle: 9
+  m_textAlignment: 516
   m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
@@ -681,7 +681,7 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -4.3020773, y: -4.757022, z: 10.76687, w: 5.0631423}
+  m_margin: {x: -5.6310744, y: -4.757022, z: 10.394748, w: 5.0631423}
   m_textInfo:
     textComponent: {fileID: 8395370289527312618}
     characterCount: 10
@@ -811,7 +811,7 @@ GameObject:
   - component: {fileID: 333893985506805483}
   - component: {fileID: 9143878498213450662}
   - component: {fileID: 7314969365521661971}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Reagent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -826,8 +826,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7198672822507908447}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.62, z: 0}
-  m_LocalScale: {x: 1.8, y: 1, z: 1.8}
+  m_LocalPosition: {x: 0, y: 1.031, z: 0}
+  m_LocalScale: {x: 1.8, y: 0.20007, z: 1.8}
   m_Children: []
   m_Father: {fileID: 8549525195948345627}
   m_RootOrder: 1

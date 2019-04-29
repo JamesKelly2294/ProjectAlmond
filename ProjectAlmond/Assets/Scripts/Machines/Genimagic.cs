@@ -49,6 +49,9 @@ public class Genimagic : MonoBehaviour
                 modifiers.RemoveAt(0);
 
                 Debug.Log("Working on: " + modifier);
+
+                GameManager.Instance.RequestPlayModifierSound();
+
                 culture.Genome.apply(modifier.modifiers, rand);
                 culture.Genome.mutate(rand);
                 culture.SetGenome(culture.Genome);

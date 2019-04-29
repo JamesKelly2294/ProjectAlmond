@@ -19,10 +19,57 @@ public class CameraController : MonoBehaviour
 
     }
 
+    CameraFocus currentFocus;
     // Update is called once per frame
     void Update()
     {
+        if(!GameManager.Instance.hasGameBegun())
+        {
+            return;
+        }
 
+        if (Input.GetMouseButtonDown(0))
+        {
+            int layerMask = 1 << 11;
+            int shitToIgnoreMask = 1 << 9 | 1 << 12 | 1 << 13;
+
+            RaycastHit shitToIgnoreHit;
+            Ray shitToIgnore = Camera.main.ScreenPointToRay(Input.mousePosition);
+            bool foundShitToIgnore = Physics.Raycast(shitToIgnore, out shitToIgnoreHit, Mathf.Infinity, shitToIgnoreMask);
+
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            bool foundCameraFocus = Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask);
+            if (foundCameraFocus)
+            {
+                if(foundShitToIgnore)
+                {
+                    return;
+                }
+
+                CameraFocus focus = hit.transform.GetComponent<CameraFocus>();
+
+                if(!focus)
+                {
+                    return;
+                }
+
+                if (focus == currentFocus)
+                {
+                    currentFocus = null;
+                    RequestPanToAngle(baseview, 1.0f);
+                } else if (focus.CameraView)
+                {
+                    currentFocus = focus;
+                    RequestPanToAngle(focus.CameraView, 1.0f);
+                }
+                
+            }
+            else
+            {
+                RequestPanToAngle(baseview, 1.0f);
+            }
+        }
     }
 
     bool panning;
@@ -41,21 +88,6 @@ public class CameraController : MonoBehaviour
         StartCoroutine(BeginPanToPosition(angle, transitionDuration));
 
         return true;
-    }
-
-    public void PanToAngle(Transform angle, float transitionDuration)
-    {
-        Debug.Log("PanToAngle");
-        if (panning || rotating)
-        {
-            return;
-        }
-
-
-        panning = true;
-        rotating = true;
-        StartCoroutine(BeginPanToAngle(angle, transitionDuration));
-        StartCoroutine(BeginPanToPosition(angle, transitionDuration));
     }
 
     IEnumerator BeginPanToAngle(Transform angle, float transitionDuration)

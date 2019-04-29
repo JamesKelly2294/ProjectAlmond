@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 627389295620956207}
   - component: {fileID: 627389295620956204}
   - component: {fileID: 627389295620956205}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Coint Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +91,7 @@ GameObject:
   - component: {fileID: 627389296227287980}
   - component: {fileID: 1910285844052535597}
   - component: {fileID: 5969304006149700187}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Coin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -211,7 +211,7 @@ GameObject:
   - component: {fileID: 627389297099759870}
   - component: {fileID: 627389297099759867}
   - component: {fileID: 627389297099759868}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Coin Bottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}

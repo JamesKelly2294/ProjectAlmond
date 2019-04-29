@@ -17,23 +17,29 @@ public class Pluckable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if(dragging)
-        //{
-        //    if(!Input.GetMouseButton(0))
-        //    {
-        //        Destroy(plucked);
-        //        dragging = false;
-        //    }
+        if(Input.GetMouseButtonDown(0))
+        {
+            int mask = 1 << 13;
 
-        //    float distanceFromScreen = Camera.main.WorldToScreenPoint(transform.position).z;
-        //    plucked.transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, distanceFromScreen));
-        //}
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, mask)) 
+            {
+                if(hit.transform.gameObject != gameObject)
+                {
+                    return;
+                }
+                Debug.Log("FOUND");
+                // Should check for other obstacles
+                MouseDown();
+            }
+        }
     }
 
     GameObject plucked;
 
     // This is dirty and not generic but it'll have to do for now
-    void OnMouseDown()
+    void MouseDown()
     {
         plucked = reagentBehavior.PluckedReagent();
 
