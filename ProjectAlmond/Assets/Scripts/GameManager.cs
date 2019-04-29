@@ -59,37 +59,37 @@ m_Instance = singletonObject.AddComponent<GameManager>();
             return;
         }
 
-        audioSource.PlayOneShot(CoinCoinCollisionSounds[Random.Range(0, CoinCoinCollisionSounds.Count)]);
+        QuietAudioSource.PlayOneShot(CoinCoinCollisionSounds[Random.Range(0, CoinCoinCollisionSounds.Count)]);
     }
 
     public void RequestPlayDishPickUpSound()
     {
-        audioSource.PlayOneShot(DishPickUpSound);
+        LoudAudioSource.PlayOneShot(DishPickUpSound);
     }
 
     public void RequestPlaySellDishSound()
     {
-        audioSource.PlayOneShot(SellDishSound);
+        LoudAudioSource.PlayOneShot(SellDishSound);
     }
 
     public void RequestPlayDropReagentSound()
     {
-        audioSource.PlayOneShot(DropReagentSound);
+        LoudAudioSource.PlayOneShot(DropReagentSound);
     }
 
     public void RequestPlaySuckCoinsMicroSound()
     {
-        audioSource.PlayOneShot(SuckCoinsMicroSound);
+        LoudAudioSource.PlayOneShot(SuckCoinsMicroSound);
     }
 
     public void RequestPlaySuckCoinsSmallSound()
     {
-        audioSource.PlayOneShot(SuckCoinsSmallSound);
+        LoudAudioSource.PlayOneShot(SuckCoinsSmallSound);
     }
 
     public void RequestPlayButtonClickSound()
     {
-        audioSource.PlayOneShot(ButtonClickSound);
+        LoudAudioSource.PlayOneShot(ButtonClickSound);
     }
 
     private void OnApplicationQuit()
@@ -135,11 +135,12 @@ m_Instance = singletonObject.AddComponent<GameManager>();
     /// I said a bad word.
     /// </summary>
     public float GrowthRetardingFactor = 0.01f;
-    AudioSource audioSource;
+
+    public AudioSource LoudAudioSource; // lol what a hack
+    public AudioSource QuietAudioSource;
     // Start is called before the first frame update
     void Awake()
     {
-        audioSource = GetComponent<AudioSource>();
         cameraController = Camera.main.GetComponent<CameraController>();
         petriDishSlots = FindObjectsOfType<PetriDishSlot>().ToList();
         emptyPetriDishManager = FindObjectOfType<EmptyPetriDishManager>();

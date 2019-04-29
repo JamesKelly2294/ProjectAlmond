@@ -57,6 +57,13 @@ public class Combiner : MonoBehaviour
         }
 
         yield return new WaitForSeconds(2);
+
+        ////
+        // Create new SPAWN here
+        //  - Perform amalgomation
+        //  - Create Petri Dish
+        ////
+        ///
         
         if (tlDish != null) { 
             tlHolder.GetComponent<DishReceptical>().stopAnimating(); 

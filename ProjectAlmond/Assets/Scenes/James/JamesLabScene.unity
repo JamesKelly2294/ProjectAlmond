@@ -2359,6 +2359,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 813194292651901529, guid: 87b20f6a6a3f14c2390474ce26c6dc22,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87b20f6a6a3f14c2390474ce26c6dc22, type: 3}
 --- !u!4 &1177893731 stripped
@@ -2367,120 +2372,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1177893730}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1179081251 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1899382796701959075, guid: 787231b5bc1bb4948acbb4d443d39673,
-    type: 3}
-  m_PrefabInstance: {fileID: 1899382797872650624}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1179081252 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1899382796701959076, guid: 787231b5bc1bb4948acbb4d443d39673,
     type: 3}
   m_PrefabInstance: {fileID: 1899382797872650624}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1179081251}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c4587598115c50c42a23acec6db1caf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!82 &1179081255
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1179081251}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 8deb7a320f399a94993f7b99ceda9796, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 1
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1001 &1201720443
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5871,104 +5774,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1899382796701959076, guid: 787231b5bc1bb4948acbb4d443d39673,
         type: 3}
-      propertyPath: coinCoinCollisionSounds.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1899382796701959076, guid: 787231b5bc1bb4948acbb4d443d39673,
-        type: 3}
-      propertyPath: CoinCoinCollisionSounds.Array.size
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 1899382796701959076, guid: 787231b5bc1bb4948acbb4d443d39673,
-        type: 3}
       propertyPath: coinDropper
       value: 
       objectReference: {fileID: 1412588281}
-    - target: {fileID: 1899382796701959076, guid: 787231b5bc1bb4948acbb4d443d39673,
-        type: 3}
-      propertyPath: coinCoinCollisionSounds.Array.data[0]
-      value: 
-      objectReference: {fileID: 8300000, guid: c320298b7c24f5d409183c8446ec311a, type: 3}
-    - target: {fileID: 1899382796701959076, guid: 787231b5bc1bb4948acbb4d443d39673,
-        type: 3}
-      propertyPath: coinCoinCollisionSounds.Array.data[1]
-      value: 
-      objectReference: {fileID: 8300000, guid: 32bed6946ca457d47b4a334d156b81ac, type: 3}
-    - target: {fileID: 1899382796701959076, guid: 787231b5bc1bb4948acbb4d443d39673,
-        type: 3}
-      propertyPath: coinCoinCollisionSounds.Array.data[2]
-      value: 
-      objectReference: {fileID: 8300000, guid: 6d48188afdca0294399fbc4e73b11231, type: 3}
-    - target: {fileID: 1899382796701959076, guid: 787231b5bc1bb4948acbb4d443d39673,
-        type: 3}
-      propertyPath: CoinCoinCollisionSounds.Array.data[0]
-      value: 
-      objectReference: {fileID: 8300000, guid: c320298b7c24f5d409183c8446ec311a, type: 3}
-    - target: {fileID: 1899382796701959076, guid: 787231b5bc1bb4948acbb4d443d39673,
-        type: 3}
-      propertyPath: CoinCoinCollisionSounds.Array.data[1]
-      value: 
-      objectReference: {fileID: 8300000, guid: 32bed6946ca457d47b4a334d156b81ac, type: 3}
-    - target: {fileID: 1899382796701959076, guid: 787231b5bc1bb4948acbb4d443d39673,
-        type: 3}
-      propertyPath: CoinCoinCollisionSounds.Array.data[2]
-      value: 
-      objectReference: {fileID: 8300000, guid: 6d48188afdca0294399fbc4e73b11231, type: 3}
-    - target: {fileID: 1899382796701959076, guid: 787231b5bc1bb4948acbb4d443d39673,
-        type: 3}
-      propertyPath: DishPickUpSound
-      value: 
-      objectReference: {fileID: 8300000, guid: ad5a02d2aecd2ac459fe8461556f0e82, type: 3}
-    - target: {fileID: 1899382796701959076, guid: 787231b5bc1bb4948acbb4d443d39673,
-        type: 3}
-      propertyPath: SellDishSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 2f17587d44eb6924ba2bc659224e64f6, type: 3}
-    - target: {fileID: 1899382796701959076, guid: 787231b5bc1bb4948acbb4d443d39673,
-        type: 3}
-      propertyPath: SuckCoinsSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 60d19010d5737f845b9d6b9b8def5613, type: 3}
-    - target: {fileID: 1899382796701959076, guid: 787231b5bc1bb4948acbb4d443d39673,
-        type: 3}
-      propertyPath: SuckCoinsSmallSound
-      value: 
-      objectReference: {fileID: 8300000, guid: bd98369054048eb458ae283a35ecbc56, type: 3}
-    - target: {fileID: 1899382796701959076, guid: 787231b5bc1bb4948acbb4d443d39673,
-        type: 3}
-      propertyPath: SuckCoinsMicroSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 1db61fbdd413fc74a9a8d8e296659236, type: 3}
-    - target: {fileID: 1899382796701959076, guid: 787231b5bc1bb4948acbb4d443d39673,
-        type: 3}
-      propertyPath: DropReagentSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 2f17587d44eb6924ba2bc659224e64f6, type: 3}
-    - target: {fileID: 1899382796701959076, guid: 787231b5bc1bb4948acbb4d443d39673,
-        type: 3}
-      propertyPath: ButtonClickSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 4f04957e3f488e648aa8adb2f26ace44, type: 3}
-    - target: {fileID: 1899382796701959076, guid: 787231b5bc1bb4948acbb4d443d39673,
-        type: 3}
-      propertyPath: CoinCoinCollisionSounds.Array.data[3]
-      value: 
-      objectReference: {fileID: 8300000, guid: 9e0244261c741394db694ca56132cf10, type: 3}
-    - target: {fileID: 1899382796701959076, guid: 787231b5bc1bb4948acbb4d443d39673,
-        type: 3}
-      propertyPath: CoinCoinCollisionSounds.Array.data[4]
-      value: 
-      objectReference: {fileID: 8300000, guid: 054ebe61dcaf81d4691c6e57036597ba, type: 3}
-    - target: {fileID: 1899382796701959076, guid: 787231b5bc1bb4948acbb4d443d39673,
-        type: 3}
-      propertyPath: CoinCoinCollisionSounds.Array.data[5]
-      value: 
-      objectReference: {fileID: 8300000, guid: bba0bcacb45eaed4ca9459d16babd074, type: 3}
-    - target: {fileID: 1899382796701959076, guid: 787231b5bc1bb4948acbb4d443d39673,
-        type: 3}
-      propertyPath: CoinCoinCollisionSounds.Array.data[6]
-      value: 
-      objectReference: {fileID: 8300000, guid: 9fca3c3152d32374f92cf5a14ec32a13, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 787231b5bc1bb4948acbb4d443d39673, type: 3}
 --- !u!1001 &2889130374392042217
