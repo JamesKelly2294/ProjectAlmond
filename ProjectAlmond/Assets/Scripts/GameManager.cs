@@ -122,6 +122,8 @@ m_Instance = singletonObject.AddComponent<GameManager>();
     float spotAngleHigh;
     float spotAngleLow = 23;
 
+    Clock clock;
+
     // Cultures that will be updated during rendering.
     public List<Culture> GrowableCultures;
 
@@ -147,6 +149,7 @@ m_Instance = singletonObject.AddComponent<GameManager>();
         beginButton = GameObject.Find("BeginButton");
         learnButton = GameObject.Find("LearnButton");
         titleButtonsParent = GameObject.Find("TitleButtonsParent");
+        clock = FindObjectOfType<Clock>();
 
         GrowableCultures = new List<Culture>();
 
@@ -155,7 +158,6 @@ m_Instance = singletonObject.AddComponent<GameManager>();
             fillLight = GameObject.Find("Fill Light").GetComponent<Light>();
             spotAngleHigh = fillLight.spotAngle;
             fillLight.spotAngle = spotAngleLow;
-
         } else
         {
             cameraController.transform.position = cameraController.baseview.position;
@@ -225,7 +227,7 @@ m_Instance = singletonObject.AddComponent<GameManager>();
         return gameBegun;
     }
 
-    public void EndGame()
+    public void EndGame(string message="You died")
     {
         // TODO
     }
@@ -238,10 +240,13 @@ m_Instance = singletonObject.AddComponent<GameManager>();
             Application.Quit();
         }
 
+        // Check to see if we need to end the game.
+        CheckForGameOver();
+
         // Kick off any tasks related to incrementing culture growth.
         IncrementGrowth();
 
-        // 
+        // See if the culture needs to be rerendered.
         CheckForCultureRenderUpdate();
     }
 
@@ -279,6 +284,19 @@ m_Instance = singletonObject.AddComponent<GameManager>();
                 var delta = GrowthRetardingFactor * Time.timeScale * Time.deltaTime * growthFactor;
                 culture.Growth += delta;
             }
+        }
+    }
+
+    private void CheckForGameOver()
+    {
+        var minPlateCost = 5.0f;
+        var noPlatesLeft = !emptyPetriDishManager.HasEmptyPetriDishes;
+        var canAffordPlate = coinDropper.numberOfCoinsVisable < minPlateCost;
+
+        if ( noPlatesLeft && canAffordPlate )
+        {
+            clock.stopClock();
+            EndGame("You can't afford any more petri dishes");
         }
     }
 

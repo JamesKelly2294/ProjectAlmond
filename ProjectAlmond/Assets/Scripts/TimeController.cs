@@ -110,6 +110,6 @@ public class TimeController : MonoBehaviour
             clock.stopClock();
         }
 
-        gm.EndGame();
+        gm.EndGame("You ran out of time. You succumb to the disease");
     }
 }

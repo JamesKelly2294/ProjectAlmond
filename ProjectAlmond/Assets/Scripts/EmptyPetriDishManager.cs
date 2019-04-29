@@ -24,6 +24,11 @@ public class EmptyPetriDishManager : MonoBehaviour
     Stack<GameObject> petriDishes;
     List<CultureAnchorPoint> anchorPoints;
     bool currentlyOrderingDish;
+
+    public bool HasEmptyPetriDishes
+    {
+        get { return petriDishes.Count > 0; }
+    }
     
     Vector3 OffsetForIndex(int index)
     {
