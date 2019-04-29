@@ -78,7 +78,9 @@ public class Genimagic : MonoBehaviour
     }
 
     public void runButtonWasPressed() {
-        if (!shouldEject && !running && modifiers.Count > 0 && attachedDish != null) {
+        Debug.Log("Run Button was Pressed...");
+        if (!shouldEject && !running && modifiers.Count > 0) {
+            Debug.Log("Setting should run...");
             shouldStartRunning = true;
         }
     }
