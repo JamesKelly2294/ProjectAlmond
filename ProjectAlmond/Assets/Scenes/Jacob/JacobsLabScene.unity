@@ -2216,6 +2216,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 57858900}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &746234848 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4151521974245540777, guid: 4af367275c9984982bc2a8bb76653de8,
+    type: 3}
+  m_PrefabInstance: {fileID: 57858900}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 746234847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 516c54a49cae54d0caa3b1da7fd6b83d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &752081080
 GameObject:
   m_ObjectHideFlags: 0
@@ -2918,6 +2930,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shouldPlayIntroSequence: 0
+  coinDropper: {fileID: 746234848}
+  GrowthRetardingFactor: 0.01
 --- !u!4 &1179081253
 Transform:
   m_ObjectHideFlags: 0
