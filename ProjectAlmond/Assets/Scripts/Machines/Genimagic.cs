@@ -37,6 +37,7 @@ public class Genimagic : MonoBehaviour
             attachedDish.GetComponentInChildren<Culture>().dishLabel = "";
             running = true;
             shouldStartRunning = false;
+            culture.coinValue = 20;
         }
 
         if(running) {
@@ -51,6 +52,7 @@ public class Genimagic : MonoBehaviour
                 culture.Genome.apply(modifier.modifiers, rand);
                 culture.Genome.mutate(rand);
                 culture.SetGenome(culture.Genome);
+                culture.coinValue += 10;
 
                 evaluatePowerAndDanger();
             }

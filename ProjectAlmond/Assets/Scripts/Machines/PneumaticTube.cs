@@ -24,7 +24,7 @@ public class PneumaticTube : MonoBehaviour
         resetText();
         a.Detach(g);
 
-        coinDropper.GetComponent<CoinDropper>().give(100);
+        coinDropper.GetComponent<CoinDropper>().give(c.coinValue);
 
         Destroy(g.GetComponentInChildren<Rigidbody>());
         StartCoroutine(TakeDisk(g, 0.3f));
@@ -32,7 +32,7 @@ public class PneumaticTube : MonoBehaviour
 
     public void diskIsHovering(GameObject g, Culture c, CultureAnchorPoint a)
     {   
-        this.GetComponentInChildren<TMPro.TextMeshPro>().text = "Sell: 100€";
+        this.GetComponentInChildren<TMPro.TextMeshPro>().text = "Sell: " + c.coinValue + "€";
     }
 
     public void diskIsNotHovering(GameObject g, Culture c, CultureAnchorPoint a)

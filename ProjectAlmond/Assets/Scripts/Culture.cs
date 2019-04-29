@@ -12,6 +12,8 @@ public class Culture : MonoBehaviour
 
     public float Growth;
 
+    public int coinValue = 20;
+
     // Start is called before the first frame update
     void Awake()
     {

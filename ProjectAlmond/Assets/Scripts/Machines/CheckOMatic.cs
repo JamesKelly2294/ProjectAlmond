@@ -79,6 +79,11 @@ public class CheckOMatic : MonoBehaviour
             tubes[i].setText("" + str[i]);
         }
 
-        g.GetComponentInChildren<Culture>().dishLabel = "96% Match";
+        var diseaseGenome = GameObject.FindObjectOfType<GameManager>().winningGenome;
+        var simularity = c.Genome.SimularityTo(diseaseGenome);
+
+        var s = Mathf.RoundToInt(simularity * 100);
+        c.dishLabel = s + "% Match";
+        c.coinValue = Mathf.RoundToInt(500 * simularity);
     }
 }
