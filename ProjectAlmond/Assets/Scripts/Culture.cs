@@ -13,7 +13,7 @@ public class Culture : MonoBehaviour
     public float Growth = 0.25f;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         System.Random rand = new System.Random();
 

@@ -639,6 +639,8 @@ MonoBehaviour:
   spawnPetriDishOnStart: 0
   petriDishPrefab: {fileID: 8625050361119894641, guid: c428b42422e797b418bcb228766c8415,
     type: 3}
+  shouldSpawnEvilPetriDish: 0
+  diseaseOverride: {fileID: 2100000, guid: 37a903ad758e76f45812f7c397edb119, type: 2}
 --- !u!1 &8467343608391809762
 GameObject:
   m_ObjectHideFlags: 0

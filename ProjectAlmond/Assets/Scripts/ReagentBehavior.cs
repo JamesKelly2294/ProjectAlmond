@@ -10,6 +10,7 @@ public class ReagentBehavior : MonoBehaviour
     public MeshRenderer reagentRenderer;
     public TextMeshPro productNameLabel;
     public TextMeshPro flavorTextLabel;
+    public TextMeshPro priceLabel;
 
     // Start is called before the first frame update
     void Start()
@@ -37,6 +38,7 @@ public class ReagentBehavior : MonoBehaviour
         reagentRenderer.sharedMaterial.color = reagentData.color;
         productNameLabel.text = reagentData.productName;
         flavorTextLabel.text = reagentData.flavorText;
+        priceLabel.text = reagentData.price.ToString();
     }
 
     void OnValidate()

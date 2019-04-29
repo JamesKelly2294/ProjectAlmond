@@ -9,6 +9,7 @@ public class PetriDishSlot : MonoBehaviour
     public float cultureInitialGrowth = 0.25f;
 
     public bool shouldSpawnEvilPetriDish;
+    public Material diseaseOverride;
 
     GameObject petriDish;
 
@@ -17,7 +18,7 @@ public class PetriDishSlot : MonoBehaviour
     {
         if (spawnPetriDishOnStart)
         {
-            spawn();
+            spawn(false);
         }
 
     }
@@ -26,25 +27,33 @@ public class PetriDishSlot : MonoBehaviour
     void Update()
     {
        if (shouldSpawnEvilPetriDish) {
-            var winningGenome = GameObject.FindObjectOfType<GameManager>().winningGenome;
-            Debug.Log("HERE AGAIN: "+ winningGenome.String);
+            var winningGenome = FindObjectOfType<GameManager>().winningGenome;
             shouldSpawnEvilPetriDish = false;
 
-            spawn();
+            spawn(true);
 
-            var cultureRenderer = this.GetComponentInChildren<CultureRenderer>();
+            var cultureRenderer = GetComponentInChildren<CultureRenderer>();
             cultureRenderer.SetGenome(winningGenome);
-            GetComponentInChildren<Draggable>().LockUserInteraction();
        } 
     }
 
-    void spawn() {
+    void spawn(bool isDisease) {
         petriDish = Instantiate(petriDishPrefab);
+
         petriDish.GetComponent<Culture>().Growth = cultureInitialGrowth;
-        petriDish.GetComponent<Draggable>().AttachToAnchor(GetComponentInChildren<AnchorBehavior>());
+
+        Draggable draggable = petriDish.GetComponent<Draggable>();
+        draggable.AttachToAnchor(GetComponentInChildren<AnchorBehavior>());
 
         petriDish.transform.rotation = transform.rotation;
         petriDish.transform.parent = transform;
         petriDish.transform.localPosition = Vector3.zero;
+
+        if(isDisease)
+        {
+            draggable.draggableType = DraggableType.Disease;
+            // hacky af lel
+            petriDish.transform.Find("Dish").GetComponent<MeshRenderer>().material = diseaseOverride;
+        }
     }
 }

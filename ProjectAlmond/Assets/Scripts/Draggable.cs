@@ -43,7 +43,7 @@ public abstract class AnchorBehavior : MonoBehaviour, Anchor
 }
 
 public enum DraggableType {
-    Culture, EmptyDish, PluckedReagent
+    Culture, EmptyDish, PluckedReagent, Disease
 };
 
 public class Draggable : MonoBehaviour
