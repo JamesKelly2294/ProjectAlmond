@@ -31,6 +31,10 @@ public class CheckOMatic : MonoBehaviour
     }
 
     public void ejectButtonWasPressed() {
+        if (attachedDish == null) {
+            return;
+        }
+
         StartCoroutine(showMessage("Ejected..."));
         attachedDish.GetComponentInChildren<Draggable>().UnlockUserInteraction();
         this.GetComponentInChildren<DishReceptical>().stopAnimating();
