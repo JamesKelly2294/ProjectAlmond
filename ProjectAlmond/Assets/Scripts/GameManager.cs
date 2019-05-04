@@ -393,11 +393,11 @@ m_Instance = singletonObject.AddComponent<GameManager>();
         Allele[] wAllels = new Allele[CultureGenome.Length];
         Allele[] lAllels = new Allele[CultureGenome.Length];
         for (var i = 0; i < CultureGenome.Length; i++) {
-            var r = (int)((float)Allele.AlleleStrength/3.0f);
+            var r = rand.Next(0, (int)((float)(Allele.AlleleStrength + 1)/3.0f));
             if(rand.Next(0, 2) == 0) {
                 wAllels[i] = new Allele(r);
             } else {
-                wAllels[i] = new Allele(r + Allele.AlleleStrength/2);
+                wAllels[i] = new Allele(Allele.AlleleStrength - r);
             }
 
             lAllels[i] = new Allele(Allele.AlleleStrength - wAllels[i].value);

@@ -12,7 +12,17 @@ public class Culture : MonoBehaviour
 
     public float Growth;
 
-    public int coinValue = 20;
+    private int _coinValue = 20;
+
+    public int coinValue {
+        get {
+            return (int)((float)_coinValue * this.Growth);
+        }
+
+        set {
+            _coinValue = (int)((float)value/this.Growth);
+        }
+    }
 
     public bool shouldInitializeGenome = true;
 

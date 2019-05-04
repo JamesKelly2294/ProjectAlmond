@@ -42,8 +42,12 @@ public class CheckOMatic : MonoBehaviour
         var simularity = c.Genome.SimularityTo(winningGenome);
 
         var s = Mathf.RoundToInt(simularity * 100);
-        c.dishLabel = s + "% Match";
-        c.coinValue = Mathf.RoundToInt(250 * simularity * c.Growth);
+        if (!c.Genome.alleles.Equals(GameManager.Instance.diseaseGenome.alleles)) {
+            c.dishLabel = s + "% Match";
+        } else {
+            c.dishLabel = "The Enemy";
+        }
+        c.coinValue = Mathf.RoundToInt(250 * simularity);
 
         if (simularity >= 0.9f && (c.Genome != GameManager.Instance.diseaseGenome))
         {
