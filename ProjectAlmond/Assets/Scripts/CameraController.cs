@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using LookingGlass;
 
 public class CameraController : MonoBehaviour
 {
@@ -13,10 +14,12 @@ public class CameraController : MonoBehaviour
     public Transform amalgamizer;
     public Transform resources;
 
+    private Holoplay lookingGlass;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        lookingGlass = Camera.main.GetComponentInParent<Holoplay>();
     }
 
     CameraFocus currentFocus;
@@ -68,6 +71,12 @@ public class CameraController : MonoBehaviour
             else
             {
                 RequestPanToAngle(baseview, 1.0f);
+            }
+
+            if (lookingGlass)
+            {
+                lookingGlass.transform.position = Camera.main.transform.position;
+                lookingGlass.transform.rotation = Camera.main.transform.rotation;
             }
         }
     }
