@@ -34,7 +34,7 @@ public struct Allele {
     }
 
     public float SimularityTo(Allele otherAllele) {
-        return 1f - (2f * (float)Mathf.Abs(value - otherAllele.value))/(float)Allele.AlleleStrength;
+        return 1f - ((float)Mathf.Abs(value - otherAllele.value))/(float)Allele.AlleleStrength;
     }
 }
 
@@ -72,7 +72,7 @@ public class Genome {
     public float SimularityTo(Genome otherGenome) {
         System.Diagnostics.Debug.Assert(this.alleles.Length != otherGenome.alleles.Length);
 
-        float simularity = 1;
+        float simularity = 0;
         for (var i = 0; i < alleles.Length; i++) {
             simularity += alleles[i].SimularityTo(otherGenome.alleles[i]);
         }

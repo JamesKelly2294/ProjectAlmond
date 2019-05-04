@@ -1,5 +1,128 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4410422733054205473
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8622715451474384944}
+  - component: {fileID: 435124613040044209}
+  - component: {fileID: 2169116228866015964}
+  - component: {fileID: 8261017885235866474}
+  - component: {fileID: 4290107243111480961}
+  m_Layer: 0
+  m_Name: Printer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8622715451474384944
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4410422733054205473}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.30400002, y: -0.362, z: -0.50900006}
+  m_LocalScale: {x: 0.26666668, y: 0.108168334, z: 0.016666666}
+  m_Children:
+  - {fileID: 5039518490341133826}
+  m_Father: {fileID: 6019488171857178204}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &435124613040044209
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4410422733054205473}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &2169116228866015964
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4410422733054205473}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 81ece888e14794cea89a44e26eabaa48, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!65 &8261017885235866474
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4410422733054205473}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4290107243111480961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4410422733054205473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 281f016a574889841a80df6f3a853c08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pressOffset: {x: 0, y: 0, z: 0.01}
+  pressDuration: 0.1
+  onPress:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5521419025049432048}
+        m_MethodName: ejectButtonWasPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &6019488171857178200
 GameObject:
   m_ObjectHideFlags: 0
@@ -34,6 +157,7 @@ Transform:
   - {fileID: 6019488173779669323}
   - {fileID: 6019488172859198090}
   - {fileID: 6019488173689267188}
+  - {fileID: 8622715451474384944}
   - {fileID: 6019488173817011683}
   - {fileID: 6019488172156898457}
   - {fileID: 6091050905879608369}
@@ -159,7 +283,7 @@ Transform:
   - {fileID: 4664950038451060659}
   - {fileID: 559272861993360689}
   m_Father: {fileID: 6019488171857178204}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!33 &6019488172156898460
 MeshFilter:
@@ -530,7 +654,7 @@ GameObject:
   - component: {fileID: 6019488172960210070}
   - component: {fileID: 6019488172960210069}
   m_Layer: 0
-  m_Name: Eject Button Label
+  m_Name: History Button Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -628,7 +752,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: Eject
+  m_text: Print Info
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -697,10 +821,10 @@ MonoBehaviour:
   m_margin: {x: -5.2045584, y: -2.9292932, z: 10.362148, w: 4.177483}
   m_textInfo:
     textComponent: {fileID: 6019488172960210069}
-    characterCount: 5
+    characterCount: 10
     spriteCount: 0
-    spaceCount: 0
-    wordCount: 1
+    spaceCount: 1
+    wordCount: 2
     linkCount: 0
     lineCount: 1
     pageCount: 1
@@ -734,7 +858,7 @@ GameObject:
   - component: {fileID: 6019488173689267189}
   - component: {fileID: 6723585785852418943}
   m_Layer: 0
-  m_Name: Eject Button
+  m_Name: History Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -748,7 +872,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6019488173689267187}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.304, y: -0.2979997, z: -0.50900006}
+  m_LocalPosition: {x: -0.304, y: -0.197, z: -0.50900006}
   m_LocalScale: {x: 0.26666668, y: 0.16666667, z: 0.01666667}
   m_Children:
   - {fileID: 6019488172960210068}
@@ -1167,8 +1291,130 @@ Transform:
   m_LocalScale: {x: 0.28, y: 0.36666667, z: 0.18333334}
   m_Children: []
   m_Father: {fileID: 6019488171857178204}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6601207618003877385
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5039518490341133826}
+  - component: {fileID: 8500318083617919875}
+  - component: {fileID: 1229285600077884224}
+  - component: {fileID: 5479891342406128173}
+  - component: {fileID: 926282263623927103}
+  m_Layer: 0
+  m_Name: Hole
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5039518490341133826
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6601207618003877385}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.13}
+  m_LocalScale: {x: 0.7986702, y: 0.08682647, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8622715451474384944}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &8500318083617919875
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6601207618003877385}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &1229285600077884224
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6601207618003877385}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 3056037cc25327244b9ff8206e39a128, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!65 &5479891342406128173
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6601207618003877385}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &926282263623927103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6601207618003877385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 281f016a574889841a80df6f3a853c08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pressOffset: {x: 0, y: 0, z: 0.01}
+  pressDuration: 0.1
+  onPress:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5521419025049432048}
+        m_MethodName: ejectButtonWasPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &6625596292953546884
 GameObject:
   m_ObjectHideFlags: 0
@@ -1197,7 +1443,7 @@ Transform:
   m_LocalScale: {x: 0.13333334, y: 0.3303902, z: 0.16991986}
   m_Children: []
   m_Father: {fileID: 6019488171857178204}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 7.899, y: 0, z: 0}
 --- !u!1001 &1530939251335279203
 PrefabInstance:
@@ -1206,6 +1452,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6019488172156898457}
     m_Modifications:
+    - target: {fileID: 8795068514112717481, guid: 191e4717746c64ce3986b975fad9f977,
+        type: 3}
+      propertyPath: m_Name
+      value: Nixy Tube
+      objectReference: {fileID: 0}
     - target: {fileID: 8795068514112717477, guid: 191e4717746c64ce3986b975fad9f977,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1276,10 +1527,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.45335713
       objectReference: {fileID: 0}
-    - target: {fileID: 8795068514112717481, guid: 191e4717746c64ce3986b975fad9f977,
+    - target: {fileID: 8795068514268857807, guid: 191e4717746c64ce3986b975fad9f977,
         type: 3}
-      propertyPath: m_Name
-      value: Nixy Tube
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 191e4717746c64ce3986b975fad9f977, type: 3}
@@ -1308,6 +1559,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6019488172156898457}
     m_Modifications:
+    - target: {fileID: 8795068514112717481, guid: 191e4717746c64ce3986b975fad9f977,
+        type: 3}
+      propertyPath: m_Name
+      value: Nixy Tube (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 8795068514112717477, guid: 191e4717746c64ce3986b975fad9f977,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1378,10 +1634,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.45335978
       objectReference: {fileID: 0}
-    - target: {fileID: 8795068514112717481, guid: 191e4717746c64ce3986b975fad9f977,
+    - target: {fileID: 8795068514268857807, guid: 191e4717746c64ce3986b975fad9f977,
         type: 3}
-      propertyPath: m_Name
-      value: Nixy Tube (1)
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 191e4717746c64ce3986b975fad9f977, type: 3}
@@ -1453,7 +1709,7 @@ PrefabInstance:
     - target: {fileID: 8505663790020026207, guid: 4daea106a1b5f46fb9c43cdabf85a283,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8505663790020026207, guid: 4daea106a1b5f46fb9c43cdabf85a283,
         type: 3}
@@ -1492,6 +1748,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1658075019952786586, guid: 4daea106a1b5f46fb9c43cdabf85a283,
         type: 3}
+      propertyPath: onDetach.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1658075019952786586, guid: 4daea106a1b5f46fb9c43cdabf85a283,
+        type: 3}
       propertyPath: draggableTypes.Array.data[1]
       value: 3
       objectReference: {fileID: 0}
@@ -1521,6 +1782,31 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8323878881891460258, guid: 3b11088b0ae5ced4f9ceb37b66e987b0,
         type: 3}
+    - target: {fileID: 1658075019952786586, guid: 4daea106a1b5f46fb9c43cdabf85a283,
+        type: 3}
+      propertyPath: onDetach.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1658075019952786586, guid: 4daea106a1b5f46fb9c43cdabf85a283,
+        type: 3}
+      propertyPath: onDetach.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1658075019952786586, guid: 4daea106a1b5f46fb9c43cdabf85a283,
+        type: 3}
+      propertyPath: onDetach.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5521419025049432048}
+    - target: {fileID: 1658075019952786586, guid: 4daea106a1b5f46fb9c43cdabf85a283,
+        type: 3}
+      propertyPath: onDetach.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: diskWasDetached
+      objectReference: {fileID: 0}
+    - target: {fileID: 1658075019952786586, guid: 4daea106a1b5f46fb9c43cdabf85a283,
+        type: 3}
+      propertyPath: onDetach.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4daea106a1b5f46fb9c43cdabf85a283, type: 3}
 --- !u!4 &6091050905879608369 stripped
@@ -1536,6 +1822,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6019488172156898457}
     m_Modifications:
+    - target: {fileID: 8795068514112717481, guid: 191e4717746c64ce3986b975fad9f977,
+        type: 3}
+      propertyPath: m_Name
+      value: Nixy Tube (6)
+      objectReference: {fileID: 0}
     - target: {fileID: 8795068514112717477, guid: 191e4717746c64ce3986b975fad9f977,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1606,19 +1897,13 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.45335978
       objectReference: {fileID: 0}
-    - target: {fileID: 8795068514112717481, guid: 191e4717746c64ce3986b975fad9f977,
+    - target: {fileID: 8795068514268857807, guid: 191e4717746c64ce3986b975fad9f977,
         type: 3}
-      propertyPath: m_Name
-      value: Nixy Tube (6)
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 191e4717746c64ce3986b975fad9f977, type: 3}
---- !u!4 &4664950038451060659 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8795068514112717477, guid: 191e4717746c64ce3986b975fad9f977,
-    type: 3}
-  m_PrefabInstance: {fileID: 4229838201708657942}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &4420835806647865720 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 570428631120768110, guid: 191e4717746c64ce3986b975fad9f977,
@@ -1631,6 +1916,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dded2a6a9fb84e879258026e25a2d91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &4664950038451060659 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8795068514112717477, guid: 191e4717746c64ce3986b975fad9f977,
+    type: 3}
+  m_PrefabInstance: {fileID: 4229838201708657942}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4358517494609885713
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1638,6 +1929,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6019488172156898457}
     m_Modifications:
+    - target: {fileID: 8795068514112717481, guid: 191e4717746c64ce3986b975fad9f977,
+        type: 3}
+      propertyPath: m_Name
+      value: Nixy Tube (2)
+      objectReference: {fileID: 0}
     - target: {fileID: 8795068514112717477, guid: 191e4717746c64ce3986b975fad9f977,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1708,19 +2004,13 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.45335978
       objectReference: {fileID: 0}
-    - target: {fileID: 8795068514112717481, guid: 191e4717746c64ce3986b975fad9f977,
+    - target: {fileID: 8795068514268857807, guid: 191e4717746c64ce3986b975fad9f977,
         type: 3}
-      propertyPath: m_Name
-      value: Nixy Tube (2)
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 191e4717746c64ce3986b975fad9f977, type: 3}
---- !u!4 &5076344746480597172 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8795068514112717477, guid: 191e4717746c64ce3986b975fad9f977,
-    type: 3}
-  m_PrefabInstance: {fileID: 4358517494609885713}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &4293620673196480127 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 570428631120768110, guid: 191e4717746c64ce3986b975fad9f977,
@@ -1733,6 +2023,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dded2a6a9fb84e879258026e25a2d91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &5076344746480597172 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8795068514112717477, guid: 191e4717746c64ce3986b975fad9f977,
+    type: 3}
+  m_PrefabInstance: {fileID: 4358517494609885713}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4544449269040220749
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1740,6 +2036,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6019488172156898457}
     m_Modifications:
+    - target: {fileID: 8795068514112717481, guid: 191e4717746c64ce3986b975fad9f977,
+        type: 3}
+      propertyPath: m_Name
+      value: Nixy Tube (4)
+      objectReference: {fileID: 0}
     - target: {fileID: 8795068514112717477, guid: 191e4717746c64ce3986b975fad9f977,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1810,19 +2111,13 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.45335978
       objectReference: {fileID: 0}
-    - target: {fileID: 8795068514112717481, guid: 191e4717746c64ce3986b975fad9f977,
+    - target: {fileID: 8795068514268857807, guid: 191e4717746c64ce3986b975fad9f977,
         type: 3}
-      propertyPath: m_Name
-      value: Nixy Tube (4)
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 191e4717746c64ce3986b975fad9f977, type: 3}
---- !u!4 &4980836873783232744 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8795068514112717477, guid: 191e4717746c64ce3986b975fad9f977,
-    type: 3}
-  m_PrefabInstance: {fileID: 4544449269040220749}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &4106070481277773347 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 570428631120768110, guid: 191e4717746c64ce3986b975fad9f977,
@@ -1835,6 +2130,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dded2a6a9fb84e879258026e25a2d91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &4980836873783232744 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8795068514112717477, guid: 191e4717746c64ce3986b975fad9f977,
+    type: 3}
+  m_PrefabInstance: {fileID: 4544449269040220749}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6757044697208722197
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1842,6 +2143,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6019488172156898457}
     m_Modifications:
+    - target: {fileID: 8795068514112717481, guid: 191e4717746c64ce3986b975fad9f977,
+        type: 3}
+      propertyPath: m_Name
+      value: Nixy Tube (5)
+      objectReference: {fileID: 0}
     - target: {fileID: 8795068514112717477, guid: 191e4717746c64ce3986b975fad9f977,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1912,10 +2218,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.45335978
       objectReference: {fileID: 0}
-    - target: {fileID: 8795068514112717481, guid: 191e4717746c64ce3986b975fad9f977,
+    - target: {fileID: 8795068514268857807, guid: 191e4717746c64ce3986b975fad9f977,
         type: 3}
-      propertyPath: m_Name
-      value: Nixy Tube (5)
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 191e4717746c64ce3986b975fad9f977, type: 3}
@@ -1944,6 +2250,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6019488172156898457}
     m_Modifications:
+    - target: {fileID: 8795068514112717481, guid: 191e4717746c64ce3986b975fad9f977,
+        type: 3}
+      propertyPath: m_Name
+      value: Nixy Tube (3)
+      objectReference: {fileID: 0}
     - target: {fileID: 8795068514112717477, guid: 191e4717746c64ce3986b975fad9f977,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2014,19 +2325,13 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.45335978
       objectReference: {fileID: 0}
-    - target: {fileID: 8795068514112717481, guid: 191e4717746c64ce3986b975fad9f977,
+    - target: {fileID: 8795068514268857807, guid: 191e4717746c64ce3986b975fad9f977,
         type: 3}
-      propertyPath: m_Name
-      value: Nixy Tube (3)
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 191e4717746c64ce3986b975fad9f977, type: 3}
---- !u!4 &2692153228351506336 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8795068514112717477, guid: 191e4717746c64ce3986b975fad9f977,
-    type: 3}
-  m_PrefabInstance: {fileID: 6868604264465908997}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &6393069672162601323 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 570428631120768110, guid: 191e4717746c64ce3986b975fad9f977,
@@ -2039,6 +2344,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dded2a6a9fb84e879258026e25a2d91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &2692153228351506336 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8795068514112717477, guid: 191e4717746c64ce3986b975fad9f977,
+    type: 3}
+  m_PrefabInstance: {fileID: 6868604264465908997}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &9064817527112605588
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2046,6 +2357,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6019488172156898457}
     m_Modifications:
+    - target: {fileID: 8795068514112717481, guid: 191e4717746c64ce3986b975fad9f977,
+        type: 3}
+      propertyPath: m_Name
+      value: Nixy Tube (7)
+      objectReference: {fileID: 0}
     - target: {fileID: 8795068514112717477, guid: 191e4717746c64ce3986b975fad9f977,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2116,10 +2432,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.45335978
       objectReference: {fileID: 0}
-    - target: {fileID: 8795068514112717481, guid: 191e4717746c64ce3986b975fad9f977,
+    - target: {fileID: 8795068514268857807, guid: 191e4717746c64ce3986b975fad9f977,
         type: 3}
-      propertyPath: m_Name
-      value: Nixy Tube (7)
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 191e4717746c64ce3986b975fad9f977, type: 3}

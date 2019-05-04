@@ -234,7 +234,7 @@ m_Instance = singletonObject.AddComponent<GameManager>();
 
         gameStartTime = Time.time;
 
-        GenerateWinning();
+        GenerateWinningGenome();
 
         foreach (var slot in FindObjectsOfType<PetriDishSlot>())
         {
@@ -388,12 +388,18 @@ m_Instance = singletonObject.AddComponent<GameManager>();
     }
 
     public PetriDishSlot diseaseSlot;
-    public void GenerateWinning() {
+    public void GenerateWinningGenome() {
         var rand = new System.Random();
         Allele[] wAllels = new Allele[CultureGenome.Length];
         Allele[] lAllels = new Allele[CultureGenome.Length];
         for (var i = 0; i < CultureGenome.Length; i++) {
-            wAllels[i] = new Allele(rand.Next(0, Allele.AlleleStrength));
+            var r = (int)((float)Allele.AlleleStrength/3.0f);
+            if(rand.Next(0, 2) == 0) {
+                wAllels[i] = new Allele(r);
+            } else {
+                wAllels[i] = new Allele(r + Allele.AlleleStrength/2);
+            }
+
             lAllels[i] = new Allele(Allele.AlleleStrength - wAllels[i].value);
         }
 
