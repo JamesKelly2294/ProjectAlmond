@@ -34,15 +34,6 @@ public class CultureAnchorPoint : AnchorBehavior
     {
         base.Attach(attachedObject);
 
-        if (anchorGroup)
-        {
-            anchorGroup.AnchorAttached(this);
-        }
-        else if (cameraAngle)
-        {
-            cameraController.RequestPanToAngle(cameraAngle, 1.0f);
-        }
-
         Culture c = attachedObject.GetComponent<Culture>();
 
         Culture = attachedObject;
